@@ -61,7 +61,10 @@
     'zorlaştı.': 'got hard.',
     'Artık herkes uygulama çıkarabiliyor. Tıkanan yer üretim değil, dikkat: organik içerik. Elvora bunu kişiye bağlı olmaktan çıkarıp çalışan bir sisteme bağlıyor.':
       'Anyone can ship an app now. The bottleneck isn’t building, it’s attention — organic content. Elvora takes that off one person’s shoulders and wires it into a working system.',
+    'Artık herkes uygulama çıkarabiliyor. Tıkanan yer üretim değil, dikkat: organik içerik. Elvora bunu kişiye bağlı olmaktan çıkarıp':
+      'Anyone can ship an app now. The bottleneck isn’t building, it’s attention — organic content. Elvora takes that off one person’s shoulders and wires it into',
     'çalışan bir sisteme': 'a working system',
+    'bağlıyor.': '.',
     'Nasıl çalışır?': 'How it works',
     'Reklam içeriği': 'Ad content',
     'Görsel iyileştirme': 'Image enhancement',
@@ -82,6 +85,10 @@
     'sisteme': 'a system',
 
     '02 / Ana çözüm': '02 / Core solution',
+    '02 / Çözümler': '02 / Solutions',
+    'Markanızın': 'We’re building your',
+    'AI ekosistemini': 'AI ecosystem',
+    'kuruyoruz.': '.',
     'İçerik üretimini': 'We wire content production',
     'bağlıyoruz.': '.',
     'Elvora Flow — ana modül': 'Elvora Flow — core module',
