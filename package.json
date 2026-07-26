@@ -1,0 +1,16 @@
+{
+  "name": "elvora-global-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Elvora Global — modüler AI çözüm ekosistemi web sitesi",
+  "scripts": {
+    "serve": "node serve.mjs",
+    "shot": "node screenshot.mjs http://localhost:3000"
+  },
+  "dependencies": {
+    "gifenc": "^1.0.3",
+    "puppeteer-core": "^24.10.0",
+    "sharp": "^0.35.3"
+  }
+}
