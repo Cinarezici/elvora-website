@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /tesekkurler.html
+
+Sitemap: https://elvoraglobal.com/sitemap.xml

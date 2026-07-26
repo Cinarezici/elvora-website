@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Elvora logo animasyonu — kare üreteci</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=block" rel="stylesheet">
+<style>
+  /* Kareler puppeteer tarafından t=0..1 verilerek tek tek çekiliyor;
+     CSS animasyonu YOK — her kare deterministik olsun diye konum
+     tamamen JS ile hesaplanıyor. */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 400px; height: 400px; overflow: hidden; }
+  body { background: #0c0c0b; }
+
+  #stage { position: relative; width: 400px; height: 400px; }
+
+  /* Marka işareti */
+  #mark {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+  }
+  #letter {
+    font-family: 'Instrument Serif', 'Times New Roman', serif;
+    font-size: 208px;
+    line-height: 1;
+    color: #f2efe7;
+    letter-spacing: -0.03em;
+    /* Nokta ayrı çizildiği için harf tek başına ve merkezden hafif solda */
+    transform: translateX(-26px);
+    user-select: none;
+  }
+
+  svg { position: absolute; inset: 0; }
+  #trail { fill: none; stroke: #e8442e; stroke-linecap: round; }
+  #sweep { fill: none; stroke: #e8442e; stroke-linecap: round; }
+  #dot { fill: #f95338; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="mark"><span id="letter">E</span></div>
+  <svg viewBox="0 0 400 400" width="400" height="400">
+    <circle id="sweep" cx="200" cy="200" r="150" stroke-width="3"/>
+    <path id="trail" stroke-width="4"/>
+    <circle id="dot" cx="0" cy="0" r="13"/>
+  </svg>
+</div>
+
+<script>
+/* ---------- yardımcılar ---------- */
+const clamp01 = (v) => Math.max(0, Math.min(1, v));
+// belirli bir aralığı 0..1'e haritalar
+const seg = (t, a, b) => clamp01((t - a) / (b - a));
+const easeOutCubic = (x) => 1 - Math.pow(1 - x, 3);
+// hafif aşma — "tak" hissi buradan geliyor
+const easeOutBack = (x) => {
+  const c1 = 1.70158, c3 = c1 + 1;
+  return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+};
+
+/* ---------- sabitler ---------- */
+const CX = 200, CY = 200;              // sahne merkezi
+/* Noktanın son yeri. Ölçülerek bulundu: E'nin taban çizgisi y≈246, mürekkep
+   sağ kenarı x≈210. Nokta taban çizgisinin ÜSTÜNE oturmalı (cy = taban − r),
+   ve gerçek bir nokta işareti kadar yakın durmalı. */
+const END = { x: 240, y: 233 };
+const START_ANGLE = 205 * Math.PI / 180;
+const START_R = 250;
+
+const endDX = END.x - CX, endDY = END.y - CY;
+const END_ANGLE = Math.atan2(endDY, endDX);
+const END_R = Math.hypot(endDX, endDY);
+
+// Noktanın t anındaki konumu: dıştan içeri spiral
+function dotAt(p) {
+  const e = easeOutCubic(p);
+  const back = easeOutBack(p);
+  const ang = START_ANGLE + (END_ANGLE - START_ANGLE) * e;
+  // yarıçapta easeOutBack → hedefi hafif aşıp geri oturur
+  const r = START_R + (END_R - START_R) * back;
+  return { x: CX + Math.cos(ang) * r, y: CY + Math.sin(ang) * r };
+}
+
+const dot = document.getElementById('dot');
+const trail = document.getElementById('trail');
+const sweep = document.getElementById('sweep');
+const letter = document.getElementById('letter');
+
+const SWEEP_C = 2 * Math.PI * 150;
+
+/* ---------- tek kare çiz ---------- */
+window.renderFrame = function (t) {
+  /* Harf: ilk karede zaten görünür (istemci GIF oynatmazsa logo okunsun),
+     yalnızca hafif bir netleşme var. */
+  letter.style.opacity = (0.82 + 0.18 * easeOutCubic(seg(t, 0, 0.10))).toFixed(3);
+
+  /* Nokta: 0.06 → 0.66 arasında yolunu alır, sonra sabit durur */
+  const p = seg(t, 0.06, 0.66);
+  const { x, y } = dotAt(p);
+  dot.setAttribute('cx', x.toFixed(2));
+  dot.setAttribute('cy', y.toFixed(2));
+  // varışta minik bir ezilme yerine sadece boyut oturması
+  const rr = 13 * (1 + 0.35 * (1 - easeOutCubic(p)));
+  dot.setAttribute('r', rr.toFixed(2));
+  dot.setAttribute('opacity', clamp01(seg(t, 0.04, 0.12)).toFixed(3));
+
+  /* İz: noktanın arkasında kalan kısa yay, varışta söner */
+  const N = 26;
+  let d = '';
+  for (let i = 0; i < N; i++) {
+    const q = Math.max(0, p - (i / N) * 0.22);
+    const pt = dotAt(q);
+    d += (i === 0 ? 'M' : 'L') + pt.x.toFixed(1) + ' ' + pt.y.toFixed(1);
+  }
+  trail.setAttribute('d', d);
+  const trailOn = seg(t, 0.08, 0.2) * (1 - seg(t, 0.55, 0.72));
+  trail.setAttribute('opacity', (0.38 * clamp01(trailOn)).toFixed(3));
+
+  /* Süpürme yayı: nokta oturduktan hemen sonra bir tur atıp söner */
+  const s = seg(t, 0.60, 0.90);
+  const shown = easeOutCubic(s);
+  sweep.setAttribute('stroke-dasharray', `${(SWEEP_C * 0.30).toFixed(1)} ${SWEEP_C}`);
+  sweep.setAttribute('stroke-dashoffset', (-SWEEP_C * shown).toFixed(1));
+  sweep.setAttribute('opacity', (0.6 * (1 - seg(t, 0.72, 0.96))).toFixed(3));
+};
+
+window.renderFrame(0);
+window.__ready = true;
+</script>
+</body>
+</html>

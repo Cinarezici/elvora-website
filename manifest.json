@@ -1,0 +1,37 @@
+{
+  "name": "Elvora Global",
+  "short_name": "Elvora",
+  "description": "Organik içerik üretimini kişiye değil sisteme bağlıyoruz. AI akışları, reklam içeriği, görsel iyileştirme ve marka kimliği — tek çatı altında.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0c0c0b",
+  "theme_color": "#e8442e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
