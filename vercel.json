@@ -1,17 +1,10 @@
 {
   "name": "Elvora Global",
   "version": 2,
-  "buildCommand": "echo 'Static site - no build needed'",
-  "outputDirectory": ".",
-  "public": true,
-  "env": {
-    "NODE_ENV": "production"
-  },
   "routes": [
     {
       "src": "/cozumler/([^/]+)",
-      "dest": "/cozumler/$1.html",
-      "check": true
+      "dest": "/cozumler/$1.html"
     },
     {
       "src": "/(.*)\\.html",
