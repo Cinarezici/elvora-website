@@ -1,7 +1,21 @@
 {
   "name": "Elvora Global",
   "version": 2,
+  "buildCommand": "echo 'Static site - no build needed'",
+  "outputDirectory": ".",
   "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/favicon\\.(ico|png)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/manifest.json"
+    },
     {
       "src": "/cozumler/([^/]+)",
       "dest": "/cozumler/$1.html"
