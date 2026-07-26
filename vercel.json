@@ -9,10 +9,6 @@
       "dest": "/assets/$1"
     },
     {
-      "src": "/favicon\\.(ico|png)",
-      "dest": "/$1"
-    },
-    {
       "src": "/manifest.json",
       "dest": "/manifest.json"
     },
