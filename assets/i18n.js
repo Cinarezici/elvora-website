@@ -494,16 +494,7 @@
       'Most brands buy what they need one item at a time: visuals from one place, video from another, identity from a third. Every supplier does its job, but nobody knows what the others are doing. What comes out isn’t a brand, it’s a pile.',
     'Elvora’yı bunun tersi olarak kurduk. Her modül aynı sistemin parçası. Studio’da ürettiğimiz içerik Identity’de yazdığımız kurallara uyuyor, Vision’da düzelttiğimiz görseller aynı görsel dile oturuyor. Bir modülden diğerine geçmek yeniden başlamak anlamına gelmiyor.':
       'We built Elvora as the opposite. Every module is part of the same system. Content we produce in Studio follows the rules we wrote in Identity; images we fix in Vision land in the same visual language. Moving between modules doesn’t mean starting over.',
-    '02 / Kurucu': '02 / Founder',
-    'Arkasında kim var?': 'Who’s behind it?',
-    'Founder': 'Founder',
-    'Çınar Ezici': 'Çınar Ezici',
-    'Elvora Global’i ve CV Optimizer AI’ı kuran isim. Odağı tek seferlik AI denemeleri değil, markanın tekrar eden problemini çözen ve çalışmaya devam eden sistemler kurmak.':
-      'Founder of Elvora Global and CV Optimizer AI. His focus isn’t one-off AI experiments but systems that solve a brand’s recurring problem and keep running.',
-    'Elvora’nın modüler yapısı da buradan çıktı: her işi sıfırdan başlatmak yerine, bir kez kurulan ve büyüdükçe genişleyen bir ekosistem.':
-      'Elvora’s modular structure came out of that: instead of starting every job from zero, an ecosystem that’s built once and grows.',
-    'Doğrudan yazın': 'Get in touch',
-    '03 / Çalışma biçimi': '03 / How we work',
+    '02 / Çalışma biçimi': '02 / How we work',
     'Nasıl çalışıyoruz?': 'How do we work?',
     'Problemle başla': 'Start with the problem',
     'Hangi paketi satacağımızla değil, neyi çözmeniz gerektiğiyle başlıyoruz. Bazen doğru cevap tek bir modül oluyor.':
@@ -522,7 +513,7 @@
     'Açık uçlu sistem': 'Open-ended system',
     'Üç modül bir bitiş noktası değil. Tekrar eden yeni bir ihtiyaç netleştikçe sisteme yeni modül ekliyoruz.':
       'The modules aren’t an end point. As a new recurring need becomes clear, we add a new module to the system.',
-    '04 / Ekosistem': '04 / Ecosystem',
+    '03 / Ekosistem': '03 / Ecosystem',
     'Şu an sistemde ne var?': 'What’s in the system today?',
 
     /* ---- İletişim / teşekkürler ---- */
