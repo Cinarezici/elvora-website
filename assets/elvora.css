@@ -55,8 +55,9 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   --radius-pill: 999px;
-  --radius-card: 4px;
-  --edge: 1px solid var(--bone-hair);
+  /* iklipseworld referansı: keskin 4px köşe yerine dolgun, cesur köşe */
+  --radius-card: 20px;
+  --edge: 1.5px solid var(--bone-faint);
   --measure: 1320px;
 }
 
@@ -70,6 +71,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* body'nin giriş fade-in'i sırasında (opacity 0→1) beyaz çakma olmasın */
+  background: var(--ink-base);
 }
 
 body {
@@ -82,6 +85,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* Her sayfa yüklemesinde hafif giriş — reduced-motion global kural
+     tarafından animation-duration: 0.01ms'e indirilir, ayrı bir override
+     gerekmez. */
+  animation: page-fade-in 0.5s var(--ease-out) both;
   /* Zemine derinlik veren katmanlı radial gradient'ler */
   background-image:
     radial-gradient(ellipse 900px 600px at 12% -5%, rgba(232, 68, 46, 0.09), transparent 70%),
@@ -407,29 +414,30 @@ textarea { font: inherit; color: inherit; }
   isolation: isolate;
   transition:
     transform 0.55s var(--ease-spring),
-    border-color 0.3s linear,
-    box-shadow 0.55s var(--ease-spring),
-    background-color 0.3s linear;
+    background-color 0.3s linear,
+    box-shadow 0.55s var(--ease-spring);
 }
 @media (min-width: 768px) {
   .card { padding: var(--s-4) var(--s-3); }
 }
 
-/* Hover'da üstten inen vermilion ışıma */
+/* Hover'da imleci takip eden vermilion ışıma — --x/--y elvora.js'te
+   cardSpotlight() tarafından güncellenir, JS yoksa üstten merkezi kalır. */
 .card::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(ellipse 120% 80% at 50% 0%, var(--vermilion-wash), transparent 70%);
+  background: radial-gradient(340px circle at var(--x, 50%) var(--y, 0%), var(--vermilion-wash), transparent 70%);
   opacity: 0;
   transition: opacity 0.55s var(--ease-spring);
 }
 
+/* Sabit border rengi kalır (border-color flip dated hissettiriyordu),
+   ama sıcak/derin bir gölge + kalkış + spotlight birlikte konuşuyor. */
 .card:hover,
 .card:focus-within {
-  transform: translateY(-4px);
-  border-color: var(--vermilion);
+  transform: translateY(-3px);
   background: var(--ink-floating);
   box-shadow: var(--shadow-lift);
 }
@@ -666,6 +674,12 @@ textarea { font: inherit; color: inherit; }
   gap: var(--s-3);
   min-height: 76px;
 }
+/* Mobilde nav+btn gizlenince yalnız wordmark/lang/burger kalıyor —
+   space-between dil seçiciyi ortada bırakıyordu. Burger'a yasla. */
+@media (max-width: 959.98px) {
+  .masthead__inner { justify-content: flex-start; }
+  .lang { margin-left: auto; }
+}
 
 /* Wordmark — gerçek logo brand_assets/'e gelince değiştirilir */
 .wordmark {
@@ -826,45 +840,64 @@ textarea { font: inherit; color: inherit; }
 .masthead .btn { display: none; }
 @media (min-width: 960px) { .masthead .btn { display: inline-flex; } }
 
-/* Mobil menü aç/kapa */
+/* Mobil menü aç/kapa — Apple tarzı: çerçevesiz, yalnız üç ince çizgi */
 .burger {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-  width: 44px;
-  height: 44px;
-  padding: 0 10px;
+  gap: 6px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
   background: transparent;
-  border: 1px solid var(--bone-faint);
-  border-radius: var(--radius-pill);
+  border: 0;
   cursor: pointer;
-  transition: border-color 0.25s linear, transform 0.45s var(--ease-spring);
+  transition: opacity 0.25s linear, transform 0.45s var(--ease-spring);
 }
 @media (min-width: 960px) { .burger { display: none; } }
-.burger:hover { border-color: var(--vermilion); }
-.burger:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 3px; }
+.burger:hover { opacity: 0.6; }
+.burger:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 4px; border-radius: 2px; }
 .burger:active { transform: scale(0.94); }
 .burger span {
   display: block;
-  height: 1.5px;
+  height: 1px;
   background: var(--bone);
-  border-radius: 2px;
   transition: transform 0.45s var(--ease-spring), opacity 0.25s linear;
 }
-.burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .burger[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
-.burger[aria-expanded='true'] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.burger[aria-expanded='true'] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Panel: hidden→görünür geçişi max-height/opacity ile animasyonlu.
+   JS önce hidden'ı kaldırır, sonra .is-open ekler (bkz. mobileNav()). */
 .mobile-nav {
   display: grid;
   gap: var(--s-1);
   padding: 0 var(--s-3) var(--s-4);
   border-bottom: 1px solid var(--bone-hair);
   background: var(--ink-elevated);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.55s var(--ease-spring), opacity 0.4s var(--ease-out);
 }
+.mobile-nav.is-open { max-height: 640px; opacity: 1; }
 .mobile-nav[hidden] { display: none; }
 @media (min-width: 960px) { .mobile-nav { display: none !important; } }
+
+/* Üst seviye ögeler (Çözümler grubu, Hakkımızda, İletişim, buton)
+   kademeli olarak belirir — alt-menüdeki linkler bu kademeye dahil değil. */
+.mobile-nav > * {
+  opacity: 0;
+  translate: 0 -6px;
+  transition: opacity 0.35s var(--ease-out), translate 0.4s var(--ease-spring);
+}
+.mobile-nav.is-open > * { opacity: 1; translate: 0 0; }
+.mobile-nav > *:nth-child(1) { transition-delay: 0.03s; }
+.mobile-nav > *:nth-child(2) { transition-delay: 0.08s; }
+.mobile-nav > *:nth-child(3) { transition-delay: 0.13s; }
+.mobile-nav > *:nth-child(4) { transition-delay: 0.18s; }
+
 .mobile-nav a {
   padding-block: var(--s-2);
   border-bottom: 1px solid var(--bone-hair);
@@ -879,6 +912,47 @@ textarea { font: inherit; color: inherit; }
 .mobile-nav a:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 2px; }
 .mobile-nav a:active { opacity: 0.6; }
 .mobile-nav .btn { margin-top: var(--s-2); }
+
+/* "Çözümler" alt-akordeonu — ürün linkleri Hakkımızda/İletişim'den ayrı */
+.mobile-nav__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-block: var(--s-2);
+  border: 0;
+  border-bottom: 1px solid var(--bone-hair);
+  background: none;
+  font: inherit;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  cursor: pointer;
+  transition: color 0.25s linear;
+}
+.mobile-nav__toggle:hover { color: var(--bone); }
+.mobile-nav__toggle:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 2px; }
+.mobile-nav__group.is-open .mobile-nav__toggle { color: var(--bone); }
+
+.mobile-nav__chevron { width: 9px; height: 9px; transition: transform 0.35s var(--ease-spring); }
+.mobile-nav__group.is-open .mobile-nav__chevron { transform: rotate(180deg); }
+
+.mobile-nav__submenu {
+  display: grid;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s var(--ease-spring), opacity 0.3s var(--ease-out);
+}
+.mobile-nav__group.is-open .mobile-nav__submenu { max-height: 320px; opacity: 1; }
+.mobile-nav__submenu a {
+  padding-left: var(--s-2);
+  font-size: 11px;
+  color: var(--bone-faint);
+}
+.mobile-nav__submenu a:hover { color: var(--vermilion); }
 
 /* ---------- 8.5 YAY ALANI (hero + CTA arka planı) ----------
    Açılış ekranındaki dönen vermilion yayların büyük ölçekli hâli.
@@ -900,7 +974,8 @@ textarea { font: inherit; color: inherit; }
   left: 74%;
   width: clamp(560px, 82vw, 1180px);
   aspect-ratio: 1;
-  translate: -50% -50%;
+  /* --parallax-y: JS scroll'a göre günceller (elvora.js auraParallax) */
+  translate: -50% calc(-50% + var(--parallax-y, 0px));
   /* Metnin olduğu sola doğru sönümlenir, kenarlarda vinyet */
   mask-image:
     linear-gradient(to right, transparent 14%, rgba(0, 0, 0, 0.4) 42%, #000 72%),
@@ -983,6 +1058,43 @@ textarea { font: inherit; color: inherit; }
 @keyframes aura-spin-back { to { rotate: -360deg; } }
 @keyframes aura-breathe   { 50% { scale: 1.03; } }
 @keyframes aura-pulse     { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+/* ---------- Hero ağ katmanı — elvora.js auraNetwork() enjekte eder ----------
+   "AI ekosistemi" mesajını somutlaştırır: sabit yaylara ek olarak birbirine
+   bağlı düğümler — bağlantılar sırayla çizilip söner, düğümler parıldar.
+   Yalnız hero'da (bkz. JS seçici); CTA bandı sakin kalıyor. */
+.aura__network {
+  transform-box: view-box;
+  transform-origin: 500px 500px;
+  animation: aura-spin 260s linear infinite;
+}
+.aura__net-line {
+  fill: none;
+  stroke: var(--vermilion-hot);
+  stroke-width: 1;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: aura-net-pulse 8s ease-in-out infinite;
+}
+.aura__net-node {
+  fill: var(--vermilion-hot);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: aura-net-twinkle 5s ease-in-out infinite;
+}
+@keyframes aura-net-pulse {
+  0%, 100% { opacity: 0; stroke-dashoffset: var(--len, 0); }
+  22% { opacity: 0.6; stroke-dashoffset: 0; }
+  68% { opacity: 0.6; stroke-dashoffset: 0; }
+  88% { opacity: 0; stroke-dashoffset: 0; }
+}
+@keyframes aura-net-twinkle {
+  0%, 100% { opacity: 0.35; scale: 1; }
+  50% { opacity: 1; scale: 1.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aura__network { animation: none; }
+}
 
 /* CTA bandı: küçük ve sakin, sağ alt köşeye demirli */
 .cta-band .aura__field {
@@ -1088,15 +1200,34 @@ textarea { font: inherit; color: inherit; }
   color: var(--bone-faint);
 }
 
-/* ---------- 10. CTA BANDI — 6 sayfada birebir ---------- */
+/* ---------- 10. CTA BANDI — iklipseworld referansı: dolgu renk blok panel
+   6 sayfada birebir. Zeminden ayrılan, yuvarlak köşeli, dolu vermilion
+   bir "blok" — soluk radial ışıma yerine markanın kendisi konuşuyor. */
 .cta-band {
   position: relative;
   overflow: hidden;
-  border-top: 1px solid var(--bone-hair);
-  background:
-    radial-gradient(ellipse 800px 400px at 50% 100%, rgba(232, 68, 46, 0.14), transparent 70%),
-    var(--ink-elevated);
+  margin-inline: var(--s-2);
+  border-radius: 28px;
+  background: linear-gradient(155deg, var(--vermilion-hot) 0%, var(--vermilion) 45%, var(--vermilion-deep) 100%);
 }
+@media (min-width: 768px) { .cta-band { margin-inline: var(--s-4); } }
+
+.cta-band .aura__ring { stroke: var(--bone); }
+.cta-band .aura__ring--dot { stroke: var(--bone); stroke-opacity: 0.14; }
+.cta-band .aura__node,
+.cta-band .aura__node--soft { fill: var(--bone); }
+
+.cta-band .label--accent,
+.cta-band .accent-italic,
+.cta-band .cta-band__title { color: #fff; }
+.cta-band .lede { color: rgba(255, 255, 255, 0.82); }
+.cta-band .btn {
+  background: var(--ink-base);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+.cta-band .btn:hover { background: var(--ink-elevated); }
+
 .cta-band__inner {
   display: grid;
   gap: var(--s-4);
@@ -1542,10 +1673,7 @@ select.field__input option {
   border-radius: var(--radius-card);
   background: var(--ink-elevated);
   box-shadow: var(--shadow-card);
-  transition:
-    transform 0.55s var(--ease-spring),
-    border-color 0.3s linear,
-    box-shadow 0.55s var(--ease-spring);
+  transition: transform 0.55s var(--ease-spring), box-shadow 0.55s var(--ease-spring);
 }
 .work-link img {
   width: 100%;
@@ -1562,9 +1690,25 @@ select.field__input option {
   background: linear-gradient(to top, rgba(12, 12, 11, 0.92) 26%, rgba(12, 12, 11, 0.15));
   pointer-events: none;
 }
+/* İmleci takip eden ışık — --x/--y elvora.js'te cardSpotlight() günceller */
+.work-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(220px circle at var(--x, 50%) var(--y, 50%), rgba(232, 68, 46, 0.16), transparent 70%);
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+.work-link:hover::after,
+.work-link:focus-within::after { opacity: 1; }
+
+/* Sabit border rengi kalır, ama sıcak gölge + kalkış + görsel yakınlaşma +
+   spotlight birlikte konuşuyor — iklipseworld'ün sıcak/cesur derinliği */
 .work-link:hover {
-  transform: translateY(-4px);
-  border-color: var(--vermilion);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-lift);
 }
 .work-link:hover img { scale: 1.05; }
@@ -1793,9 +1937,10 @@ select.field__input option {
   color: #93b4fb;
 }
 .tag--stat {
-  border: 1px solid var(--bone-hair);
+  border: 1.5px solid var(--bone-faint);
   background: var(--ink-elevated);
-  color: var(--bone-dim);
+  color: var(--bone);
+  font-weight: 600;
 }
 
 /* ---------- FLOW TANITIMI (ana sayfa) ----------
@@ -1957,10 +2102,14 @@ select.field__input option {
 .legal__back { margin-top: var(--s-5); }
 
 /* ---------- 12. FOOTER ---------- */
+/* iklipseworld referansı: footer'da sıcak bir ışıma yukarıdan aşağı süzülür
+   — düz zemin yerine, markanın vermilion'unu son notada bir kez daha konuşturur. */
 .footer {
   border-top: 1px solid var(--bone-hair);
   padding-block: var(--s-5) var(--s-4);
-  background: var(--ink-base);
+  background:
+    radial-gradient(ellipse 1200px 480px at 50% 0%, rgba(232, 68, 46, 0.12), transparent 70%),
+    var(--ink-base);
 }
 .footer__grid {
   display: grid;
@@ -2058,10 +2207,11 @@ select.field__input option {
   display: block;
   padding-inline: var(--s-3);
   font-family: var(--font-display);
-  font-size: clamp(4.75rem, 21vw, 21rem);
+  font-size: clamp(5.5rem, 24vw, 24rem);
   font-weight: 400;
   letter-spacing: -0.03em;
-  color: rgba(242, 239, 231, 0.55);
+  /* Üst bardaki wordmark'la aynı ton — önceki %55 opaklık çok soluktu */
+  color: var(--bone);
   white-space: nowrap;
   user-select: none;
 }
@@ -2181,12 +2331,28 @@ select.field__input option {
 .js .reveal {
   opacity: 0;
   translate: 0 20px;
+  scale: 0.98;
   transition:
     opacity 0.7s var(--ease-out),
-    translate 0.8s var(--ease-spring);
+    translate 0.8s var(--ease-spring),
+    scale 0.8s var(--ease-spring);
 }
-.js .reveal.is-in { opacity: 1; translate: 0 0; }
+.js .reveal.is-in { opacity: 1; translate: 0 0; scale: 1; }
 
 @media (prefers-reduced-motion: reduce) {
-  .js .reveal { opacity: 1; translate: none; }
+  .js .reveal { opacity: 1; translate: none; scale: none; }
 }
+
+@keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* Dahili linkte kısa geçiş örtüsü — elvora.js pageTransitions() ekler/kaldırır */
+.page-fade {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--ink-base);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease-out);
+}
+.page-fade.is-active { opacity: 1; pointer-events: auto; }

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "elvora-serve",
+      "runtimeExecutable": "env",
+      "runtimeArgs": ["PORT=3001", "node", "serve.mjs"],
+      "port": 3001
+    }
+  ]
+}
