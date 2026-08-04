@@ -84,12 +84,15 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  /* body'nin giriş fade-in'i sırasında (opacity 0→1) beyaz çakma olmasın */
-  background: var(--ink-base);
+  /* Her sayfanın ilk gördüğü şey koyu masthead+hero — sayfalar arası geçişte
+     (tam sayfa yeniden yükleme) beyaz/krem çakma yerine bu koyu zemin görünsün.
+     Token yerine sabit değer: burada amaç herhangi bir section'ın rengini
+     yansıtmak değil, yükleme anındaki "boş" zeminin her zaman koyu olması. */
+  background: #14130f;
 }
 
 body {
-  background: var(--ink-base);
+  background: #14130f;
   color: var(--bone);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -264,6 +267,20 @@ textarea { font: inherit; color: inherit; }
 }
 
 .section--tight { padding-block: var(--s-5); }
+.section--feature { padding-block: calc(var(--s-6) * 1.3); }
+@media (min-width: 768px) {
+  .section--feature { padding-block: calc(var(--s-7) * 1.25); }
+}
+
+/* Yaklaşım bölümü artık tone-dark — öne çıkan (Elvora) sütun, koyu zeminden
+   ayrışsın diye sabit siyah yerine ink-floating + hafif vermilion ışıltıya
+   geçiyor. Yalnızca bu bölüme özel (#yaklasim) — kurum-ici.html'deki aynı
+   bileşen açık zeminde kaldığı için etkilenmiyor. */
+#yaklasim .compare-table__brand {
+  background:
+    radial-gradient(ellipse 140% 100% at 50% 0%, rgba(232, 68, 46, 0.16), transparent 70%),
+    var(--ink-floating);
+}
 
 /* Bölüm ayıracı — görüş alanına girince soldan vermilion bir iz çizilir */
 .rule {
@@ -333,6 +350,21 @@ textarea { font: inherit; color: inherit; }
     grid-template-columns: repeat(2, 1fr);
     gap: var(--s-5);
   }
+}
+
+/* 01/Sorun bölümü: problem metni bir tarafta, çözüm kutusu diğer tarafta —
+   ikisi üst üste yığılıp dağınık durmasın diye yan yana konumlanıyor. */
+.sorun-layout {
+  display: grid;
+  gap: var(--s-4);
+  align-items: start;
+}
+@media (min-width: 960px) {
+  .sorun-layout { grid-template-columns: 1fr 380px; gap: var(--s-5); }
+}
+.sorun-layout__text {
+  display: grid;
+  gap: var(--s-3);
 }
 
 /* ---------- 5. BUTONLAR — tek stil, iki varyant ---------- */
@@ -447,6 +479,51 @@ textarea { font: inherit; color: inherit; }
 @media (min-width: 1080px) {
   .card-grid--4 { grid-template-columns: repeat(4, 1fr); }
   .card-grid--3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Yatay kaydırmalı kart şeridi — ana sayfa Sistemler önizlemesi için.
+   Dikey grid yerine kartlar arası kaydırma hissi: sayfa bütünlüğünü bozan
+   "alt alta" yığılma yerine yana doğru akan bir şerit. */
+.card-scroll {
+  display: flex;
+  gap: var(--s-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--s-3);
+  margin-inline: calc(var(--s-3) * -1);
+  padding-inline: var(--s-3);
+  padding-bottom: var(--s-3);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bone-hair) transparent;
+}
+@media (min-width: 768px) {
+  .card-scroll {
+    scroll-padding-inline: var(--s-4);
+    margin-inline: calc(var(--s-4) * -1);
+    padding-inline: var(--s-4);
+  }
+}
+.card-scroll::-webkit-scrollbar { height: 6px; }
+.card-scroll::-webkit-scrollbar-track { background: transparent; }
+.card-scroll::-webkit-scrollbar-thumb { background: var(--bone-hair); border-radius: 3px; }
+.card-scroll .card {
+  flex: 0 0 272px;
+  scroll-snap-align: start;
+}
+@media (min-width: 640px) {
+  .card-scroll .card { flex: 0 0 310px; }
+}
+
+/* Kart içi ince akış çizgileri — hero'daki .aura__flow ile aynı dil, minyatür
+   ölçekte. isolation:isolate + z-index:-1 sayesinde metnin her zaman üstünde
+   kalması garanti; salt dekoratif katman. */
+.card__flow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: visible;
+  pointer-events: none;
 }
 
 .card {
@@ -2559,13 +2636,14 @@ select.field__input option {
   color: var(--bone-dim);
 }
 .pkg-list li::before {
+  /* Yuvarlak nokta yerine keskin köşeli kare — .mark--yes ile aynı
+     "dahil/teslim edildi" dili, listeyi daha kesin/iddialı gösteriyor. */
   content: '';
   position: absolute;
   left: 0;
-  top: 0.65em;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
+  top: 0.6em;
+  width: 7px;
+  height: 7px;
   background: var(--vermilion);
 }
 
@@ -2585,12 +2663,11 @@ select.field__input option {
   .split-row__visual { display: block; }
 }
 .side-orbit {
+  /* Bilinçli olarak kutu/kart çerçevesi yok — bölümün kendi zemininde
+     duran bir arka plan grafiği gibi hissettirsin, ayrı yapıştırılmış
+     bir widget gibi değil. */
   position: relative;
   aspect-ratio: 1;
-  border: var(--edge);
-  border-radius: var(--radius-card);
-  background: var(--ink-elevated);
-  box-shadow: var(--shadow-card);
   overflow: hidden;
 }
 .side-orbit__num {
@@ -2620,8 +2697,9 @@ select.field__input option {
   grid-template-columns: 1fr;
 }
 @media (min-width: 900px) {
-  .pitch-grid { grid-template-columns: repeat(2, 1fr); align-items: start; }
+  .pitch-grid { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
 }
+.pitch-grid .pitch { height: 100%; }
 
 /* Karşılaştırma tablosu — "Neden Elvora?" */
 .compare-table__scroll {

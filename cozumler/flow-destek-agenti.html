@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
+<style>html{background:#14130f}</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Destek Agent'ı — Elvora Flow | Elvora Global</title>
 <meta name="description" content="Sık sorulanları, sipariş durumunu ve kargo takibini otomatik yanıtlayan bir destek hattı. Web sitesi ve WhatsApp üzerinden çalışır, cevaplayamadığını insana devreder.">
@@ -45,7 +46,7 @@
     </a>
 
     <nav class="nav" aria-label="Ana menü">
-      <a class="nav__link" href="flow.html">Elvora Flow</a>
+      <a class="nav__link" href="flow.html">Flow</a>
       <div class="nav__dropdown">
         <button class="nav__link nav__dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="cozumler-menu">
           Çözümler
@@ -122,7 +123,7 @@
   </div>
 
   <nav class="mobile-nav" id="mobil-menu" aria-label="Mobil menü" hidden>
-    <a href="flow.html">Elvora Flow</a>
+    <a href="flow.html">Flow</a>
     <div class="mobile-nav__group">
       <button class="mobile-nav__toggle" type="button" aria-expanded="false" aria-controls="mobil-cozumler">
         Çözümler
@@ -219,16 +220,13 @@
         </h2>
       </div>
 
-      <div class="prose-duo reveal">
-        <p class="body-text">
-          Sipariş nerede, kargo ne zaman gelir, iade nasıl yapılır — bu sorular gün boyu, farklı kanallardan tekrar tekrar geliyor. Ekibiniz her defasında aynı cevabı yazıyor; o sırada gerçek bir sorunla ilgilenen müşteri sırada bekliyor.
-        </p>
-        <p class="body-text">
-          Mesai saatleri dışında gelen mesaj ise ertesi güne kalıyor. O gecikme müşteride “ilgilenilmiyorum” hissi bırakıyor — üstelik fark etmeden kaybettiğiniz bir satış da olabilir.
-        </p>
-      </div>
+      <div class="sorun-layout">
+        <div class="sorun-layout__text reveal">
+          <p class="body-text">Sipariş nerede, kargo ne zaman gelir, iade nasıl yapılır — bu sorular gün boyu, farklı kanallardan tekrar tekrar geliyor. Ekibiniz her defasında aynı cevabı yazıyor; o sırada gerçek bir sorunla ilgilenen müşteri sırada bekliyor.</p>
+          <p class="body-text">Mesai saatleri dışında gelen mesaj ise ertesi güne kalıyor. O gecikme müşteride “ilgilenilmiyorum” hissi bırakıyor — üstelik fark etmeden kaybettiğiniz bir satış da olabilir.</p>
+        </div>
 
-      <div class="pitch pitch--dark reveal" style="margin-top: var(--s-4); max-width: 640px;">
+        <div class="pitch pitch--dark reveal">
         <span class="tag tag--gercek">Elvora Flow — Sistem 01 çözüyor</span>
 
         <h3 class="display-m">Sorular otomatik yanıtlanır, gerçek sorunlar insana düşer.</h3>
@@ -241,7 +239,8 @@
           <a class="btn" href="../iletisim.html">
             Bu bende de var, konuşalım <span class="btn__arrow" aria-hidden="true">→</span>
           </a>
-        </div>
+          </div>
+      </div>
       </div>
     </div>
   </section>
@@ -258,6 +257,9 @@
         <h2 class="display-l reveal">Neler dahil?</h2>
       </div>
 
+      <p class="body-text" style="max-width: 56ch; margin-bottom: var(--s-2);">
+        <strong>Aşağıdakilerin hepsi kapsamda</strong> — ekstra ücret yok, sürpriz yok.
+      </p>
       <ul class="pkg-list reveal" style="max-width: 56ch; font-size: 15px; gap: 12px;">
               <li>Web sitesi canlı sohbet + WhatsApp entegrasyonu</li>
               <li>Şirket dokümanlarınız üzerinde RAG tabanlı yanıtlama</li>
