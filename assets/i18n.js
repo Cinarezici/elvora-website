@@ -627,6 +627,18 @@
     'İzmir': 'Izmir',
     'Merkez ofis': 'Head office',
 
+    /* ---- Ana sayfa: 02 / Sistemler (homepage öne çıkarma) + numaraların kayması ---- */
+    'Şu anda çalışan': 'Six systems',
+    'altı sistem.': 'running right now.',
+    'Bunlar konsept değil — kurup canlıya aldığımız, test edilmiş sistem paketleri. Kapsam baştan belli, fiyat baştan belli.':
+      'These aren’t concepts — they’re tested system packages we’ve built and shipped ourselves. Scope fixed upfront, price fixed upfront.',
+    'Tüm Flow sistemlerini incele': 'Browse all Flow systems',
+    '03 / İki hat': '03 / Two tracks',
+    '05 / Yaklaşım': '05 / Approach',
+    '06 / Süreç': '06 / Process',
+    '07 / Kurucu': '07 / Founder',
+    '08 / Başlarken': '08 / Getting started',
+
     /* ---- Ana sayfa: 02 / İki hat ---- */
     '02 / İki hat': '02 / Two tracks',
     'Önce strateji,': 'Strategy first,',
@@ -888,6 +900,60 @@
     'Hata takibi ve bildirim': 'Error tracking and alerts',
     'Ekibe devir desteği': 'Team handover support',
     'Elvora Flow — Sistem 06': 'Elvora Flow — System 06',
+
+    /* ---- cozumler/flow-*.html: 01/Sorun (problem-farkındalık) bölümü + numara kayması ---- */
+    '01 / Sorun': '01 / The problem',
+    '02 / Kapsam': '02 / Scope',
+    '03 / Teslim sonrası': '03 / After delivery',
+    'Bu bende de var, konuşalım': 'This sounds familiar, let’s talk',
+    'Mesai bitince,': 'When office hours end,',
+    'müşteri beklemede kalıyor.': 'the customer is left waiting.',
+    'Sipariş nerede, kargo ne zaman gelir, iade nasıl yapılır — bu sorular gün boyu, farklı kanallardan tekrar tekrar geliyor. Ekibiniz her defasında aynı cevabı yazıyor; o sırada gerçek bir sorunla ilgilenen müşteri sırada bekliyor.': 'Where’s my order, when does the shipment arrive, how do I return this — the same questions come in over and over, all day, from every channel. Your team writes the same answer each time, while a customer with a real problem waits in the queue.',
+    'Mesai saatleri dışında gelen mesaj ise ertesi güne kalıyor. O gecikme müşteride “ilgilenilmiyorum” hissi bırakıyor — üstelik fark etmeden kaybettiğiniz bir satış da olabilir.': 'A message that arrives outside office hours waits until the next day. That delay leaves the customer feeling ignored — and it may be a sale you’re losing without even noticing.',
+    'Elvora Flow — Sistem 01 çözüyor': 'Elvora Flow — System 01 solves it',
+    'Sorular otomatik yanıtlanır, gerçek sorunlar insana düşer.': 'Questions get answered automatically, real problems go to a human.',
+    'Destek agent\'ı sık sorulanları, sipariş durumunu ve kargo takibini 7/24 karşılar; cevaplayamadığını olduğu gibi ekibinize devreder.': 'The support agent handles FAQs, order status and shipment tracking 24/7 — and hands over whatever it can’t answer, as-is, to your team.',
+    'İyi bir talep,': 'A good lead',
+    'soğuyana kadar bekliyor.': 'waits until it goes cold.',
+    'Form doldurulduğunda bildirim gidiyor ama kimse hemen bakmıyor; WhatsApp\'tan gelen mesaj başka bir kişiye, Instagram\'dan geleni ise kimse görmüyor. Talep hangi kanaldan geldiyse oradan takip ediliyor — ama hiçbiri tek bir yerde toplanmıyor.': 'A notification goes out when the form is submitted, but nobody looks right away; the WhatsApp message goes to someone else, and nobody sees the one from Instagram. Each lead gets followed up through whatever channel it arrived on — but none of it lands in one place.',
+    'Bu arada satın almaya en yakın müşteri ile sadece bilgi almak isteyen aynı sırada bekliyor. Kim öncelikli, kim değil — bunu genelde kimse bilmiyor, en deneyimli satış temsilcisi bile.': 'Meanwhile, the customer closest to buying waits in the same queue as someone just asking for information. Who’s a priority and who isn’t — usually nobody knows, not even your most experienced salesperson.',
+    'Elvora Flow — Sistem 02 çözüyor': 'Elvora Flow — System 02 solves it',
+    'Her talep aynı anda sınıflandırılır ve önceliklendirilir.': 'Every lead is classified and prioritised the moment it arrives.',
+    'Lead triyajı gelen talebi kanaldan bağımsız toplar, önceliklendirir, CRM\'e yazar ve ilk yanıtı otomatik gönderir.': 'Lead triage collects every request regardless of channel, prioritises it, writes it to the CRM and sends the first reply automatically.',
+    'O kişi izne çıkınca,': 'The moment that one person',
+    'akış duruyor.': 'takes leave, the pipeline stops.',
+    'Ürün açıklaması, sosyal medya metni, görsel varyantı — hepsi tek bir kişinin masasından geçiyor. O kişi yoğunsa yayın gecikir, izinliyse tamamen durur.': 'Product descriptions, social copy, image variants — all of it passes through one person’s desk. When they’re busy, publishing slips; when they’re on leave, it stops entirely.',
+    'Düzensiz yayın, algoritmanın sizi daha az göstermesi demek. Sorun içerik kalitesi değil — üretimin tek bir kişiye bağlı olması.': 'Irregular publishing means the algorithm shows you less. The problem isn’t content quality — it’s that production depends on a single person.',
+    'Elvora Flow — Sistem 03 çözüyor': 'Elvora Flow — System 03 solves it',
+    'Üretim bir kişiye değil, bir akışa bağlanır.': 'Production is wired to a pipeline, not a person.',
+    'İçerik akışı; açıklama, metin ve görsel varyantını tek seferde üretir, onaya düşürür, yayınlar.': 'The content pipeline produces the description, copy and image variant in one pass, sends it for approval, and publishes it.',
+    'Karar,': 'The decision',
+    'raporu bekliyor.': 'is waiting on the report.',
+    'Satış, stok ve reklam verisi üç farklı yerde duruyor. Pazartesi sabahı biri oturup bunları tek tabloda birleştiriyor — saatler sürüyor, bazen bir hücre yanlış kopyalanıyor.': 'Sales, stock and ad data live in three different places. Every Monday morning, someone sits down to merge them into one table — it takes hours, and sometimes a cell gets copied wrong.',
+    'O rapor hazır olana kadar hangi ürünün tükendiğini, hangi kampanyanın para yaktığını kimse net bilmiyor. Karar, veri değil raporun kendisini bekliyor.': 'Until that report is ready, nobody knows for certain what’s out of stock or which campaign is burning money. The decision isn’t waiting on data — it’s waiting on the report itself.',
+    'Elvora Flow — Sistem 04 çözüyor': 'Elvora Flow — System 04 solves it',
+    'Veri kendiliğinden toplanır, özet kendiliğinden çıkar.': 'Data collects itself, the summary writes itself.',
+    'Rapor otomasyonu satış, stok ve reklam verisini toplayıp okunabilir bir özete çevirir — her pazartesi kutunuzda.': 'Report automation gathers sales, stock and ad data and turns it into a readable summary — in your inbox every Monday.',
+    'Sitede stokta,': 'In stock on the website,',
+    'depoda yok.': 'not in the warehouse.',
+    'Fiyatı ERP\'de güncellediniz, ama sitede eski fiyat görünüyor. Depoda tükenen ürün pazaryerinde hâlâ satılabilir görünüyor — sipariş geliyor, karşılayamıyorsunuz.': 'You updated the price in the ERP, but the website still shows the old one. A product that’s sold out in the warehouse still shows as available on the marketplace — the order comes in, and you can’t fulfil it.',
+    'Bu tutarsızlıklar elle takip edilemeyecek kadar sık oluyor. Her yanlış fiyat ya da stok bilgisi, ya kaybedilen bir satış ya da iptal edilmesi gereken bir sipariş demek.': 'These mismatches happen too often to track by hand. Every wrong price or stock figure is either a lost sale or an order you have to cancel.',
+    'Elvora Flow — Sistem 05 çözüyor': 'Elvora Flow — System 05 solves it',
+    'Stok ve fiyat, tüm kanallarda aynı anda güncel kalır.': 'Stock and price stay current across every channel, at the same time.',
+    'Katalog senkronu; ERP, site ve pazaryeri arasında stok ve fiyat bilgisini otomatik günceller.': 'Catalogue sync automatically updates stock and pricing across the ERP, website and marketplaces.',
+    'Sizin işiniz,': 'Your process',
+    'kalıba uymuyor.': 'doesn’t fit the mould.',
+    'Yukarıdaki beş sistem çoğu işletmenin tekrar eden problemini karşılıyor. Ama sizin sürecinizin kendine has bir adımı olabilir — belirli bir onay zinciri, özel bir entegrasyon, sektörünüze özgü bir kontrol noktası.': 'The five systems above cover the repetitive problems most businesses share. But your process might have a step of its own — a specific approval chain, a custom integration, a control point unique to your industry.',
+    'Bu tür işler genelde bir Excel dosyasında, birkaç kişinin hafızasında ya da elle yürütülen bir adımda yaşıyor — o kişi izinliyken ya da dosya bozulduğunda süreç tamamen duruyor.': 'Work like that usually lives in a spreadsheet, in a few people’s memory, or in a manual step — and the whole process stalls the moment that person is away or the file breaks.',
+    'Elvora Flow — Sistem 06 çözüyor': 'Elvora Flow — System 06 solves it',
+    'Kalıba uymayan süreç, sizin için kurulur.': 'A process that doesn’t fit the mould gets built for you.',
+    'Özel akış; yukarıdakilere benzemeyen, tekrar eden bir işiniz varsa kapsamı birlikte çıkarıp sizin için kurar.': 'Custom flow: if you have a repetitive process that doesn’t match the systems above, we work out the scope together and build it for you.',
+    'Sistem 01': 'System 01',
+    'Sistem 02': 'System 02',
+    'Sistem 03': 'System 03',
+    'Sistem 04': 'System 04',
+    'Sistem 05': 'System 05',
+    'Sistem 06': 'System 06',
     'Yukarıdakilere benzemeyen, tekrar eden bir işiniz için sıfırdan tasarlanan özel sistem.':
       'A custom system designed from scratch for a recurring job that doesn\'t match any of the above.',
     'Özel Akış — Elvora Flow | Elvora Global': 'Custom Flow — Elvora Flow | Elvora Global',
@@ -924,6 +990,18 @@
     'E-ticaret': 'E-commerce',
     'Perakende': 'Retail',
     'Kurumsal hizmet': 'Corporate services',
+    'Sezonluk kampanya görselleri, ürün çekimleri ve marka kimliğini tek elden, haftalar değil günler içinde üretin.':
+      'Produce seasonal campaign visuals, product shots and brand identity from one place — in days, not weeks.',
+    'Katalog ve reklam içeriğini stüdyo çekimine gerek kalmadan, ürün görsellerinizden üretin.':
+      'Produce catalogue and ad content straight from your product photos, no studio shoot required.',
+    'İlan görsellerini profesyonel kalitede iyileştirin — boş oda, kötü ışık ve düşük çözünürlük sorununu ortadan kaldırın.':
+      'Upgrade listing photos to professional quality — fix empty rooms, poor lighting and low resolution.',
+    'Sipariş takibi, destek yanıtları ve stok senkronunu otomatik akışlara bağlayın — ekibiniz tekrar eden işe değil büyümeye odaklansın.':
+      'Wire order tracking, support replies and stock sync into automated pipelines — your team focuses on growth, not repetition.',
+    'Kampanya içeriği ve şube/kanal bazlı stok-fiyat senkronunu tek sistemden yönetin.':
+      'Manage campaign content and branch/channel-level stock-price sync from a single system.',
+    'Ekibinizin AI ve otomasyon konusunda doğru yol haritasını çizin, ekip içi okuryazarlığı eğitimle destekleyin.':
+      'Chart the right AI and automation roadmap for your team, and back it up with in-house training.',
 
     /* ---- Round 3: Kurum İçi, Projeler, Endüstriler, nav ---- */
     'Kültür': 'Culture',
