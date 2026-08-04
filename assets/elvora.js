@@ -43,28 +43,31 @@
      burada yalnız durum: tıkla aç/kapat, dışarı tıkla kapat, Esc kapat +
      odağı tetikleyiciye geri ver. */
   function navDropdown() {
-    const dd = document.querySelector('.nav__dropdown');
-    const trigger = dd?.querySelector('.nav__dropdown-trigger');
-    if (!dd || !trigger) return;
+    // Sayfada birden fazla açılır menü olabilir (Çözümler, Endüstriler vb.) —
+    // her biri kendi aç/kapa durumunu bağımsız yönetir.
+    document.querySelectorAll('.nav__dropdown').forEach((dd) => {
+      const trigger = dd.querySelector('.nav__dropdown-trigger');
+      if (!trigger) return;
 
-    const setOpen = (open) => {
-      dd.classList.toggle('is-open', open);
-      trigger.setAttribute('aria-expanded', String(open));
-    };
+      const setOpen = (open) => {
+        dd.classList.toggle('is-open', open);
+        trigger.setAttribute('aria-expanded', String(open));
+      };
 
-    trigger.addEventListener('click', () => {
-      setOpen(!dd.classList.contains('is-open'));
-    });
+      trigger.addEventListener('click', () => {
+        setOpen(!dd.classList.contains('is-open'));
+      });
 
-    document.addEventListener('click', (e) => {
-      if (dd.classList.contains('is-open') && !dd.contains(e.target)) setOpen(false);
-    });
+      document.addEventListener('click', (e) => {
+        if (dd.classList.contains('is-open') && !dd.contains(e.target)) setOpen(false);
+      });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && dd.classList.contains('is-open')) {
-        setOpen(false);
-        trigger.focus();
-      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && dd.classList.contains('is-open')) {
+          setOpen(false);
+          trigger.focus();
+        }
+      });
     });
   }
 
@@ -143,12 +146,14 @@
     const panel = document.querySelector('.mobile-nav');
     if (!burger || !panel) return;
 
-    const group = panel.querySelector('.mobile-nav__group');
-    const subTrigger = group?.querySelector('.mobile-nav__toggle');
+    // Birden fazla akordeon grubu olabilir (Çözümler, Endüstriler vb.)
+    const groups = Array.from(panel.querySelectorAll('.mobile-nav__group'));
 
     const closeSubmenu = () => {
-      group?.classList.remove('is-open');
-      subTrigger?.setAttribute('aria-expanded', 'false');
+      groups.forEach((group) => {
+        group.classList.remove('is-open');
+        group.querySelector('.mobile-nav__toggle')?.setAttribute('aria-expanded', 'false');
+      });
     };
 
     let closeTimer;
@@ -190,10 +195,13 @@
       if (m.matches) setOpen(false);
     });
 
-    // "Çözümler" alt-akordeonu
-    subTrigger?.addEventListener('click', () => {
-      const isOpen = group.classList.toggle('is-open');
-      subTrigger.setAttribute('aria-expanded', String(isOpen));
+    // Alt-akordeonlar (Çözümler, Endüstriler vb.) — her biri bağımsız
+    groups.forEach((group) => {
+      const subTrigger = group.querySelector('.mobile-nav__toggle');
+      subTrigger?.addEventListener('click', () => {
+        const isOpen = group.classList.toggle('is-open');
+        subTrigger.setAttribute('aria-expanded', String(isOpen));
+      });
     });
   }
 

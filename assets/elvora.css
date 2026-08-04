@@ -4,22 +4,25 @@
    bileşen sapmasını önlemek için hiçbir sayfada inline stil yok.
    ============================================================ */
 
-/* ---------- 1. TOKEN'LAR ---------- */
+/* ---------- 1. TOKEN'LAR ----------
+   leftflow.ai referansı: paper/ink açık tema. Elvora'nın vermilion'u zaten
+   leftflow'un kendi kırmızısıyla birebir aynıydı (#e8442e) — marka kimliği
+   korunuyor, yalnızca zemin/metin rolleri koyu temadan açık temaya dönüyor. */
 :root {
-  /* Yüzey katmanları: base → elevated → floating */
-  --ink-base: #0c0c0b;
-  --ink-elevated: #131312;
-  --ink-floating: #1a1a18;
+  /* Yüzey katmanları: base → elevated → floating (artık açık/"paper") */
+  --ink-base: #f2efe7;
+  --ink-elevated: #ffffff;
+  --ink-floating: #fffcf6;
 
-  /* Kemik beyaz metin skalası */
-  --bone: #f2efe7;
-  --bone-dim: rgba(242, 239, 231, 0.62);
-  --bone-faint: rgba(242, 239, 231, 0.34);
-  --bone-hair: rgba(242, 239, 231, 0.12);
+  /* Mürekkep metin skalası (koyu, açık zemin üstünde) */
+  --bone: #14130f;
+  --bone-dim: rgba(20, 19, 15, 0.66);
+  --bone-faint: rgba(20, 19, 15, 0.42);
+  --bone-hair: rgba(20, 19, 15, 0.12);
 
-  /* Aksan — vermilion */
+  /* Aksan — vermilion (leftflow ile birebir aynı kırmızı) */
   --vermilion: #e8442e;
-  --vermilion-hot: #f95338;
+  --vermilion-hot: #ff5a42;
   --vermilion-deep: #8f2a1c;
   --vermilion-wash: rgba(232, 68, 46, 0.08);
 
@@ -37,28 +40,38 @@
   --s-6: 96px;
   --s-7: 160px;
 
-  /* Katmanlı, vermilion-tinted gölgeler — düz shadow-md yok */
+  /* Katmanlı, vermilion-tinted gölgeler — açık zeminde düşük opaklık,
+     düz shadow-md yok */
   --shadow-card:
-    0 1px 2px rgba(232, 68, 46, 0.04),
-    0 8px 24px rgba(0, 0, 0, 0.4),
-    0 24px 64px rgba(232, 68, 46, 0.06);
+    0 1px 2px rgba(20, 19, 15, 0.04),
+    0 10px 24px -8px rgba(20, 19, 15, 0.12),
+    0 24px 48px -16px rgba(232, 68, 46, 0.08);
   --shadow-lift:
-    0 2px 4px rgba(232, 68, 46, 0.06),
-    0 16px 40px rgba(0, 0, 0, 0.5),
-    0 40px 96px rgba(232, 68, 46, 0.1);
+    0 2px 6px rgba(20, 19, 15, 0.08),
+    0 20px 40px -12px rgba(20, 19, 15, 0.16),
+    0 36px 72px -20px rgba(232, 68, 46, 0.14);
   --shadow-btn:
-    0 1px 2px rgba(0, 0, 0, 0.3),
-    0 8px 24px rgba(232, 68, 46, 0.24);
+    0 1px 2px rgba(20, 19, 15, 0.16),
+    0 10px 24px -6px rgba(232, 68, 46, 0.38);
 
   /* Spring easing — tek geçiş dili */
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   --radius-pill: 999px;
-  /* iklipseworld referansı: keskin 4px köşe yerine dolgun, cesur köşe */
-  --radius-card: 20px;
-  --edge: 1.5px solid var(--bone-faint);
+  /* leftflow referansı: dolgun/çembere yakın köşe yerine daha keskin,
+     resmi bir dil — kart/panel köşeleri belirgin şekilde küçültüldü. */
+  --radius-card: 8px;
+  --edge: 1.5px solid rgba(20, 19, 15, 0.14);
   --measure: 1320px;
+
+  /* Kağıt hissi: leftflow.ai'nin gerçek CSS'inden çıkarıldı (lf-grain /
+     lf-grid-l / lf-grid-d). Açık zeminde multiply (dokuyu koyulaştırıp
+     sarıya kaçan bir kağıt lifi hissi verir), koyu zeminde screen
+     (çok düşük opaklıkla hafifçe aydınlatır). */
+  --grain-blend: multiply;
+  --grain-opacity: 0.28;
+  --grid-line: rgba(20, 19, 15, 0.05);
 }
 
 /* ---------- 2. RESET & TEMEL ---------- */
@@ -97,15 +110,36 @@ body {
   background-attachment: fixed;
 }
 
-/* Grain / doku katmanı — SVG noise, tıklamayı engellemez */
-body::after {
+/* ---------- KAĞIT DOKUSU (.grain) + IZGARA (.grid-lines) ----------
+   leftflow.ai'nin gerçek CSS'inden birebir çıkarıldı: feTurbulence noise
+   + blend-mode. .tone-dark/.tone-paper2 içindeki --grain-*/--grid-line
+   token override'larıyla otomatik doğru tona uyuyor — section'a eklenen
+   tek class yeterli, sıfırdan hesap gerekmiyor. */
+.grain { isolation: isolate; position: relative; }
+.grain::after {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: 9999;
+  z-index: 1;
   pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: var(--grain-blend);
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* ::before overlay (değil doğrudan background-image) — böylece .footer/.cta-band
+   gibi kendi `background` shorthand'ını geç tanımlayan sınıflarla birleşince
+   ezilmiyor; kaynak sırasından bağımsız her zaman görünür kalıyor. */
+.grid-lines { isolation: isolate; position: relative; }
+.grid-lines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 72px 72px;
 }
 
 img,
@@ -264,6 +298,23 @@ textarea { font: inherit; color: inherit; }
 /* ch birimi başlığın kendi fontuna göre ölçülür — display-l üzerinde uygula,
    container'da uygulanırsa sans 16px'e göre hesaplanıp aşırı daralır. */
 .section-head .display-l { max-width: 22ch; }
+
+/* leftflow referansı: başlık solda, açıklama sağda yan yana — karşılaştırma
+   tablosu gibi geniş içerikli bölümlerde dikey stack yerine kullanılır. */
+.section-head--split {
+  display: grid;
+  gap: var(--s-4);
+  justify-items: start;
+  margin-bottom: var(--s-5);
+}
+.section-head--split .body-text { max-width: 46ch; color: var(--bone-dim); }
+@media (min-width: 860px) {
+  .section-head--split {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: end;
+  }
+  .section-head--split .body-text { justify-self: end; text-align: left; }
+}
 
 /* Bölüm içi ikincil başlık — ana başlıktan sonra gelen alt gruplar için */
 .section-head--sub {
@@ -650,21 +701,45 @@ textarea { font: inherit; color: inherit; }
 .spec-list__val { color: var(--bone-dim); line-height: 1.7; }
 
 /* ---------- 8. HEADER ---------- */
+/* leftflow referansı: header en üstte tamamen şeffaf, yalnız kaydırılınca
+   koyu frosted zemin kazanıyor (elvora.js masthead .is-stuck ekliyor).
+   Header artık her sayfada tone-dark — metin/ikonlar her zaman açık renk. */
 .masthead {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(12, 12, 11, 0.72);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border-bottom: 1px solid transparent;
   transition:
     border-color 0.3s linear,
-    background-color 0.3s linear;
+    background-color 0.3s linear,
+    backdrop-filter 0.3s linear;
 }
+/* leftflow referansı: kaydırılınca header koyu kalmaz, açık/beyaz zemine
+   döner — metin ve dropdown panelleri de buna göre koyulaşır. */
 .masthead.is-stuck {
-  border-bottom-color: var(--bone-hair);
-  background: rgba(12, 12, 11, 0.92);
+  border-bottom-color: rgba(20, 19, 15, 0.1);
+  background: rgba(242, 239, 231, 0.92);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  --ink-base: #f2efe7;
+  --ink-elevated: #ffffff;
+  --ink-floating: #fffdf8;
+  --bone: #14130f;
+  --bone-dim: rgba(20, 19, 15, 0.66);
+  --bone-faint: rgba(20, 19, 15, 0.4);
+  --bone-hair: rgba(20, 19, 15, 0.12);
+}
+.masthead.is-stuck .btn {
+  border-color: rgba(20, 19, 15, 0.3);
+  color: #14130f;
+}
+.masthead.is-stuck .btn:hover {
+  background: #14130f;
+  color: #f2efe7;
+  border-color: #14130f;
 }
 
 .masthead__inner {
@@ -713,50 +788,44 @@ textarea { font: inherit; color: inherit; }
 .nav {
   display: none;
   align-items: center;
-  gap: var(--s-4);
+  gap: 2px;
 }
 @media (min-width: 960px) { .nav { display: flex; } }
 
+/* leftflow referansı: mono/uppercase/altı çizili değil — sans, küçük,
+   sıkı tracking, düz opaklık geçişi. */
 .nav__link {
   position: relative;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-family: var(--font-sans);
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
   color: var(--bone-dim);
-  padding-block: 6px;
+  padding: 8px 14px;
   transition: color 0.25s linear;
 }
-.nav__link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--vermilion);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.45s var(--ease-spring);
-}
 .nav__link:hover { color: var(--bone); }
-.nav__link:hover::after { transform: scaleX(1); }
 .nav__link:focus-visible {
   outline: 2px solid var(--vermilion);
-  outline-offset: 4px;
+  outline-offset: -2px;
   border-radius: 2px;
 }
 .nav__link:active { opacity: 0.6; }
 .nav__link[aria-current='page'] { color: var(--bone); }
-.nav__link[aria-current='page']::after { transform: scaleX(1); }
 
 /* ---------- NAV DROPDOWN — "Çözümler" tek girişte toplanır ----------
    Beş ayrı üst menü linki (Studio/Vision/Identity/Flow/CVO) tek bir
    açılır panele indirildi. Görünürlük visibility+opacity ile yönetilir
    (display:none yerine) ki transform/opacity geçişi çalışsın ve panel
    kapalıyken klavye ile odaklanılamasın. */
-.nav__dropdown { position: relative; }
+/* padding-bottom + negatif margin: trigger ile panel arasındaki boşluk
+   görsel olarak kalıyor ama hoverable kutu kesintisiz — imleç panele
+   giderken boşlukta hover kaybolup menü kapanmıyor. */
+.nav__dropdown {
+  position: relative;
+  padding-bottom: 18px;
+  margin-bottom: -18px;
+}
 
 .nav__dropdown-trigger {
   display: inline-flex;
@@ -774,11 +843,11 @@ textarea { font: inherit; color: inherit; }
 }
 .nav__dropdown.is-open .nav__chevron { transform: rotate(180deg); }
 .nav__dropdown.is-open .nav__dropdown-trigger { color: var(--bone); }
-.nav__dropdown.is-open .nav__dropdown-trigger::after { transform: scaleX(1); }
 
 .nav__dropdown-panel {
   position: absolute;
-  top: calc(100% + 18px);
+  /* .nav__dropdown'ın padding-bottom'u zaten 18px boşluk bırakıyor */
+  top: 100%;
   left: 50%;
   translate: -50% -6px;
   z-index: 110;
@@ -797,6 +866,9 @@ textarea { font: inherit; color: inherit; }
     translate 0.4s var(--ease-spring),
     visibility 0s linear 0.3s;
 }
+/* leftflow referansı: imleç değince anında açılır — .is-open (tık/klavye)
+   JS'siz de çalışan bir yedek, hover ise fare için gecikmesiz tetikleyici. */
+.nav__dropdown:hover .nav__dropdown-panel,
 .nav__dropdown.is-open .nav__dropdown-panel {
   visibility: visible;
   opacity: 1;
@@ -828,6 +900,17 @@ textarea { font: inherit; color: inherit; }
   font-weight: 500;
   color: var(--bone);
 }
+
+/* leftflow referansı: Endüstriler paneli tek sütun liste değil, 3 sütunlu
+   düz isim grid'i — modül alt yazısı yok, sade. */
+.nav__dropdown-panel--grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  width: max-content;
+  min-width: 420px;
+}
+.nav__dropdown-panel--grid .nav__dropdown-item { padding: 9px 14px; }
 .nav__dropdown-item[aria-current='page'] .nav__dropdown-name { color: var(--vermilion); }
 .nav__dropdown-desc {
   font-family: var(--font-mono);
@@ -837,7 +920,30 @@ textarea { font: inherit; color: inherit; }
   color: var(--bone-faint);
 }
 
-.masthead .btn { display: none; }
+/* leftflow referansı: header CTA'sı dolu vermilion hap değil, keskin
+   köşeli, ince çerçeveli bir ghost buton — hover'da dolu beyaza döner. */
+.masthead .btn {
+  display: none;
+  padding: 8px 20px;
+  border-radius: 0;
+  background: transparent;
+  border: 1px solid rgba(242, 239, 231, 0.3);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  box-shadow: none;
+}
+.masthead .btn:hover {
+  background: var(--bone);
+  color: #14130f;
+  border-color: var(--bone);
+  transform: none;
+  box-shadow: none;
+}
+.masthead .btn:active { background: rgba(242, 239, 231, 0.85); transform: none; }
 @media (min-width: 960px) { .masthead .btn { display: inline-flex; } }
 
 /* Mobil menü aç/kapa — Apple tarzı: çerçevesiz, yalnız üç ince çizgi */
@@ -1004,28 +1110,28 @@ textarea { font: inherit; color: inherit; }
   stroke-width: 1.5;
   stroke-opacity: 0.55;
   stroke-dasharray: 300 130 70 190;
-  animation: aura-spin 64s linear infinite;
+  animation: aura-spin 34s linear infinite;
 }
 .aura__ring--2 {
   stroke: var(--vermilion-hot);
   stroke-width: 1.25;
   stroke-opacity: 0.4;
   stroke-dasharray: 150 250 44 96;
-  animation: aura-spin-back 88s linear infinite;
+  animation: aura-spin-back 46s linear infinite;
 }
 .aura__ring--3 {
   stroke: var(--vermilion);
   stroke-width: 1;
   stroke-opacity: 0.28;
   stroke-dasharray: 470 170 80 230;
-  animation: aura-spin 112s linear infinite;
+  animation: aura-spin 58s linear infinite;
 }
 .aura__ring--4 {
   stroke: var(--vermilion);
   stroke-width: 0.9;
   stroke-opacity: 0.18;
   stroke-dasharray: 96 430;
-  animation: aura-spin-back 146s linear infinite;
+  animation: aura-spin-back 74s linear infinite;
 }
 /* İnce noktalı iç halka — dokuyu kırar */
 .aura__ring--dot {
@@ -1041,8 +1147,9 @@ textarea { font: inherit; color: inherit; }
   transform-box: fill-box;
   transform-origin: center;
 }
-.aura__orbit--a { animation: aura-spin 38s linear infinite; }
-.aura__orbit--b { animation: aura-spin-back 52s linear infinite; }
+.aura__orbit--a { animation: aura-spin 20s linear infinite; }
+.aura__orbit--b { animation: aura-spin-back 28s linear infinite; }
+.aura__orbit--c { animation: aura-spin 16s linear infinite; }
 .aura__node { fill: var(--vermilion-hot); }
 .aura__node--soft { fill: var(--vermilion); opacity: 0.5; }
 
@@ -1053,6 +1160,27 @@ textarea { font: inherit; color: inherit; }
   background: radial-gradient(closest-side, rgba(232, 68, 46, 0.16), transparent 72%);
   animation: aura-pulse 11s ease-in-out infinite;
 }
+
+/* ---------- Akan çizgiler — leftflow.ai referansı, ikinci geçiş ----------
+   Aurora (bulanık dönen daire) karmaşık bulundu ve overflow:hidden + blur
+   birleşiminde hero/ticker sınırında bir karartı kesiği yaratıyordu — o
+   yaklaşım tamamen kaldırıldı. leftflow'un GERÇEK oranına dönüldü: 5
+   çizginin 4'ü çok soluk krem (~%13 opaklık), yalnız BİRİ vermilion aksan.
+   Önceki iki denemede birden fazla renkli çizgi vardı, o yüzden "karmaşık"
+   okunuyordu — tek aksan kuralı bu sefer bilinçli olarak korunuyor. */
+.aura__flow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.aura__flow-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 600 600;
+  animation: aura-flow 9s linear infinite;
+}
+@keyframes aura-flow { from { stroke-dashoffset: 1200px; } to { stroke-dashoffset: 0; } }
 
 @keyframes aura-spin      { to { rotate: 360deg; } }
 @keyframes aura-spin-back { to { rotate: -360deg; } }
@@ -1127,7 +1255,8 @@ textarea { font: inherit; color: inherit; }
   .aura__field,
   .aura__ring,
   .aura__orbit,
-  .aura__glow { animation: none; }
+  .aura__glow,
+  .aura__flow-line { animation: none; stroke-dashoffset: 0; }
 }
 /* ---------- 9. HERO ---------- */
 .hero {
@@ -1144,6 +1273,12 @@ textarea { font: inherit; color: inherit; }
 @media (min-width: 768px) {
   .hero--module { padding-block: var(--s-6) var(--s-6); }
 }
+
+/* Yalnız ana sayfanın hero'su: leftflow'un kendi koyusuna (#0d0d0c) daha
+   yakın bir zemin — grain+grid ile birlikte griye kaçıyordu, yazı daha az
+   öne çıkıyordu. Bilinçli olarak yalnız burada; sitenin geri kalanındaki
+   --ink-base/tone-dark değişmiyor. */
+.hero--deep.tone-dark { --ink-base: #0d0d0c; }
 .hero--module .hero__title { max-width: 16ch; }
 
 /* Izgara arkada kalsın diye içerik kendi katmanına çıkar */
@@ -1164,9 +1299,6 @@ textarea { font: inherit; color: inherit; }
   border-block: 1px solid var(--bone-hair);
   overflow: hidden;
   padding-block: var(--s-3);
-  /* Kenarlarda yumuşak sönme */
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 .ticker__track {
   display: flex;
@@ -1174,6 +1306,10 @@ textarea { font: inherit; color: inherit; }
   gap: var(--s-5);
   width: max-content;
   animation: ticker-slide 38s linear infinite;
+  /* Kenarlarda yumuşak sönme — zeminde değil, yalnız kayan içerikte.
+     .ticker'ın kendi arka planı (tone-dark) tam kenara kadar dolu kalır. */
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 .ticker:hover .ticker__track { animation-play-state: paused; }
 @keyframes ticker-slide {
@@ -1200,33 +1336,26 @@ textarea { font: inherit; color: inherit; }
   color: var(--bone-faint);
 }
 
-/* ---------- 10. CTA BANDI — iklipseworld referansı: dolgu renk blok panel
-   6 sayfada birebir. Zeminden ayrılan, yuvarlak köşeli, dolu vermilion
-   bir "blok" — soluk radial ışıma yerine markanın kendisi konuşuyor. */
+/* ---------- 10. CTA BANDI ----------
+   Önceki hâli dolgu vermilion gradyanlı, yuvarlak köşeli, kayan bir "blok"
+   idi — sitenin geri kalanı leftflow'un koyu/grain/grid diline geçince bu
+   eski hâl kimlikten kopuk kaldı. leftflow'un kendi kapanışı da böyle:
+   dolgu renk değil, koyu zemin + doku; vermilion yalnız aksan (buton, üst
+   çizgi, italик vurgu). Full-bleed — artık ayrı bir "kart" gibi durmuyor,
+   sitenin diğer koyu bölümleriyle aynı aileden. */
 .cta-band {
   position: relative;
   overflow: hidden;
-  margin-inline: var(--s-2);
-  border-radius: 28px;
-  background: linear-gradient(155deg, var(--vermilion-hot) 0%, var(--vermilion) 45%, var(--vermilion-deep) 100%);
-}
-@media (min-width: 768px) { .cta-band { margin-inline: var(--s-4); } }
-
-.cta-band .aura__ring { stroke: var(--bone); }
-.cta-band .aura__ring--dot { stroke: var(--bone); stroke-opacity: 0.14; }
-.cta-band .aura__node,
-.cta-band .aura__node--soft { fill: var(--bone); }
-
-.cta-band .label--accent,
-.cta-band .accent-italic,
-.cta-band .cta-band__title { color: #fff; }
-.cta-band .lede { color: rgba(255, 255, 255, 0.82); }
-.cta-band .btn {
   background: var(--ink-base);
-  color: #fff;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
-.cta-band .btn:hover { background: var(--ink-elevated); }
+.cta-band::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--vermilion);
+  z-index: 2;
+}
 
 .cta-band__inner {
   display: grid;
@@ -1234,7 +1363,7 @@ textarea { font: inherit; color: inherit; }
   justify-items: start;
   padding-block: var(--s-6);
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 @media (min-width: 768px) {
   .cta-band__inner { padding-block: var(--s-7); }
@@ -1898,9 +2027,9 @@ select.field__input option {
     radial-gradient(ellipse 90% 120% at 88% 0%, var(--brand-soft), transparent 68%),
     var(--ink-elevated);
   box-shadow:
-    0 1px 2px rgba(37, 99, 235, 0.08),
-    0 16px 48px rgba(0, 0, 0, 0.45),
-    0 40px 90px rgba(37, 99, 235, 0.08);
+    0 1px 2px rgba(37, 99, 235, 0.1),
+    0 16px 40px -12px rgba(20, 19, 15, 0.22),
+    0 40px 90px rgba(37, 99, 235, 0.1);
 }
 @media (min-width: 768px) { .product { padding: var(--s-5) var(--s-4); } }
 
@@ -2226,8 +2355,14 @@ select.field__input option {
   inset: 0;
   z-index: 10050;
   display: grid;
+  /* place-items yalnız hücre içi hizalar; iki satırlı grid (mark+label)
+     bütün olarak ortalanmak için align/justify-content da gerekiyor —
+     eksik olduğunda çift satır viewport'un üstüne yaslanıyordu. */
   place-items: center;
-  background: #000;
+  align-content: center;
+  justify-content: center;
+  gap: var(--s-3);
+  background: var(--ink-base);
   animation: preloader-out 0.6s var(--ease-out) 1.7s forwards;
 }
 
@@ -2250,7 +2385,9 @@ select.field__input option {
   to   { opacity: 1; scale: 1; }
 }
 
-/* E. işareti — favicon'daki markanın büyütülmüş hali */
+/* E. işareti — favicon'daki markanın büyütülmüş hali.
+   Optik ortalama: "." sağa doğru görsel ağırlık eklediği için geometrik
+   merkez gerçek merkezin sağında kalıyordu — hafif sola kaydırılıyor. */
 .preloader__logo {
   font-family: var(--font-display);
   font-size: clamp(3.75rem, 10vw, 6rem);
@@ -2258,8 +2395,45 @@ select.field__input option {
   color: var(--bone);
   letter-spacing: -0.03em;
   user-select: none;
+  transform: translateX(-0.14em);
 }
 .preloader__dot { color: var(--vermilion); }
+
+/* Mark'ın arkasında yavaş nabız atan sıcak ışıma — derinlik katar */
+.preloader__glow {
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(232, 68, 46, 0.28), transparent 72%);
+  animation: aura-pulse 2.6s ease-in-out infinite;
+}
+
+/* Halkaların etrafında dönen iki küçük parçacık — açılış ekranını tek başına
+   sade bırakmaz, aura'daki orbit/node dilini burada da tekrarlar */
+.preloader__orbit {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.preloader__orbit--a { animation: ring-spin 3.2s linear infinite; }
+.preloader__orbit--b { animation: ring-spin-back 4.4s linear infinite; }
+.preloader__node { fill: var(--vermilion-hot); }
+.preloader__node--soft { fill: var(--vermilion); opacity: 0.6; }
+
+/* Mark'ın altında beliren ince marka etiketi */
+.preloader__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+  animation: preloader-label-in 0.9s var(--ease-out) 0.35s both;
+}
+@keyframes preloader-label-in {
+  from { opacity: 0; translate: 0 6px; }
+  to   { opacity: 1; translate: 0 0; }
+}
 
 /* Dönen / büyüyüp küçülen turuncu çizgiler */
 .preloader__rings {
@@ -2356,3 +2530,315 @@ select.field__input option {
   transition: opacity 0.28s var(--ease-out);
 }
 .page-fade.is-active { opacity: 1; pointer-events: auto; }
+
+/* ---------- 15. PAKET / KARŞILAŞTIRMA / SSS ----------
+   leftflow.ai referansı: fiyatlı paket kartları, "neden biz" karşılaştırma
+   tablosu ve SSS akordeonu. Mevcut token'lar ve .card/.tag dilinden
+   sapmadan, üç küçük yeni bileşen. */
+
+/* Fiyat rozeti — .tag'in vermilion dolu varyantı, .tag--stat'tan daha vurgulu */
+.tag--price {
+  border: 1px solid var(--vermilion);
+  background: var(--vermilion);
+  color: var(--bone);
+  font-weight: 600;
+}
+
+/* Paket kartı içi teslim listesi — .card__text altında sade bir liste */
+.pkg-list {
+  list-style: none;
+  display: grid;
+  gap: 7px;
+  margin-top: var(--s-1);
+}
+.pkg-list li {
+  position: relative;
+  padding-left: var(--s-2);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--bone-dim);
+}
+.pkg-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--vermilion);
+}
+
+/* Yan yana metin + halka görseli — Flow sistem detay sayfalarının boş yan alanı için */
+.split-row {
+  display: grid;
+  gap: var(--s-5);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .split-row { grid-template-columns: 1fr 260px; }
+}
+.split-row__visual { display: none; }
+@media (min-width: 900px) {
+  .split-row__visual { display: block; }
+}
+.side-orbit {
+  position: relative;
+  aspect-ratio: 1;
+}
+.side-orbit__num {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: clamp(56px, 7vw, 92px);
+  line-height: 1;
+  color: var(--ink-base);
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+}
+.side-orbit__svg { width: 100%; height: 100%; overflow: visible; }
+
+/* İki hat / iki yol yan yana — .pitch'i tekil düzenden çıkarır */
+.pitch-grid {
+  display: grid;
+  gap: var(--s-3);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .pitch-grid { grid-template-columns: repeat(2, 1fr); align-items: start; }
+}
+
+/* Karşılaştırma tablosu — "Neden Elvora?" */
+.compare-table__scroll {
+  overflow-x: auto;
+  margin-inline: calc(var(--s-3) * -1);
+  padding-inline: var(--s-3);
+}
+.compare-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+.compare-table th,
+.compare-table td {
+  padding: var(--s-2) var(--s-3);
+  text-align: left;
+  border-bottom: 1px solid var(--bone-hair);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.compare-table th:first-child,
+.compare-table td:first-child { padding-left: 0; white-space: normal; }
+.compare-table td:not(:first-child) { text-align: center; }
+.compare-table thead th:not(:first-child) { text-align: center; }
+.compare-table thead th {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+  padding-bottom: var(--s-2);
+  border-bottom: 2px solid var(--bone);
+}
+.compare-table tbody th,
+.compare-table tbody td { border-bottom-color: var(--bone-hair); }
+.compare-table tbody th {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--bone);
+}
+.compare-table td { color: var(--bone-faint); }
+/* Öne çıkan (Elvora) sütunun koyu dolgusu ve vermilion üst çizgisi
+   aşağıda "18. KARŞILAŞTIRMA İŞARETİ" bloğunda tanımlı. */
+
+/* Destek seviyesi kartları — .card-grid--3 üzerinde çalışır, ekstra kural gerekmez */
+.tier__price {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2vw, 1.75rem);
+  color: var(--bone);
+}
+
+/* SSS akordeonu — native <details>/<summary>, JS gerekmez */
+.faq { display: grid; gap: var(--s-2); }
+.faq__item {
+  border: var(--edge);
+  border-radius: var(--radius-card);
+  background: var(--ink-elevated);
+  overflow: hidden;
+  transition: border-color 0.3s linear, background-color 0.3s linear;
+}
+.faq__item[open] { border-color: var(--vermilion); background: var(--ink-floating); }
+.faq__q {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: var(--s-3);
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  font-weight: 400;
+  color: var(--bone);
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q:focus-visible { outline: 2px solid var(--vermilion); outline-offset: -2px; }
+.faq__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--bone-faint);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--vermilion);
+  transition: transform 0.4s var(--ease-spring), border-color 0.3s linear;
+}
+.faq__item[open] .faq__icon { transform: rotate(45deg); border-color: var(--vermilion); }
+.faq__a {
+  padding: 0 var(--s-3) var(--s-3);
+  color: var(--bone-dim);
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+/* Hero altı gerçek-veri şeridi — sayı uydurmaz, yayınlanmış gerçekleri tekrarlar */
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+  margin-top: var(--s-5);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--bone-hair);
+}
+.hero__stat { display: grid; gap: 2px; }
+.hero__stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  color: var(--bone);
+  letter-spacing: -0.01em;
+}
+.hero__stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+}
+
+/* ---------- 16. KOYU/PAPER-2 TON BLOKLARI ----------
+   leftflow.ai referansı: sayfa tek düze açık değil, bölüm bölüm koyu/açık
+   dönüyor. Token'lar seçici içinde yeniden tanımlanınca (CSS custom
+   property scoping) tüm alt bileşenler — .card, .tag, .step, metinler —
+   otomatik uyum sağlıyor; sıfırdan koyu varyant yazmaya gerek yok. */
+.tone-dark {
+  --ink-base: #14130f;
+  --ink-elevated: #1c1b17;
+  --ink-floating: #232019;
+  --bone: #f2efe7;
+  --bone-dim: rgba(242, 239, 231, 0.66);
+  --bone-faint: rgba(242, 239, 231, 0.4);
+  --bone-hair: rgba(242, 239, 231, 0.14);
+  --grain-blend: screen;
+  --grain-opacity: 0.05;
+  --grid-line: rgba(242, 239, 231, 0.045);
+  background: var(--ink-base);
+  color: var(--bone);
+}
+.tone-paper2 {
+  /* Paper2 açık kalır ama bir tık daha belirgin dokuyla — "ikinci" kağıt tonu */
+  --grain-opacity: 0.32;
+  --ink-base: #e9e5d9;
+  --ink-elevated: #f2efe7;
+  --ink-floating: #ffffff;
+  background: var(--ink-base);
+}
+
+/* İki Hat kartları: Danışmanlık şeffaf/çerçeveli, Flow koyu dolgulu —
+   leftflow'daki Advisory-açık / Systems-koyu eşleşmesiyle birebir. */
+.pitch--outline {
+  background: transparent;
+  border: 1.5px solid var(--bone-faint);
+  box-shadow: none;
+}
+.pitch--dark {
+  --ink-base: #14130f;
+  --ink-elevated: #1c1b17;
+  --bone: #f2efe7;
+  --bone-dim: rgba(242, 239, 231, 0.66);
+  --bone-faint: rgba(242, 239, 231, 0.4);
+  --bone-hair: rgba(242, 239, 231, 0.14);
+  background: var(--ink-base);
+  color: var(--bone);
+  border-color: transparent;
+}
+
+/* ---------- 17. ENDÜSTRİLER — hairline grid ----------
+   leftflow deseni: grid gap 1px + container zemini çizgi rengi, hücreler
+   dolu renk — ayrı kart-gölge yerine kesintisiz çizgili tablo hissi. */
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--bone-hair);
+  border: 1px solid var(--bone-hair);
+}
+@media (min-width: 700px) { .industry-grid { grid-template-columns: repeat(3, 1fr); } }
+.industry-cell {
+  display: flex;
+  align-items: center;
+  min-height: 96px;
+  padding: var(--s-3) var(--s-3);
+  background: var(--ink-base);
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  letter-spacing: -0.01em;
+  transition: background-color 0.3s linear, color 0.3s linear;
+}
+@media (hover: hover) {
+  .industry-cell:hover { background: var(--vermilion); color: #fff; }
+}
+
+/* ---------- 18. KARŞILAŞTIRMA İŞARETİ ----------
+   Metin ("Evet/Bazen/Hayır") yerine leftflow'daki gibi üç ayrı işaret:
+   dolu kare (var), çapraz çizgili kare (kısmen), düz çizgi (yok). Keskin
+   köşeler — bu tabloda hiçbir yuvarlatma kullanılmıyor, bilinçli olarak. */
+.mark { display: inline-block; vertical-align: middle; }
+.mark--yes { width: 13px; height: 13px; background: var(--vermilion); }
+.mark--partial {
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid var(--bone-faint);
+  background:
+    linear-gradient(135deg, transparent calc(50% - 1px), var(--bone-faint) calc(50% - 1px), var(--bone-faint) calc(50% + 1px), transparent calc(50% + 1px));
+}
+.mark--no { width: 12px; height: 1.5px; background: var(--bone-faint); }
+
+/* Karşılaştırma tablosunda öne çıkan sütun: koyu dolgu + üstte vermilion çizgi */
+.compare-table__brand {
+  background: #14130f;
+  color: #f2efe7;
+  --bone-faint: rgba(242, 239, 231, 0.4);
+}
+.compare-table thead th.compare-table__brand {
+  position: relative;
+  color: #f2efe7;
+}
+.compare-table thead th.compare-table__brand::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--vermilion);
+}
+.compare-table td.compare-table__brand,
+.compare-table thead th.compare-table__brand {
+  border-bottom-color: rgba(242, 239, 231, 0.16);
+}
