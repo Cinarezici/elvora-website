@@ -75,6 +75,16 @@
     'Tüm markalar': 'All brands',
 
     '01 / Durum': '01 / Situation',
+    'Darboğaz artık yapmak değil,': 'The bottleneck isn’t building any more —',
+    'sürdürmek.': 'it’s sustaining it.',
+    'Bugün hemen her marka aynı noktada tıkanıyor: doğru ürünü, doğru içeriği ya da doğru kampanyayı ortaya çıkarmak eskisi kadar zor değil. Zor olan, bunu her hafta aynı kalitede':
+      'Nearly every brand hits the same wall today: getting the right product, content or campaign out the door isn’t as hard as it used to be. What’s hard is',
+    'tekrar edebilmek': 'repeating that',
+    '— destek yanıtından içerik üretimine, rapor derlemeden stok takibine kadar.':
+      'at the same quality every week — from support replies to content production, report compiling to stock tracking.',
+    'Elvora bu tekrar eden işi bir kişiye değil, bir': 'Elvora wires that repetitive work into a',
+    'bağlıyor. Hangi modülde çalışırsak çalışalım — Flow, Studio, Vision ya da Identity — aynı prensiple ilerliyoruz: kapsamı netleştirir, sistemi kurar, çalışır durumda bırakırız.':
+      ', not a person. Whichever module we’re working in — Flow, Studio, Vision or Identity — we follow the same principle: clarify the scope, build the system, leave it running.',
     'Darboğaz artık kod değil,': 'The bottleneck isn’t code any more —',
     'dikkat.': 'it’s attention.',
     'Vibe coding ile bir ürünü günler içinde ayağa kaldırmak mümkün. Sonuç: her hafta yüzlerce yeni uygulama, hepsi iyi, hepsi görünmez. Ayrışan taraf ürünü yapan değil, anlatabilen oluyor.':
