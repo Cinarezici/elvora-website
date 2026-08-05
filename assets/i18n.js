@@ -647,8 +647,8 @@
     'Merkez ofis': 'Head office',
 
     /* ---- Ana sayfa: 02 / Sistemler (homepage öne çıkarma) + numaraların kayması ---- */
-    'Bugün': 'Today,',
-    'altı sistem çalıştırıyoruz.': 'we’re running six systems.',
+    'Altı sistem kurduk.': 'We built six systems.',
+    'Şimdi sırası sizde.': 'Now it’s your turn.',
     'Bunlar konsept değil — kurup canlıya aldığımız, test edilmiş sistem paketleri. Kapsam baştan belli, fiyat baştan belli.':
       'These aren’t concepts — they’re tested system packages we’ve built and shipped ourselves. Scope fixed upfront, price fixed upfront.',
     'Tüm Flow sistemlerini incele': 'Browse all Flow systems',
