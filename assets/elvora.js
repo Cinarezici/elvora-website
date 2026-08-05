@@ -159,6 +159,9 @@
     let closeTimer;
     const setOpen = (open) => {
       burger.setAttribute('aria-expanded', String(open));
+      // Panel artık sayfayı örten bir drawer — açıkken arkadaki içerik
+      // kaymasın diye body kilitleniyor.
+      document.body.classList.toggle('nav-open', open);
       window.clearTimeout(closeTimer);
       if (open) {
         panel.hidden = false;
@@ -185,9 +188,11 @@
       }
     });
 
-    // Link tıklanınca kapat
+    // Link tıklanınca ya da arkadaki karartılmış backdrop'a (panelin
+    // kendisine, hiçbir alt öğeye değil) tıklanınca kapat
     panel.addEventListener('click', (e) => {
       if (e.target.closest('a')) setOpen(false);
+      else if (e.target === panel) setOpen(false);
     });
 
     // Masaüstüne genişletilirse paneli sıfırla

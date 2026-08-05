@@ -1041,78 +1041,126 @@ textarea { font: inherit; color: inherit; }
 .masthead .btn:active { background: rgba(242, 239, 231, 0.85); transform: none; }
 @media (min-width: 1240px) { .masthead .btn { display: inline-flex; } }
 
-/* Mobil menü aç/kapa — Apple tarzı: çerçevesiz, yalnız üç ince çizgi */
+/* Mobil menü aç/kapa — her zaman fark edilir bir "chip" zemini var, artık
+   yalnızca ince çizgilere (kolayca kaybolan) güvenmiyor. Açıkken vermilion
+   dolgu + X'e dönüşüm. */
 .burger {
   display: inline-flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 6px;
-  width: 32px;
-  height: 32px;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
   padding: 0;
-  background: transparent;
-  border: 0;
+  background: var(--bone-hair);
+  border: 1px solid var(--bone-hair);
+  border-radius: 12px;
   cursor: pointer;
-  transition: opacity 0.25s linear, transform 0.45s var(--ease-spring);
+  transition:
+    background-color 0.3s linear,
+    border-color 0.3s linear,
+    transform 0.45s var(--ease-spring);
 }
 @media (min-width: 1240px) { .burger { display: none; } }
-.burger:hover { opacity: 0.6; }
-.burger:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 4px; border-radius: 2px; }
+.burger:hover { border-color: var(--bone-faint); }
+.burger:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 3px; }
 .burger:active { transform: scale(0.94); }
 .burger span {
   display: block;
-  height: 1px;
+  width: 20px;
+  height: 1.5px;
+  border-radius: 1px;
   background: var(--bone);
-  transition: transform 0.45s var(--ease-spring), opacity 0.25s linear;
+  transition: transform 0.45s var(--ease-spring), opacity 0.25s linear, background-color 0.3s linear;
 }
-.burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger[aria-expanded='true'] {
+  background: var(--vermilion);
+  border-color: var(--vermilion);
+}
+.burger[aria-expanded='true'] span { background: #fff; }
+.burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .burger[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
-.burger[aria-expanded='true'] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.burger[aria-expanded='true'] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-/* Panel: hidden→görünür geçişi max-height/opacity ile animasyonlu.
-   JS önce hidden'ı kaldırır, sonra .is-open ekler (bkz. mobileNav()). */
+/* Panel artık sayfayı aşağı itmiyor — sağdan kayan, arka planı karartan
+   bir "drawer". ::before backdrop'u ayrı bir DOM öğesi gerektirmiyor, bu
+   yüzden her sayfada aynı markup'a dokunmadan çalışıyor. JS önce hidden'ı
+   kaldırır, sonra .is-open ekler (bkz. mobileNav()); kapanışta body kilidi
+   de aynı anda kalkıyor. */
 .mobile-nav {
+  position: fixed;
+  top: 76px;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
   display: grid;
-  gap: var(--s-1);
-  padding: 0 var(--s-3) var(--s-4);
-  border-bottom: 1px solid var(--bone-hair);
+  align-content: start;
+  gap: 2px;
+  width: min(88vw, 400px);
+  padding: var(--s-4) var(--s-4) var(--s-5);
+  overflow-y: auto;
   background: var(--ink-elevated);
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.55s var(--ease-spring), opacity 0.4s var(--ease-out);
+  box-shadow: var(--shadow-lift);
+  translate: 100% 0;
+  transition: translate 0.5s var(--ease-spring);
 }
-.mobile-nav.is-open { max-height: 640px; opacity: 1; }
+.mobile-nav::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(8, 7, 5, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+.mobile-nav.is-open { translate: 0 0; }
+.mobile-nav.is-open::before { opacity: 1; pointer-events: auto; }
 .mobile-nav[hidden] { display: none; }
 @media (min-width: 1240px) { .mobile-nav { display: none !important; } }
 
-/* Üst seviye ögeler (Çözümler grubu, Hakkımızda, İletişim, buton)
-   kademeli olarak belirir — alt-menüdeki linkler bu kademeye dahil değil. */
+/* Sayfa arkada kilitliyken kaydırılamasın diye elvora.js açıkken body'ye
+   ekliyor. overflow-x zaten `clip` (bkz. body kuralı) — ikisi de
+   'visible' olmadığı için sticky'yi bozan eksen-eşleşmesi devreye
+   girmiyor. */
+body.nav-open { overflow-y: hidden; }
+
+/* Üst seviye ögeler kademeli belirir — alt-menüdeki linkler bu kademeye
+   dahil değil. */
 .mobile-nav > * {
   opacity: 0;
-  translate: 0 -6px;
+  translate: 16px 0;
   transition: opacity 0.35s var(--ease-out), translate 0.4s var(--ease-spring);
 }
 .mobile-nav.is-open > * { opacity: 1; translate: 0 0; }
-.mobile-nav > *:nth-child(1) { transition-delay: 0.03s; }
-.mobile-nav > *:nth-child(2) { transition-delay: 0.08s; }
+.mobile-nav > *:nth-child(1) { transition-delay: 0.05s; }
+.mobile-nav > *:nth-child(2) { transition-delay: 0.09s; }
 .mobile-nav > *:nth-child(3) { transition-delay: 0.13s; }
-.mobile-nav > *:nth-child(4) { transition-delay: 0.18s; }
+.mobile-nav > *:nth-child(4) { transition-delay: 0.17s; }
+.mobile-nav > *:nth-child(5) { transition-delay: 0.21s; }
+.mobile-nav > *:nth-child(6) { transition-delay: 0.25s; }
+.mobile-nav > *:nth-child(7) { transition-delay: 0.29s; }
+.mobile-nav > *:nth-child(8) { transition-delay: 0.33s; }
 
+/* Sekmeler artık okunaklı bir menü satırı gibi — küçük mono/uppercase
+   "spec sheet" hissi yerine gerçek uygulama tipografisi. */
 .mobile-nav a {
-  padding-block: var(--s-2);
+  display: flex;
+  align-items: center;
+  padding-block: 15px;
   border-bottom: 1px solid var(--bone-hair);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--bone-dim);
-  transition: color 0.25s linear, transform 0.45s var(--ease-spring);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  transition: color 0.25s linear, padding-left 0.3s var(--ease-spring);
 }
-.mobile-nav a:hover { color: var(--vermilion); transform: translateX(4px); }
+.mobile-nav a:hover, .mobile-nav a:focus-visible { color: var(--vermilion); padding-left: var(--s-1); }
 .mobile-nav a:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 2px; }
 .mobile-nav a:active { opacity: 0.6; }
-.mobile-nav .btn { margin-top: var(--s-2); }
+.mobile-nav .btn { margin-top: var(--s-4); width: 100%; justify-content: center; }
 
 /* "Çözümler" alt-akordeonu — ürün linkleri Hakkımızda/İletişim'den ayrı */
 .mobile-nav__toggle {
@@ -1120,24 +1168,24 @@ textarea { font: inherit; color: inherit; }
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-block: var(--s-2);
+  padding-block: 15px;
   border: 0;
   border-bottom: 1px solid var(--bone-hair);
   background: none;
   font: inherit;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--bone-dim);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--bone);
   cursor: pointer;
   transition: color 0.25s linear;
 }
-.mobile-nav__toggle:hover { color: var(--bone); }
+.mobile-nav__toggle:hover { color: var(--vermilion); }
 .mobile-nav__toggle:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 2px; }
-.mobile-nav__group.is-open .mobile-nav__toggle { color: var(--bone); }
+.mobile-nav__group.is-open .mobile-nav__toggle { color: var(--vermilion); }
 
-.mobile-nav__chevron { width: 9px; height: 9px; transition: transform 0.35s var(--ease-spring); }
+.mobile-nav__chevron { width: 11px; height: 11px; flex: none; transition: transform 0.35s var(--ease-spring); }
 .mobile-nav__group.is-open .mobile-nav__chevron { transform: rotate(180deg); }
 
 .mobile-nav__submenu {
@@ -1147,11 +1195,13 @@ textarea { font: inherit; color: inherit; }
   opacity: 0;
   transition: max-height 0.4s var(--ease-spring), opacity 0.3s var(--ease-out);
 }
-.mobile-nav__group.is-open .mobile-nav__submenu { max-height: 320px; opacity: 1; }
+.mobile-nav__group.is-open .mobile-nav__submenu { max-height: 480px; opacity: 1; }
 .mobile-nav__submenu a {
-  padding-left: var(--s-2);
-  font-size: 11px;
-  color: var(--bone-faint);
+  padding-block: 13px;
+  padding-left: var(--s-3);
+  font-size: 14.5px;
+  font-weight: 400;
+  color: var(--bone-dim);
 }
 .mobile-nav__submenu a:hover { color: var(--vermilion); }
 
