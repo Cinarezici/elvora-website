@@ -106,7 +106,12 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* `hidden` (bir eksende) tarayıcıda diğer ekseni örtük olarak `auto`
+     kaydırma kutusuna çeviriyor — bu da içerideki position:sticky
+     öğelerinin (ör. iletişim formunun yanındaki sabit metin) referans
+     aldığı kaydırma bağlamını bozup onları sabitlenmeden kaydırıyordu.
+     `clip` aynı görsel taşma-gizleme etkisini verir, bu yan etkisi yok. */
+  overflow-x: clip;
   /* Her sayfa yüklemesinde hafif giriş — reduced-motion global kural
      tarafından animation-duration: 0.01ms'e indirilir, ayrı bir override
      gerekmez. */
@@ -1486,7 +1491,9 @@ textarea { font: inherit; color: inherit; }
    forma da uygulanıyor, böylece CTA'ya kadar gelen ziyaretçi burada
    "bitmemiş" bir sayfaya düşmüyor. */
 .form-panel {
-  background: var(--ink-elevated);
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, var(--vermilion-wash), transparent 65%),
+    var(--ink-elevated);
   border: var(--edge);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
