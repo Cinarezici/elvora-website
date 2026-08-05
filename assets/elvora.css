@@ -89,6 +89,12 @@ html {
      Token yerine sabit değer: burada amaç herhangi bir section'ın rengini
      yansıtmak değil, yükleme anındaki "boş" zeminin her zaman koyu olması. */
   background: #14130f;
+  /* Kaydırma çubuğu için her zaman yer ayır. Aksi halde preloader
+     kilidi (.is-loading → overflow:hidden) kalkınca çubuk birden
+     belirir, sayfa genişliği değişir ve hero içeriği kayar — canlıda
+     ölçülen 0.394 CLS'in asıl nedeni buydu (font-swap değil). */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
 body {
