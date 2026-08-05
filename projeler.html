@@ -73,7 +73,40 @@
           </a>
         </div>
       </div>
-      <a class="nav__link" href="danismanlik.html">Danışmanlık</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="hizmetler-menu">
+          Hizmetler
+          <svg class="nav__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true" focusable="false">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav__dropdown-panel nav__dropdown-panel--grid" id="hizmetler-menu">
+          <a class="nav__dropdown-item" href="danismanlik.html">
+            <span class="nav__dropdown-name">Danışmanlık</span>
+          </a>
+          <a class="nav__dropdown-item" href="hizmetler/workflow-otomasyonu.html">
+            <span class="nav__dropdown-name">Workflow Otomasyonu</span>
+          </a>
+          <a class="nav__dropdown-item" href="hizmetler/ai-otomasyon.html">
+            <span class="nav__dropdown-name">AI Otomasyon</span>
+          </a>
+          <a class="nav__dropdown-item" href="hizmetler/ozel-ai-cozumleri.html">
+            <span class="nav__dropdown-name">Özel AI Çözümleri</span>
+          </a>
+          <a class="nav__dropdown-item" href="hizmetler/b2b-satis-otomasyonu.html">
+            <span class="nav__dropdown-name">B2B Satış Otomasyonu</span>
+          </a>
+          <a class="nav__dropdown-item" href="hizmetler/icerik-uretimi.html">
+            <span class="nav__dropdown-name">İçerik Üretimi</span>
+          </a>
+          <a class="nav__dropdown-item" href="hizmetler/kurumsal-web-sitesi.html">
+            <span class="nav__dropdown-name">Kurumsal Web Sitesi</span>
+          </a>
+          <a class="nav__dropdown-item" href="hizmetler/e-ticaret-webshop.html">
+            <span class="nav__dropdown-name">E-ticaret Webshop</span>
+          </a>
+        </div>
+      </div>
       <a class="nav__link" href="kurum-ici.html">Kurum İçi</a>
       <a class="nav__link" href="projeler.html" aria-current="page">Projeler</a>
       <div class="nav__dropdown">
@@ -138,7 +171,24 @@
       <a href="cozumler/cvoptimizerai.html">CV Optimizer AI</a>
       </div>
     </div>
-    <a href="danismanlik.html">Danışmanlık</a>
+    <div class="mobile-nav__group">
+      <button class="mobile-nav__toggle" type="button" aria-expanded="false" aria-controls="mobil-hizmetler">
+        Hizmetler
+        <svg class="mobile-nav__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true" focusable="false">
+          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="mobile-nav__submenu" id="mobil-hizmetler">
+      <a href="danismanlik.html">Danışmanlık</a>
+      <a href="hizmetler/workflow-otomasyonu.html">Workflow Otomasyonu</a>
+      <a href="hizmetler/ai-otomasyon.html">AI Otomasyon</a>
+      <a href="hizmetler/ozel-ai-cozumleri.html">Özel AI Çözümleri</a>
+      <a href="hizmetler/b2b-satis-otomasyonu.html">B2B Satış Otomasyonu</a>
+      <a href="hizmetler/icerik-uretimi.html">İçerik Üretimi</a>
+      <a href="hizmetler/kurumsal-web-sitesi.html">Kurumsal Web Sitesi</a>
+      <a href="hizmetler/e-ticaret-webshop.html">E-ticaret Webshop</a>
+      </div>
+    </div>
     <a href="kurum-ici.html">Kurum İçi</a>
     <a href="projeler.html" aria-current="page">Projeler</a>
     <div class="mobile-nav__group">
@@ -220,8 +270,8 @@
         </div>
 
         <p class="product__lede">
-          Kendi geliştirip yayına aldığımız AI ürünü. Müşteri işi değil —
-          kurduğumuz ve işlettiğimiz sistem.
+          Kendi geliştirip yayına aldığımız AI ürünü — kurduğumuz ve
+          her gün işlettiğimiz gerçek sistem.
         </p>
 
         <div class="metrics">
@@ -255,39 +305,63 @@
     <div class="shell">
       <div class="section-head">
         <p class="label reveal">02 / Konsept çalışmalar</p>
-        <h2 class="display-l reveal">Henüz müşteri işi değil, <span class="accent-italic">kanıtlanmış fikir.</span></h2>
+        <h2 class="display-l reveal">Konsept aşamasında, <span class="accent-italic">sonucu kanıtlanmış.</span></h2>
       </div>
 
       <div class="work-row">
-        <a class="work-link reveal" href="cozumler/vision.html">
-          <img src="assets/img/konsept/meridian-sonrasi.webp" alt="Sanal olarak döşenmiş oturma odası"
-               width="1600" height="1073" loading="lazy" decoding="async">
-          <span class="work-link__body">
-            <span class="tag tag--konsept">Konsept</span>
-            <span class="work-link__name">MERIDIAN — sanal iç düzenleme</span>
-            <span class="work-link__meta">Emlak · Vision</span>
-          </span>
-        </a>
+        <div class="reveal">
+          <a class="work-link" href="cozumler/vision.html">
+            <img src="assets/img/konsept/meridian-sonrasi.webp" alt="Sanal olarak döşenmiş oturma odası"
+                 width="1600" height="1073" loading="lazy" decoding="async">
+            <span class="work-link__body">
+              <span class="tag tag--konsept">Konsept</span>
+              <span class="work-link__name">MERIDIAN — sanal iç düzenleme</span>
+              <span class="work-link__meta">Emlak · Vision</span>
+            </span>
+          </a>
+          <ul class="pkg-list" style="margin-top: var(--s-2);">
+            <li><strong>Problem:</strong> Boş/gerçek dışı görünen ilan fotoğrafları alıcının ilgisini ilk saniyede kaybediyor; sahne kurmak için pahalı fiziksel staging gerekiyor.</li>
+            <li><strong>Yaklaşım:</strong> Elvora Vision'ın sanal iç düzenleme sistemi kuruldu — boş mekân fotoğrafları saniyeler içinde döşenmiş, satışa hazır görsellere dönüşüyor.</li>
+            <li><strong>Beklenen sonuç:</strong> İlan başına staging maliyetinin ortadan kalkması, yayına çıkış süresinin günlerden dakikalara inmesi.</li>
+          </ul>
+          <p class="card__meta" style="margin-top: var(--s-1);">Emlak · Vision</p>
+        </div>
 
-        <a class="work-link reveal" href="cozumler/studio.html">
-          <img src="assets/img/konsept/nordhaus-yesil.webp" alt="Yeşil kadife koltuk, varyant üretimi"
-               width="1000" height="1241" loading="lazy" decoding="async">
-          <span class="work-link__body">
-            <span class="tag tag--konsept">Konsept</span>
-            <span class="work-link__name">NORDHAUS — katalog varyantı</span>
-            <span class="work-link__meta">Mobilya · Studio</span>
-          </span>
-        </a>
+        <div class="reveal">
+          <a class="work-link" href="cozumler/studio.html">
+            <img src="assets/img/konsept/nordhaus-yesil.webp" alt="Yeşil kadife koltuk, varyant üretimi"
+                 width="1000" height="1241" loading="lazy" decoding="async">
+            <span class="work-link__body">
+              <span class="tag tag--konsept">Konsept</span>
+              <span class="work-link__name">NORDHAUS — katalog varyantı</span>
+              <span class="work-link__meta">Mobilya · Studio</span>
+            </span>
+          </a>
+          <ul class="pkg-list" style="margin-top: var(--s-2);">
+            <li><strong>Problem:</strong> Her renk/kumaş varyantı için ayrı bir stüdyo çekimi gerekiyor; katalog büyüdükçe çekim maliyeti ve takvimi orantısız büyüyor.</li>
+            <li><strong>Yaklaşım:</strong> Elvora Studio'nun varyant üretim sistemi kuruldu — tek bir gerçek çekimden renk/kumaş varyantları otomatik üretiliyor.</li>
+            <li><strong>Beklenen sonuç:</strong> Çekim sayısının belirgin şekilde azalması, yeni varyantın kataloğa girme süresinin kısalması.</li>
+          </ul>
+          <p class="card__meta" style="margin-top: var(--s-1);">Mobilya · Studio</p>
+        </div>
 
-        <a class="work-link reveal" href="cozumler/identity.html">
-          <img src="assets/img/konsept/atelier-kemer-b.webp" alt="Siyah elbise, kemer varyantı — lookbook çalışması"
-               width="900" height="1046" loading="lazy" decoding="async">
-          <span class="work-link__body">
-            <span class="tag tag--konsept">İç çalışma</span>
-            <span class="work-link__name">ATELIER — lookbook varyasyonu</span>
-            <span class="work-link__meta">Moda · Identity</span>
-          </span>
-        </a>
+        <div class="reveal">
+          <a class="work-link" href="cozumler/identity.html">
+            <img src="assets/img/konsept/atelier-kemer-b.webp" alt="Siyah elbise, kemer varyantı — lookbook çalışması"
+                 width="900" height="1046" loading="lazy" decoding="async">
+            <span class="work-link__body">
+              <span class="tag tag--konsept">İç çalışma</span>
+              <span class="work-link__name">ATELIER — lookbook varyasyonu</span>
+              <span class="work-link__meta">Moda · Identity</span>
+            </span>
+          </a>
+          <ul class="pkg-list" style="margin-top: var(--s-2);">
+            <li><strong>Problem:</strong> Lookbook her sezon yeniden çekim istiyor; tek bir ürünün renk/detay varyasyonu bile ayrı prodüksiyon günü demek.</li>
+            <li><strong>Yaklaşım:</strong> Elvora Identity'nin görsel varyasyon sistemi kuruldu — tek çekimden çoklu kombin/detay varyasyonu üretiliyor.</li>
+            <li><strong>Beklenen sonuç:</strong> Sezonluk prodüksiyon yükünün azalması, lookbook'un güncel kalma hızının artması.</li>
+          </ul>
+          <p class="card__meta" style="margin-top: var(--s-1);">Moda · Identity</p>
+        </div>
       </div>
 
       <!-- Otomasyon/Flow tarafını temsil eden 4. konsept — görsel değil, sistem odaklı,

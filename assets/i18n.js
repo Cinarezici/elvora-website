@@ -18,6 +18,14 @@
     'Hakkımızda': 'About',
     'İletişim': 'Contact',
     'Çözümler': 'Solutions',
+    'Hizmetler': 'Services',
+    'Workflow Otomasyonu': 'Workflow Automation',
+    'AI Otomasyon': 'AI Automation',
+    'Özel AI Çözümleri': 'Custom AI Solutions',
+    'B2B Satış Otomasyonu': 'B2B Sales Automation',
+    'İçerik Üretimi': 'Content Creation',
+    'Kurumsal Web Sitesi': 'Corporate Website',
+    'E-ticaret Webshop': 'E-commerce Webshop',
     'Kurum': 'Company',
     'İçeriğe geç': 'Skip to content',
     'Ana menü': 'Main menu',
@@ -26,6 +34,7 @@
     'Dil seçimi': 'Language',
     'Elvora Global — ana sayfa': 'Elvora Global — home',
     'Projenizi anlatın': 'Tell us about your project',
+    'İşlerimizi görün': 'See our work',
     'Çözümleri gör': 'See solutions',
     'Tüm modüller': 'All modules',
     'Detaylara bak': 'See details',
@@ -136,8 +145,8 @@
     'Anlatmak yerine': 'Instead of telling you,',
     'gösterelim.': 'let us show you.',
     'Gerçek ürün — yayında': 'Real product — live',
-    'Kendi geliştirip yayına aldığımız AI ürünü. Müşteri işi değil — kurduğumuz ve işlettiğimiz sistem.':
-      'An AI product we built and shipped ourselves. Not client work — a system we built and run.',
+    'Kendi geliştirip yayına aldığımız AI ürünü — kurduğumuz ve her gün işlettiğimiz gerçek sistem.':
+      'An AI product we built and shipped ourselves — a real system we built and run every day.',
     'Kullanıcı': 'Users',
     'Optimize CV': 'CVs optimised',
     'ATS motoru': 'ATS engines',
@@ -433,8 +442,8 @@
     'Kendi ürünümüz — yayında': 'Our own product — live',
     'Anlatmak yerine': 'Instead of telling you,',
     'yaptık.': 'we built it.',
-    'CV Optimizer AI, Elvora Global’in sıfırdan geliştirip yayına aldığı bir AI ürünü. Bir müşteri işi değil — kendi kurduğumuz, kendi işlettiğimiz sistem. AI ile ne yapabildiğimizin en somut kanıtı.':
-      'CV Optimizer AI is an AI product Elvora Global built from scratch and shipped. Not client work — a system we built and run ourselves. The most concrete proof of what we can do with AI.',
+    'CV Optimizer AI, Elvora Global\'in sıfırdan geliştirip yayına aldığı bir AI ürünü — kendi kurduğumuz, kendi işlettiğimiz, canlıda çalışan bir sistem. AI ile ne yapabildiğimizin en somut kanıtı.':
+      'CV Optimizer AI is an AI product Elvora Global built from scratch and shipped — a system we built, run, and keep live ourselves. The most concrete proof of what we can do with AI.',
     'Ürünü canlı gör': 'See it live',
     '01 / Rakamlar': '01 / Numbers',
     'Çalışan bir ürün, çalışan sayılar.': 'A working product, working numbers.',
@@ -638,8 +647,8 @@
     'Merkez ofis': 'Head office',
 
     /* ---- Ana sayfa: 02 / Sistemler (homepage öne çıkarma) + numaraların kayması ---- */
-    'Şu anda çalışan': 'Six systems',
-    'altı sistem.': 'running right now.',
+    'Bugün': 'Today,',
+    'altı sistem çalıştırıyoruz.': 'we’re running six systems.',
     'Bunlar konsept değil — kurup canlıya aldığımız, test edilmiş sistem paketleri. Kapsam baştan belli, fiyat baştan belli.':
       'These aren’t concepts — they’re tested system packages we’ve built and shipped ourselves. Scope fixed upfront, price fixed upfront.',
     'Tüm Flow sistemlerini incele': 'Browse all Flow systems',
@@ -648,6 +657,17 @@
     '06 / Süreç': '06 / Process',
     '07 / Kurucu': '07 / Founder',
     '08 / Başlarken': '08 / Getting started',
+    '09 / Son Yazılar': '09 / Latest posts',
+
+    /* ---- Ana sayfa: 09 / Son Yazılar ---- */
+    'Yakında yayınlayacaklarımız.': 'What we’ll publish soon.',
+    'Son yazılarımız.': 'Our latest posts.',
+    'Blog\'a git': 'Go to blog',
+    'Yakında': 'Coming soon',
+    'AI otomasyonu bir ajansı nasıl değiştirir?': 'How AI automation changes an agency',
+    'İçerik üretimini sisteme bağlamanın 3 yolu': '3 ways to tie content production to a system',
+    'Marka kimliğinde tutarlılığı AI ile korumak': 'Keeping brand identity consistent with AI',
+    'Marka Sistemleri': 'Brand Systems',
 
     /* ---- Ana sayfa: 02 / İki hat ---- */
     '02 / İki hat': '02 / Two tracks',
@@ -813,12 +833,19 @@
       'Not a sales call — tell us your situation and we’ll work out together which package is right.',
 
     /* ---- blog.html ---- */
-    'Elvora Global blogu yakında yayında. AI otomasyonu, içerik üretimi ve marka sistemleri üzerine yazılar.':
-      'The Elvora Global blog is coming soon. Articles on AI automation, content production and brand systems.',
-    'Yazılar': 'Posts',
-    'yakında.': 'coming soon.',
-    'AI otomasyonu, içerik üretimi ve marka sistemleri üzerine yazılarımızı burada yayınlayacağız. Şu an hazırlanıyor — bu arada projenizi doğrudan bize anlatabilirsiniz.':
-      'We’ll publish articles on AI automation, content production and brand systems here. It’s in the works — in the meantime you can tell us about your project directly.',
+    'AI otomasyonu, içerik üretimi ve marka sistemleri üzerine — sistem kurarken öğrendiklerimizi yazıyoruz.':
+      'On AI automation, content production and brand systems — what we learn as we build these systems.',
+    'Sistem kurarken': 'What we learn',
+    'öğrendiklerimiz.': 'building systems.',
+    'AI otomasyonu, içerik üretimi ve marka sistemleri üzerine — kendi kurduğumuz sistemlerden çıkardığımız gerçek gözlemler.':
+      'On AI automation, content production and brand systems — real observations from the systems we build ourselves.',
+    'Yazıyı oku': 'Read the article',
+    '4 dk okuma · 22 Temmuz 2026': '4 min read · July 22, 2026',
+    '4 dk okuma · 29 Temmuz 2026': '4 min read · July 29, 2026',
+    '5 dk okuma · 4 Ağustos 2026': '5 min read · August 4, 2026',
+    'AI otomasyonu bir ajansı nasıl değiştirir? — yazıyı oku': 'How AI automation changes an agency — read the article',
+    'İçerik üretimini sisteme bağlamanın 3 yolu — yazıyı oku': '3 ways to tie content production to a system — read the article',
+    'Marka kimliğinde tutarlılığı AI ile korumak — yazıyı oku': 'Keeping brand identity consistent with AI — read the article',
 
     /* ---- iletisim.html: select seçenekleri ---- */
     'Danışmanlık — AI & otomasyon stratejisi': 'Advisory — AI & automation strategy',
@@ -842,9 +869,6 @@
 
     /* ---- cozumler/flow-*.html: sistem detay sayfaları ---- */
     'Neler dahil?': 'What’s included?',
-    'Temel, Standart ve Premium destek seviyeleriyle devam ediyoruz — bakım, geliştirme kapasitesi ve yanıt süresi kapsamına göre değişir.':
-      'We continue with Basic, Standard and Premium support levels — they vary by maintenance, development capacity and response time.',
-    'Destek seviyelerine bak': 'See support levels',
     'Tüm Flow sistemleri': 'All Flow systems',
     'Elvora Flow — Sistem 01': 'Elvora Flow — System 01',
     'Sık sorulanları, sipariş durumunu ve kargo takibini otomatik yanıtlayan bir destek hattı. Web sitesi ve WhatsApp üzerinden çalışır, cevaplayamadığını insana devreder.':
@@ -915,6 +939,8 @@
     '01 / Sorun': '01 / The problem',
     '02 / Kapsam': '02 / Scope',
     '03 / Teslim sonrası': '03 / After delivery',
+    'Sistem canlıya alındığında iş bitmiyor — hangi seviyede devam edeceğinize siz karar verirsiniz.':
+      'The work isn’t done once the system goes live — you decide which level you continue at.',
     'Bu bende de var, konuşalım': 'This sounds familiar, let’s talk',
     'Aşağıdakilerin hepsi kapsamda': 'Everything below is included',
     '— ekstra ücret yok, sürpriz yok.': '— no extra fees, no surprises.',
@@ -1158,16 +1184,34 @@
     '01 / Gerçek ürün': '01 / Real product',
     'Yayında olan tek proje.': 'The one project that’s live.',
     '02 / Konsept çalışmalar': '02 / Concept work',
-    'Henüz müşteri işi değil,': 'Not client work yet,',
-    'kanıtlanmış fikir.': 'a proven idea.',
+    'Konsept aşamasında,': 'At concept stage,',
+    'sonucu kanıtlanmış.': 'with a proven outcome.',
     'Konsept marka': 'Concept brand',
     'Problem:': 'Problem:',
+    'Boş/gerçek dışı görünen ilan fotoğrafları alıcının ilgisini ilk saniyede kaybediyor; sahne kurmak için pahalı fiziksel staging gerekiyor.':
+      'Empty, lifeless listing photos lose the buyer’s interest in the first second; staging a room for real means expensive physical setup.',
+    'Yaklaşım:': 'Approach:',
+    'Elvora Vision\'ın sanal iç düzenleme sistemi kuruldu — boş mekân fotoğrafları saniyeler içinde döşenmiş, satışa hazır görsellere dönüşüyor.':
+      'Elvora Vision’s virtual staging system was built — empty-room photos turn into furnished, sale-ready images within seconds.',
+    'Beklenen sonuç:': 'Expected outcome:',
+    'İlan başına staging maliyetinin ortadan kalkması, yayına çıkış süresinin günlerden dakikalara inmesi.':
+      'Staging cost per listing disappears, and time-to-publish drops from days to minutes.',
+    'Her renk/kumaş varyantı için ayrı bir stüdyo çekimi gerekiyor; katalog büyüdükçe çekim maliyeti ve takvimi orantısız büyüyor.':
+      'Every colour/fabric variant needs its own studio shoot; as the catalogue grows, shoot cost and schedule grow out of proportion.',
+    'Elvora Studio\'nun varyant üretim sistemi kuruldu — tek bir gerçek çekimden renk/kumaş varyantları otomatik üretiliyor.':
+      'Elvora Studio’s variant-generation system was built — colour/fabric variants are produced automatically from a single real shoot.',
+    'Çekim sayısının belirgin şekilde azalması, yeni varyantın kataloğa girme süresinin kısalması.':
+      'A clear drop in the number of shoots, and a shorter time for a new variant to reach the catalogue.',
+    'Lookbook her sezon yeniden çekim istiyor; tek bir ürünün renk/detay varyasyonu bile ayrı prodüksiyon günü demek.':
+      'The lookbook demands a reshoot every season; even a single colour/detail variation means another production day.',
+    'Elvora Identity\'nin görsel varyasyon sistemi kuruldu — tek çekimden çoklu kombin/detay varyasyonu üretiliyor.':
+      'Elvora Identity’s visual-variation system was built — multiple outfit/detail variations are produced from a single shoot.',
+    'Sezonluk prodüksiyon yükünün azalması, lookbook\'un güncel kalma hızının artması.':
+      'A lighter seasonal production load, and a lookbook that stays current faster.',
     'Sipariş ve stok verisi ERP, site ve pazaryeri arasında elle senkronlanıyor; ekip zamanının önemli kısmı veri karşılaştırmaya gidiyor.':
       'Order and stock data is synced by hand across the ERP, website and marketplaces; a large share of the team’s time goes into reconciling data.',
-    'Yaklaşım:': 'Approach:',
     'Elvora Flow\'un katalog senkronu sistemi kurgulandı — stok/fiyat güncellemeleri otomatik akıyor, tutarsızlıklar anlık işaretleniyor.':
       'Elvora Flow’s catalogue-sync system was designed — stock/price updates flow automatically, and mismatches are flagged instantly.',
-    'Beklenen sonuç:': 'Expected outcome:',
     'Elle kontrol ihtiyacının büyük ölçüde azalması, ekibin veri karşılaştırmak yerine büyümeye odaklanabilmesi.':
       'A large reduction in manual checking, freeing the team to focus on growth instead of reconciling data.',
     'E-ticaret · Flow': 'E-commerce · Flow',
@@ -1339,6 +1383,537 @@
        girişte kısa çizgi (-) vardı, hiç eşleşmiyordu. */
     'Akış kurulur, sizin verinizle test edilir, üzerinden birlikte geçilir. Tipik olarak 3–8 hafta.':
       'The pipeline is set up, tested with your own data, and walked through together. Typically 3–8 weeks.',
+
+    /* ---- hizmetler/*.html: 7 yeni hizmet sayfası — ortak etiketler ---- */
+    'Hizmet': 'Service',
+    '04 / Teknoloji': '04 / Technology',
+    'Neler yapıyoruz?': 'What do we do?',
+    'Kullandığımız araçlar.': 'The tools we use.',
+    'Elvora Flow çözüyor': 'Elvora Flow solves it',
+    'Elvora çözüyor': 'Elvora solves it',
+
+    /* ---- hizmetler/workflow-otomasyonu.html ---- */
+    'İşiniz nasıl akıyor,': 'How your work flows,',
+    'biz onu sisteme bağlıyoruz.': 'we wire it into a system.',
+    'n8n, Make ve özel entegrasyonlarla iş süreçlerinizi birbirine bağlıyor, otomatikleştiriyor ve büyüdükçe bozulmayacak şekilde kuruyoruz.':
+      'We connect your business processes with n8n, Make and custom integrations, automate them, and build them to hold up as you grow.',
+    'Elvora Flow\'u incele': 'Explore Elvora Flow',
+    'Aynı veri,': 'The same data,',
+    'üç farklı yere elle giriliyor.': 'gets entered by hand in three different places.',
+    'Sipariş sistemi, CRM, muhasebe — hepsi ayrı adalar. Bir bilgi değiştiğinde biri oturup üç yere de elle işlemesi gerekiyor; kimse hangisinin güncel olduğundan emin olamıyor.':
+      'Order system, CRM, accounting — all separate islands. When one piece of information changes, someone has to sit down and enter it in all three by hand; nobody’s sure which one is current.',
+    'Tetikleyici tabanlı bir aksiyon (yeni sipariş geldiğinde otomatik bildirim, stok azalınca otomatik uyarı gibi) kurulmadığı için her şey birinin fark edip harekete geçmesine bağlı kalıyor.':
+      'Without a trigger-based action in place — an automatic alert on a new order, a warning when stock runs low — everything depends on someone noticing and stepping in.',
+    'Tek akış, tek doğru kaynak.': 'One pipeline, one source of truth.',
+    'Araçlarınız birbirine konuşur, veri tek noktadan akar; insan yalnızca istisnalarda devreye girer.':
+      'Your tools talk to each other, data flows from a single point, and a person only steps in for the exceptions.',
+    'Süreç haritalama': 'Process mapping',
+    'Verinin nereden nereye, hangi adımlardan geçerek aktığını çıkarıyoruz — kurulumdan önce netleşiyor.':
+      'We map where the data comes from, where it goes, and which steps it passes through — clarified before we build anything.',
+    'Araç entegrasyonu': 'Tool integration',
+    'CRM, e-posta, takvim, muhasebe — kullandığınız araçları birbirine bağlıyoruz.':
+      'CRM, email, calendar, accounting — we connect the tools you already use to each other.',
+    'Tetikleyici tabanlı otomasyon': 'Trigger-based automation',
+    'Bir şey değiştiğinde sistem otomatik harekete geçer — beklemek yok.':
+      'When something changes, the system acts automatically — no waiting around.',
+    'Hata & istisna yönetimi': 'Error & exception handling',
+    'Akış bir yerde takılırsa sessizce kaybolmaz — işaretlenir, ekibe bildirilir.':
+      'If the flow gets stuck somewhere, it doesn’t vanish quietly — it gets flagged and the team is notified.',
+    'Raporlama & görünürlük': 'Reporting & visibility',
+    'Akışın ne yaptığını görebilirsiniz — kara kutu değil.':
+      'You can see what the pipeline is doing — it’s not a black box.',
+    'Bakım & büyütme': 'Maintenance & growth',
+    'İş büyüdükçe akış da büyür — sıfırdan kurmadan yeni adım ekleriz.':
+      'As the business grows, the pipeline grows with it — we add new steps without rebuilding from scratch.',
+    'Verinin şu an nasıl aktığını ve nerede tıkandığını birlikte yazıyoruz. Tek görüşme.':
+      'We write down together how the data flows today and where it stalls. One session.',
+
+    /* ---- hizmetler/ai-otomasyon.html ---- */
+    'Karar veren otomasyon,': 'Automation that decides,',
+    'sadece çalışan otomasyon değil.': 'not just automation that runs.',
+    'Araçları birbirine bağlamak yetmiyor; akışın içinde kim önce cevaplanacak, hangi talep insana gidecek gibi kararlar da var. Elvora\'nın AI otomasyonu bu kararları modele veriyor — sınıflandırır, önceliklendirir, gerektiğinde devreder.':
+      'Connecting tools isn’t enough — inside the flow there are decisions too: who gets answered first, which request goes to a person. Elvora’s AI automation hands those decisions to the model — it classifies, prioritises, and hands off when needed.',
+    'Destek agent\'ını incele': 'Explore Support Agent',
+    'Akış hızlı,': 'The pipeline is fast,',
+    'karar hâlâ yavaş.': 'the decision is still slow.',
+    'Otomasyon kurulmuş, tetikleyiciler çalışıyor, veri doğru yere gidiyor — ama akışın ortasında hâlâ bir insan bekliyor. "Bu talep acil mi?", "Bu lead\'i kim arasın?", "Bu mesaja ne cevap verilmeli?" soruları geldiğinde sistem duruyor, birinin ekrana bakıp karar vermesi gerekiyor.':
+      'The automation is built, the triggers fire, data goes where it should — but a person is still waiting in the middle of the flow. When questions like "Is this urgent?", "Who should call this lead?", "What should the reply say?" come up, the system stops and someone has to look at the screen and decide.',
+    'Sonuç: gece gelen bir destek talebi sabaha kadar bekliyor, sıcak bir lead soğuyana kadar kimse fark etmiyor, öncelik sırası kimin o an müsait olduğuna göre şekilleniyor. Otomasyonun hızı, karar noktasında insan hızına geriliyor.':
+      'The result: a support request that comes in overnight waits until morning, a hot lead goes cold before anyone notices, and the priority order depends on who happens to be free at the time. The automation’s speed drops back to human speed right at the decision point.',
+    'Sistem sadece taşımaz, karar verir.': 'The system doesn’t just move data — it decides.',
+    'Elvora Flow\'daki sistemler yalnızca veri taşımaz, sınıflandırır ve önceliklendirir — destek agent\'ı ve lead triyajı bunun kanıtı.':
+      'The systems inside Elvora Flow don’t just move data — they classify and prioritise it. Support Agent and Lead Triage are the proof.',
+    'Sınıflandırma modelleri': 'Classification models',
+    'Gelen talebi, mesajı ya da lead\'i kategorisine ve aciliyetine göre otomatik ayırıyoruz — elle etiketleme yok.':
+      'We automatically sort incoming requests, messages or leads by category and urgency — no manual tagging.',
+    'Otonom yanıt üretimi': 'Autonomous reply generation',
+    'Sık tekrarlanan sorulara ve standart taleplere sistem kendi cevabını üretip gönderiyor, insan sadece istisnalarda giriyor.':
+      'For frequently repeated questions and standard requests, the system writes and sends its own reply — a person only steps in for exceptions.',
+    'Önceliklendirme mantığı': 'Prioritisation logic',
+    'Hangi işin önce ele alınacağına dair kuralları modele öğretiyoruz — sıcak lead soğumadan, acil talep beklemeden öne çıkıyor.':
+      'We teach the model the rules for what gets handled first — a hot lead surfaces before it cools, an urgent request before it waits.',
+    'İnsan-devir noktaları': 'Human hand-off points',
+    'Modelin emin olmadığı ya da riskli gördüğü her durum için net bir devir kuralı tanımlıyoruz — sessizce yanlış karar verilmiyor.':
+      'For every case the model is unsure about or flags as risky, we define a clear hand-off rule — no wrong decision slips through quietly.',
+    'Model seçimi & güvenlik': 'Model selection & safety',
+    'İşe uygun modeli seçiyor, prompt\'ları ve erişimi sınırlıyoruz — hız kadar kontrol de kurulumun parçası.':
+      'We pick the right model for the job and limit prompts and access — control is as much a part of the build as speed.',
+    'Sürekli iyileştirme': 'Continuous improvement',
+    'Gerçek kararları izleyip modelin nerede yanıldığını görüyor, prompt ve kuralları buna göre güncelliyoruz.':
+      'We track real decisions, see where the model gets it wrong, and update prompts and rules accordingly.',
+    'Karar noktalarını haritalama': 'Mapping decision points',
+    'Akışın neresinde hâlâ bir insanın karar verdiğini birlikte çıkarıyoruz — hangisi modele devredilebilir, hangisi devredilemez.':
+      'We map together where a person is still making the call in the flow — which decisions can go to the model, and which can’t.',
+    'Model/prompt tasarımı': 'Model / prompt design',
+    'Karar mantığını modele öğretiyoruz — sınıflandırma kuralları, prompt\'lar ve devir eşikleri birlikte netleşiyor.':
+      'We teach the decision logic to the model — classification rules, prompts and hand-off thresholds are settled together.',
+    'Test & devreye alma': 'Test & rollout',
+    'Gerçek verinizle test ediyor, yanlış kararları düzeltiyor, sonra canlıya alıyoruz. Tipik olarak 3–8 hafta.':
+      'We test with your real data, correct wrong decisions, then go live. Typically 3–8 weeks.',
+    'İzleme & iyileştirme': 'Monitoring & improvement',
+    'Model kararlarını görünür kılıyor, zaman içinde doğruluğunu artırıyoruz. İlk 90 gün destek dahil.':
+      'We make the model’s decisions visible and improve their accuracy over time. The first 90 days of support are included.',
+    'CRM entegrasyonları': 'CRM integrations',
+    'Prompt orkestrasyonu': 'Prompt orchestration',
+
+    /* ---- hizmetler/ozel-ai-cozumleri.html ---- */
+    'Hazır kalıba sığmayan problemin,': 'A problem that doesn’t fit a template,',
+    'hazır kalıba sığmayan çözümü.': 'a solution that doesn’t either.',
+    'Standart SaaS araçları ortalama kullanıcı için tasarlanır — sizin iş akışınız için değil. Elvora, rafta duran bir ürünü size zorla uydurmak yerine, sıfırdan sadece sizin süreciniz için çalışan sistemler kurar.':
+      'Standard SaaS tools are designed for the average user — not for your workflow. Instead of forcing an off-the-shelf product to fit you, Elvora builds systems from scratch that work only for your process.',
+    'Özel akışı incele': 'Explore Custom Flow',
+    'Araç size uymuyorsa,': 'If the tool doesn’t fit you,',
+    'siz araca uymaya başlarsınız.': 'you start fitting the tool.',
+    'Hazır SaaS araçları sizin iş akışınıza değil, ortalama kullanıcıya göre tasarlanmış. Ekibiniz her gün o farkı kapatmak için ekstra tıklama, ekstra tablo, ekstra "aslında biz böyle yapmıyoruz ama" alışkanlığı biriktiriyor.':
+      'Off-the-shelf SaaS tools are built for the average user, not for your workflow. Every day your team accumulates extra clicks, extra spreadsheets, extra "that\'s not really how we do it, but" habits to close the gap.',
+    'Zamanla süreç, aracın izin verdiği şekle bükülüyor — aracın süreciniz için bükülmesi gerekirken. Sonuçta kimse yazılımın neden böyle çalıştığını hatırlamıyor, sadece etrafından dolaşmayı öğreniyor.':
+      'Over time the process bends into whatever shape the tool allows — when it should be the tool bending to fit your process. Eventually nobody remembers why the software works the way it does; they just learn to work around it.',
+    'Özel akış — sıfırdan sizin süreciniz için kurulan sistem.': 'Custom flow — a system built from scratch for your process.',
+    'Bu, tam olarak Elvora Flow\'un "Özel akış" sisteminin yaptığı iş: hazır şablon değil, sizin operasyonunuza göre baştan tasarlanmış bir mimari.':
+      'This is exactly what Elvora Flow’s "Custom flow" system does: not a ready-made template, but an architecture designed from the ground up around your operation.',
+    'İşin gerçek akışını, istisnalarını ve darboğazlarını saha görüşmeleriyle çıkarıyoruz — varsayımla değil.':
+      'We map the real flow of the work, its exceptions and bottlenecks, through on-the-ground conversations — not assumptions.',
+    'Mimari tasarım': 'Architecture design',
+    'Sistemi büyüdükçe bozulmayacak şekilde tasarlıyoruz; her modül tek başına anlaşılır ve değiştirilebilir kalıyor.':
+      'We design the system so it doesn’t break as it grows; every module stays understandable and replaceable on its own.',
+    'Özel entegrasyonlar': 'Custom integrations',
+    'Kullandığınız araçlar arasında hazır konnektör yoksa kendimiz kuruyoruz — API\'ler bunun için var.':
+      'If there’s no ready-made connector between the tools you use, we build one ourselves — that’s what APIs are for.',
+    'Veri güvenliği': 'Data security',
+    'Hassas veri akışlarını yetkilendirme ve şifreleme katmanlarıyla kuruyoruz; erişim her zaman izlenebilir.':
+      'We build sensitive data flows with authorisation and encryption layers; access is always traceable.',
+    'Ölçeklenebilirlik': 'Scalability',
+    'Bugün on kayıt işleyen sistem, yarın on bin kayıt geldiğinde de aynı güvenle çalışır.':
+      'A system that processes ten records today works with the same reliability when ten thousand arrive tomorrow.',
+    'Devir & dokümantasyon': 'Handover & documentation',
+    'Sistem nasıl çalışıyor, nasıl genişletilir — hepsi yazılı olarak ekibinize teslim edilir.':
+      'How the system works, how it’s extended — all of it is handed over to your team in writing.',
+    'Süreci baştan sona birlikte anlatıyoruz — kimse aracı dinlemiyor, işi dinliyoruz.':
+      'We walk through the whole process together, start to finish — nobody’s listening to the tool, we’re listening to the work.',
+    'Mimari & kapsam': 'Architecture & scope',
+    'Sistemin nasıl kurulacağı, hangi parçalardan oluşacağı ve takvimi tek belgede netleşiyor.':
+      'How the system will be built, what it’s made of, and the timeline are all settled in a single document.',
+    'Geliştirme & test': 'Development & testing',
+    'Sistem gerçek verinizle kurulur ve test edilir; sürpriz olmadan devreye alınır.':
+      'The system is built and tested with your real data, then rolled out without surprises.',
+    'Devreye alma': 'Rollout',
+    'Ekibiniz sistemi canlıda kullanmaya başlar; ilk dönem yakından destek veriyoruz.':
+      'Your team starts using the system live; we stay closely involved through the first stretch.',
+    'API entegrasyonları': 'API integrations',
+    'Özel veritabanı çözümleri': 'Custom database solutions',
+
+    /* ---- hizmetler/b2b-satis-otomasyonu.html ---- */
+    'Sıcak lead soğumadan,': 'Before a hot lead goes cold,',
+    'doğru kişiye ulaşsın.': 'get it to the right person.',
+    'Farklı kanallardan gelen talepleri otomatik sınıflandırıp önceliklendiren, CRM\'e yazan ve ilk yanıtı gönderen bir sistem kuruyoruz — satış ekibiniz yalnızca sıcak lead\'lere odaklanır.':
+      'We build a system that automatically classifies and prioritises requests from every channel, writes them to your CRM, and sends the first reply — your sales team focuses only on hot leads.',
+    '$6.500+': '$6,500+',
+    'Lead triyajını incele': 'Explore Lead Triage',
+    'Talepler her yerden geliyor,': 'Requests come in from everywhere,',
+    'önceliği kimse bilmiyor.': 'and nobody knows the priority.',
+    'Form, WhatsApp, Instagram DM, telefon — talepler farklı kanallardan geliyor ve her biri ayrı bir kişi tarafından takip ediliyor. Hiçbiri tek bir yerde birleşmiyor, hatta hangi talebin ne zaman geldiği bile net değil.':
+      'Form, WhatsApp, Instagram DM, phone — requests come in through different channels, each followed up by a different person. None of it comes together in one place; it’s not even clear when a given request arrived.',
+    'Satın almaya hazır bir müşteri ile sadece bilgi toplayan biri aynı sırada bekliyor. Kim önce aranmalı sorusunun cevabını genelde deneyim ve refleks belirliyor — yazılı, tutarlı bir kural değil.':
+      'A customer ready to buy waits in the same queue as someone just gathering information. Who gets called first is usually decided by instinct and experience — not a written, consistent rule.',
+    'Bu otomasyonu Elvora Flow\'un Lead Triyajı sistemi kurar ve işletir — kanaldan bağımsız toplama, önceliklendirme, CRM senkronu ve otomatik ilk yanıt tek pakette.':
+      'Elvora Flow’s Lead Triage system builds and runs this automation — channel-agnostic collection, prioritisation, CRM sync and an automatic first reply, all in one package.',
+    'Çok kanallı lead toplama': 'Multi-channel lead collection',
+    'Form, WhatsApp, Instagram ve e-posta üzerinden gelen talepleri tek bir akışta topluyoruz — hiçbir kanal gözden kaçmıyor.':
+      'We collect requests from forms, WhatsApp, Instagram and email into a single flow — no channel gets missed.',
+    'Otomatik sınıflandırma': 'Automatic classification',
+    'Gelen her talep içeriğine göre otomatik olarak etiketlenir ve doğru kategoriye yönlendirilir.':
+      'Every incoming request is tagged automatically based on its content and routed to the right category.',
+    'Önceliklendirme': 'Prioritisation',
+    'İdeal müşteri profiline ve satın alma sinyaline göre hangi talebin önce ele alınacağı otomatik belirlenir.':
+      'Which request gets handled first is decided automatically, based on your ideal customer profile and buying signals.',
+    'CRM senkronu': 'CRM sync',
+    'Lead bilgisi elle girilmeden CRM\'inize çift yönlü olarak yazılır, tekrarlanan kayıt oluşmaz.':
+      'Lead data is written to your CRM two-way, without manual entry — no duplicate records.',
+    'Otomatik ilk yanıt': 'Automatic first reply',
+    'Talep geldiği anda kişiselleştirilmiş bir ilk yanıt gönderilir, müşteri beklemede kalmaz.':
+      'A personalised first reply goes out the moment a request arrives — the customer never waits.',
+    'Pipeline raporlama': 'Pipeline reporting',
+    'Hangi kanaldan kaç lead geldiği ve ne kadarının dönüştüğü haftalık olarak raporlanır.':
+      'How many leads came from which channel, and how many converted, is reported every week.',
+    'Kanal haritalama': 'Channel mapping',
+    'Talebin hangi kanallardan geldiğini ve şu an nasıl takip edildiğini birlikte çıkarıyoruz. Tek görüşme.':
+      'We map together which channels requests come from and how they’re tracked today. One session.',
+    'Kriter & kapsam': 'Criteria & scope',
+    'Önceliklendirme kuralları, hedef CRM ve teslim kapsamı tek belgede netleşiyor. Sonradan genişleyen kapsam yok.':
+      'Prioritisation rules, target CRM and delivery scope are settled in a single document. No scope creep later.',
+    'Kurulum & test': 'Build & test',
+    'Otomasyon kurulur, gerçek verinizle test edilir, üzerinden birlikte geçilir. Tipik olarak 5–7 hafta.':
+      'The automation is built, tested with your real data and reviewed together. Typically 5–7 weeks.',
+    'Sistem nasıl çalışıyor, yazılı olarak teslim edilir. İlk 90 gün destek dahil, sonrası size kalır.':
+      'How the system works is handed over in writing. The first 90 days of support are included; after that it’s yours.',
+
+    /* ---- hizmetler/icerik-uretimi.html ---- */
+    'İçerik bir kişiye değil,': 'Content shouldn’t depend on one person —',
+    'bir sisteme bağlı olsun.': 'it should depend on a system.',
+    'Strateji, üretim, yayın ve analiz — içerik sürecinizin her adımını AI destekli bir sistemle kuruyor, tek kişiye bağımlılığı ortadan kaldırıyoruz.':
+      'Strategy, production, publishing and analysis — we build every step of your content process with an AI-backed system, removing the dependency on any one person.',
+    'Elvora Studio\'yu incele': 'Explore Elvora Studio',
+    'O kişi izinliyse,': 'If that one person is away,',
+    'içerik de izinli oluyor.': 'so is your content.',
+    'İçerik üretimi tek bir kişiye bağlı — metni o yazıyor, görseli o hazırlıyor, yayını o yapıyor. O kişi izinli ya da hastaysa üretim tamamen duruyor, takvim boş kalıyor.':
+      'Content production depends on one person — they write the copy, prepare the visuals, do the publishing. If that person is on leave or sick, production stops completely and the calendar sits empty.',
+    'Bir kişi hastalanınca içerik değil, marka sesi de duruyor demek. Sorun yaratıcılık eksikliği değil — üretimin bir sisteme değil bir bireye bağlı olması.':
+      'When one person gets sick, it’s not just content that stops — the brand’s voice does too. The problem isn’t a lack of creativity, it’s that production depends on an individual instead of a system.',
+    'İçerik akışı üretimi sistematikleştirir, Studio reklam içeriğini ölçekler.': 'Content flow systematises production, Studio scales your ad content.',
+    'İki sistem birlikte çalışır: İçerik akışı organik üretimi hiç durmayan bir hatta bağlar, Elvora Studio reklam içeriğini insan olmadan ölçekler.':
+      'Two systems work together: Content flow wires organic production into a pipeline that never stops, and Elvora Studio scales your ad content without a person behind every piece.',
+    'İçerik stratejisi': 'Content strategy',
+    'Hangi konu, hangi kanalda, hangi sıklıkta yayınlanacağını markanızın hedefine göre çıkarıyoruz.':
+      'We work out which topic, on which channel, at what frequency — based on your brand’s goals.',
+    'Otomatik üretim akışı': 'Automated production flow',
+    'Metin, görsel ve video taslakları elle değil, kurulu bir akıştan üretilir — kimse boş sayfayla başlamaz.':
+      'Copy, image and video drafts come from a built pipeline, not by hand — nobody starts from a blank page.',
+    'Marka sesi tutarlılığı': 'Brand voice consistency',
+    'Sistem marka tonunuzu öğrenir, kim üretirse üretsin çıktı aynı sesle konuşur.':
+      'The system learns your brand’s tone, so no matter who produces it, the output speaks with the same voice.',
+    'Reklam içeriği üretimi': 'Ad content production',
+    'Elvora Studio ile reklam varyantlarını hızlıca çoğaltıp test edilebilir hale getiriyoruz.':
+      'With Elvora Studio we quickly multiply ad variants and make them test-ready.',
+    'Yayın takvimi otomasyonu': 'Publishing calendar automation',
+    'Onaylanan içerik otomatik zamanlanır, yayın günü kimsenin hatırlamasına bağlı kalmaz.':
+      'Approved content gets scheduled automatically — publish day doesn’t depend on anyone remembering.',
+    'Performans analizi': 'Performance analysis',
+    'Hangi içerik işe yarıyor görünür hale gelir, bir sonraki üretim buna göre şekillenir.':
+      'What’s working becomes visible, and the next round of production is shaped by it.',
+    'Strateji': 'Strategy',
+    'Marka sesini, hedef kitleyi ve kanalları birlikte netleştiriyoruz. Tek görüşme.':
+      'We clarify your brand voice, target audience and channels together. One session.',
+    'İçerik akışı ve Studio devreye girer; metin, görsel ve reklam varyantı üretilir.':
+      'Content flow and Studio kick in — copy, visuals and ad variants get produced.',
+    'Yayınlama': 'Publishing',
+    'Onaylanan içerik takvime göre otomatik yayınlanır — kimse elle paylaşmaz.':
+      'Approved content publishes automatically on schedule — nobody posts it by hand.',
+    'Performans raporlanır, bir sonraki üretim döngüsü bu veriyle güncellenir.':
+      'Performance gets reported, and the next production cycle updates based on that data.',
+    'Görsel/video üretim araçları': 'Visual/video production tools',
+    'Sosyal medya zamanlama araçları': 'Social media scheduling tools',
+
+    /* ---- hizmetler/kurumsal-web-sitesi.html ---- */
+    'Hızlı, doğru kurulmuş,': 'Fast, properly built,',
+    'sizi temsil eden bir kurumsal site.': 'a corporate site that represents you.',
+    'Markanızı doğru yansıtan, hızlı yüklenen ve kolayca güncellenebilen bir kurumsal web sitesini haftalar içinde canlıya alıyoruz.':
+      'We take a corporate website that truly reflects your brand, loads fast and updates easily, live within weeks.',
+    'Site markayı yansıtmıyor,': 'The site doesn’t reflect the brand,',
+    've aylarca sürüyor.': 'and it takes months.',
+    'Kurumsal sitenin markayı yansıtması, hızlı yüklenmesi ve güncel kalması gerekiyor ama çoğu ajans bunu aylarca sürdürüyor. Brief toplanır, tasarım turları uzar, geliştirme klasik bir yazılım projesine döner — bu sırada rakipler zaten yayında.':
+      'A corporate site needs to reflect the brand, load fast and stay current — but most agencies stretch that out for months. The brief gets gathered, design rounds drag on, development turns into a classic software project — and meanwhile your competitors are already live.',
+    'Sonuçta ortaya çıkan da çoğu zaman bir şablonun rengi değiştirilmiş hali oluyor. Site canlıya alındıktan sonra kimse dokunmuyor; içerik eskiyor, sayfa hızı düşüyor, marka birkaç yıl önceki haliyle donup kalıyor.':
+      'What comes out the other end is usually a template with the colours swapped. Once the site goes live, nobody touches it again; content goes stale, page speed drops, and the brand freezes in whatever shape it was a few years ago.',
+    'Elvora — kurumsal site kurulumu': 'Elvora — corporate site build',
+    'Haftalar içinde canlıda, markanıza özel.': 'Live within weeks, built around your brand.',
+    'AI destekli tasarım ve geliştirme süreciyle, aylar süren klasik ajans sürecini haftalara indiriyoruz.':
+      'With an AI-assisted design and development process, we cut a classic months-long agency process down to weeks.',
+    'Marka odaklı tasarım': 'Brand-first design',
+    'Hazır şablon değil, marka kimliğinizden çıkan bir tasarım dili — renk, tipografi ve düzen markanıza özel kurgulanır.':
+      'Not a ready-made template — a design language drawn from your brand identity. Colour, typography and layout are all built around you.',
+    'Hızlı geliştirme': 'Fast development',
+    'AI destekli geliştirme akışıyla klasik yazılım sürecinin haftalarını günlere indiriyoruz.':
+      'With an AI-assisted development flow, we turn weeks of a classic software process into days.',
+    'Mobil & performans optimizasyonu': 'Mobile & performance optimisation',
+    'Site her ekranda düzgün görünür ve hızlı açılır — ziyaretçi beklemeden içeriğe ulaşır.':
+      'The site looks right on every screen and loads fast — visitors reach the content without waiting.',
+    'SEO temelleri': 'SEO fundamentals',
+    'Başlık yapısı, meta veriler ve site hızı gibi temel SEO gereksinimleri kurulumdan itibaren doğru kurulur.':
+      'Fundamentals like heading structure, meta data and site speed are set up correctly from day one.',
+    'İçerik yönetimi kurulumu': 'Content management setup',
+    'Metin ve görselleri geliştiriciye ihtiyaç duymadan siz güncelleyebilirsiniz.':
+      'You can update text and images yourself, without needing a developer.',
+    'Site canlıya alındıktan sonra da eskimeden kalması için düzenli bakım ve güncelleme sağlıyoruz.':
+      'We provide ongoing maintenance and updates so the site doesn’t go stale after launch.',
+    'Keşif & içerik envanteri': 'Discovery & content inventory',
+    'Markanızı, hedef kitlenizi ve mevcut içeriklerinizi birlikte çıkarıyoruz. Tek görüşme.':
+      'We map your brand, target audience and existing content together. One session.',
+    'Tasarım': 'Design',
+    'Marka kimliğinize özel sayfa tasarımları hazırlanır, onayınızla ilerlenir.':
+      'Page designs are prepared around your brand identity, and we move forward with your approval.',
+    'Geliştirme': 'Development',
+    'Onaylanan tasarım hızlı, hafif ve mobil uyumlu bir siteye dönüştürülür.':
+      'The approved design is turned into a fast, lightweight, mobile-friendly site.',
+    'Yayına alma & devir': 'Launch & handover',
+    'Site canlıya alınır, içerik yönetim kurulumu size gösterilir. İlk 90 gün destek dahil, sonrası size kalır.':
+      'The site goes live and we walk you through the content management setup. The first 90 days of support are included; after that it’s yours.',
+    'Kullandığımız yaklaşım.': 'The approach we use.',
+    'Statik/hafif framework': 'Static/lightweight framework',
+    'AI destekli copywriting': 'AI-assisted copywriting',
+    'Performans optimizasyonu': 'Performance optimisation',
+    'Mobil öncelikli tasarım': 'Mobile-first design',
+    'Kurumsal web siteniz': 'A corporate website —',
+    'mi gerekiyor?': 'is that what you need?',
+
+    /* ---- hizmetler/e-ticaret-webshop.html ---- */
+    'Ürünleriniz için,': 'For your products,',
+    'satmaya hazır bir mağaza.': 'a store that’s ready to sell.',
+    'Ürün kataloğunuzu satışa çıkaracak bir mağazaya ihtiyacınız var — platform seçiminden ödeme entegrasyonuna kadar sıfırdan kuruyoruz. Bu sayfa mevcut bir mağazayı büyütmek için değil, sıfırdan bir mağaza kurmak için.':
+      'You need a store to put your product catalogue up for sale — we build it from scratch, from choosing the platform to integrating payments. This page is about building a store from zero, not growing an existing one.',
+    'Katalog senkronu ile devamını görün': 'See what comes next with Catalogue sync',
+    'Ürünleriniz hazır,': 'Your products are ready,',
+    'mağazanız değil.': 'your store isn’t.',
+    'Ürün sayısı arttıkça Excel tabloları, WhatsApp siparişleri ve Instagram DM\'leri yetmemeye başlıyor. Hangi üründe kaç adet kaldığını, hangi fiyatın hangi kampanyada geçerli olduğunu takip etmek tek kişinin hafızasına kalıyor.':
+      'As the product count grows, spreadsheets, WhatsApp orders and Instagram DMs stop being enough. Tracking how many units are left of which product, and which price applies to which campaign, ends up living in one person’s memory.',
+    'Mağaza kurmak ise ayrı bir proje gibi duruyor: platform seçimi, ödeme altyapısı, kargo entegrasyonu, tasarım — hepsi birbirinden kopuk kararlar gibi görünüyor ve çoğu zaman hiç başlanamıyor.':
+      'Setting up a store feels like a separate project of its own: platform choice, payment infrastructure, shipping integration, design — they all look like disconnected decisions, and most of the time nobody ever starts.',
+    'Elvora — mağaza kurulumu': 'Elvora — store build',
+    'Mağazayı kuruyoruz; büyüdükçe Katalog senkronu ile stok/fiyat otomasyonuna geçilebilir.':
+      'We build the store; as it grows, you can move to stock/price automation with Catalogue sync.',
+    'Shopify ya da WooCommerce üzerinde satışa hazır bir mağaza kuruyoruz — ürünler, ödeme, kargo, tasarım tek elden. Kataloğunuz büyüdükçe Elvora Flow\'un':
+      'We build a sale-ready store on Shopify or WooCommerce — products, payments, shipping and design, all from one place. As your catalogue grows, you can automate stock and price tracking with Elvora Flow\'s',
+    'modülüyle stok ve fiyat takibini otomatikleştirebilirsiniz.': 'module.',
+    'Mağaza kurulumu (Shopify/WooCommerce)': 'Store setup (Shopify/WooCommerce)',
+    'Markanıza uygun altyapıyı seçip mağazayı sıfırdan Shopify ya da WooCommerce üzerinde kuruyoruz.':
+      'We choose the right infrastructure for your brand and build the store from scratch on Shopify or WooCommerce.',
+    'Ürün kataloğu yapılandırma': 'Product catalogue setup',
+    'Ürünlerinizi kategori, varyant ve görsellerle birlikte mağazaya doğru yapıda taşıyoruz.':
+      'We move your products into the store in the right structure, with categories, variants and images.',
+    'Ödeme & kargo entegrasyonu': 'Payment & shipping integration',
+    'iyzico, Stripe gibi ödeme sağlayıcılarını ve kargo firmalarınızı mağazaya bağlıyoruz.':
+      'We connect payment providers like iyzico and Stripe, and your shipping carriers, to the store.',
+    'Tasarım & marka uyumu': 'Design & brand alignment',
+    'Mağazanın görünümünü marka kimliğinize göre kuruyoruz — hazır şablon değil, size uyan bir vitrin.':
+      'We build the store’s look around your brand identity — not a ready-made template, a storefront that fits you.',
+    'Stok/fiyat senkron hazırlığı': 'Stock/price sync readiness',
+    'Mağazayı, ileride Katalog senkronu ile otomatik stok/fiyat güncellemesine geçişe hazır şekilde yapılandırıyoruz.':
+      'We configure the store so it’s ready to move to automatic stock/price updates with Catalogue sync later on.',
+    'Lansman & devir': 'Launch & handover',
+    'Test siparişleriyle her adımı doğrulayıp mağazayı yayına alıyoruz, kullanımını size devrediyoruz.':
+      'We verify every step with test orders, launch the store, and hand its operation over to you.',
+    'Keşif & platform seçimi': 'Discovery & platform choice',
+    'İhtiyaçlarınızı ve ürün kataloğunuzu birlikte değerlendirip Shopify/WooCommerce arasında doğru platformu seçiyoruz.':
+      'We review your needs and product catalogue together and choose the right platform between Shopify and WooCommerce.',
+    'Seçilen platform üzerinde mağazanın temel altyapısı, sayfaları ve entegrasyonları kuruluyor.':
+      'The store’s core infrastructure, pages and integrations are built on the platform you chose.',
+    'Katalog & entegrasyon': 'Catalogue & integration',
+    'Ürünler, ödeme ve kargo entegrasyonları mağazaya işleniyor, uçtan uca test ediliyor.':
+      'Products, payment and shipping integrations are built into the store and tested end to end.',
+    'Lansman': 'Launch',
+    'Mağaza yayına alınır, kullanımı ekibinize devredilir. İlk destek dahildir.':
+      'The store goes live and its operation is handed over to your team. Initial support is included.',
+    'Kargo entegrasyonları': 'Shipping integrations',
+    'E-ticaret mağazanız': 'An e-commerce store —',
+    'mı gerekiyor?': 'is that what you need?',
+    'Kısa formu doldurun — ürünlerinizi ve ihtiyacınızı anlatın, kapsamı birlikte netleştirelim.':
+      'Fill in the short form — tell us about your products and your needs, and we’ll narrow down the scope together.',
+
+    /* ---- blog/*.html: ortak öğeler ---- */
+    'İlgili yazılar': 'Related articles',
+    'Tüm yazılar': 'All articles',
+    'Blog listesine dön': 'Back to the blog list',
+    'Tüm yazılar — Blog': 'All articles — Blog',
+    '← Blog\'a dön': '← Back to blog',
+    '4 dk okuma': '4 min read',
+    '5 dk okuma': '5 min read',
+    '22 Temmuz 2026': 'July 22, 2026',
+    '29 Temmuz 2026': 'July 29, 2026',
+    '4 Ağustos 2026': 'August 4, 2026',
+    'İçerik akışını incele': 'Explore the content flow',
+    'Elvora Identity\'yi incele': 'Explore Elvora Identity',
+
+    /* ---- blog/ai-otomasyonu-ajansi-nasil-degistirir.html ---- */
+    'AI otomasyonu bir ajansı nasıl değiştirir? — Elvora Global Blog': 'How AI automation changes an agency — Elvora Global Blog',
+    'Ajans operasyonunda otomasyon nerede başlar, tekrarlayan kararların gizli maliyeti nedir ve Elvora Flow\'un istisna bazlı yaklaşımı bir ajans için ne anlama gelir.':
+      'Where automation starts in agency operations, the hidden cost of repeated decisions, and what Elvora Flow’s exception-based approach means for an agency.',
+    'AI otomasyonu bir ajansı': 'How AI automation',
+    'nasıl değiştirir?': 'changes an agency',
+    'Ajans operasyonunda otomasyon nerede başlar?': 'Where does automation start in agency operations?',
+    'Otomasyon, bir işin tetikleyici bir olaya bağlı olarak insan müdahalesi olmadan tamamlanmasıdır. Form dolduğunda otomatik bir e-posta gitmesi, sipariş durumu değiştiğinde CRM\'in güncellenmesi, bir içerik onaylandığında yayına girmesi — bunların hepsi aynı mantığa dayanıyor: kural net olduğu sürece insanın devrede olmasına gerek yok. Ajans operasyonunda otomasyon da tam burada başlıyor — insanın karar verdiği değil, kuralın karar verdiği, insanın yalnızca istisnada devreye girdiği noktada.':
+      'Automation is a task completing without human intervention, triggered by an event. An automatic email when a form is submitted, a CRM record updating when order status changes, content going live once it’s approved — these all rest on the same logic: as long as the rule is clear, a human doesn’t need to be involved. Automation in agency operations starts exactly here — where the rule decides, not the person, and the person only steps in on the exception.',
+    'Bir ajansın günlük işleyişinde bu tür kurallı işler sanılandan çok fazla. Gelen bir teklif talebinin hangi ekibe yönlendirileceği, bir müşteri mesajının hangi öncelikte cevaplanacağı, bir içeriğin hangi onay adımından geçeceği — bunların büyük kısmı aslında sabit bir mantığa göre işliyor. Sorun kuralın olmaması değil; bu kuralın her seferinde elle, yeniden uygulanması.':
+      'An agency’s day-to-day work has far more rule-based tasks than it seems. Which team a proposal request goes to, what priority a client message gets, which approval step a piece of content passes through — most of this actually runs on a fixed logic. The problem isn’t the absence of a rule; it’s that the rule gets applied by hand, over and over.',
+    'Bu ayrım önemli çünkü otomasyonu yanlış yere kurmak, hiç kurmamaktan daha maliyetli olabiliyor. Gerçekten değerlendirme gerektiren bir kararı — örneğin bir teklifin fiyatlandırma stratejisini — otomatikleştirmeye çalışmak işe yaramıyor, çünkü orada insanın deneyimi asıl değeri oluşturuyor. Otomasyonun karşılığını verdiği yer, kararın kendisi değil, kararın':
+      'This distinction matters, because putting automation in the wrong place can cost more than not automating at all. Trying to automate a decision that genuinely needs judgment — a proposal’s pricing strategy, say — doesn’t work, because that’s where human experience creates the real value. Automation pays off not on the decision itself, but on its',
+    'tekrarı': 'repetition',
+    'Tekrarlayan kararların gizli maliyeti': 'The hidden cost of repeated decisions',
+    'Bu tekrar eden kararların maliyeti faturada görünmüyor, ama gerçek. Bir destek talebinin hangi kategoriye girdiğine karar vermek, bir lead\'in sıcak mı soğuk mu olduğunu değerlendirmek, bir içeriğin marka tonuna uyup uymadığını kontrol etmek — bunların her biri tek başına birkaç dakika sürüyor gibi görünür. Ama gün boyunca defalarca tekrarlandığında, ekibin en deneyimli üyelerinin zamanının önemli bir bölümünü yiyor.':
+      'The cost of these repeated decisions doesn’t show up on an invoice, but it’s real. Deciding which category a support request falls into, judging whether a lead is hot or cold, checking whether a piece of content matches the brand tone — each one looks like it takes a few minutes on its own. Repeated all day, though, it eats up a significant share of your most experienced people’s time.',
+    'Asıl sorun bu kararların zor olması değil, sık olması. Senior bir çalışanın stratejik işe ayırması gereken zaman, aynı sınıflandırma sorusuna tekrar tekrar cevap vermekle geçiyor. Bunun iki sonucu oluyor: gerçekten öncelikli işler gecikiyor, ve tekrarlayan iş yükü altında kalite düşüyor — çünkü aynı dikkat her seferinde verilemiyor.':
+      'The real issue isn’t that these decisions are hard — it’s that they’re frequent. Time a senior employee should spend on strategic work goes instead into answering the same classification question again and again. Two things follow: genuinely urgent work gets delayed, and quality drops under the repeated load, because the same attention can’t be given every single time.',
+    'Bu maliyet ayrıca görünmez bir şekilde büyüyor, çünkü hiçbir tek karar tek başına önemli görünmüyor. Bir müşteri talebini önceliklendirmek, bir içeriği tona göre onaylamak — hiçbiri "büyük" bir iş değil. Ama bu küçük kararların toplamı, ekibin haftalık kapasitesinin büyük bir kısmını, fark edilmeden, en kritik olmayan işe ayırıyor.':
+      'This cost also grows invisibly, because no single decision looks important on its own. Prioritising a client request, approving a piece of content for tone — neither is a “big” task. But the sum of these small decisions quietly claims a large share of the team’s weekly capacity for work that isn’t the most critical.',
+    'Elvora Flow\'un yaklaşımı: istisna bazlı otomasyon': 'Elvora Flow’s approach: exception-based automation',
+    'Elvora Flow bu tekrarı ortadan kaldırmak için kurulu birkaç sistemi bir arada çalıştırıyor.':
+      'Elvora Flow runs several built systems together to remove this repetition.',
+    'sık sorulanları, sipariş durumunu ve kargo takibini otomatik yanıtlıyor; cevaplayamadığı durumu olduğu gibi insana devrediyor.':
+      'answers FAQs, order status and shipment tracking automatically, and hands over whatever it can’t answer, as-is, to a person.',
+    'gelen talebi hangi kanaldan geldiğine bakmaksızın topluyor, önceliklendiriyor, CRM\'e yazıyor ve ilk yanıtı otomatik gönderiyor — ekip yalnızca sıcak lead\'e odaklanıyor.':
+      'collects incoming requests regardless of which channel they came from, prioritises them, writes them to the CRM and sends the first reply automatically — the team focuses only on the hot leads.',
+    'ise ürün açıklaması, sosyal medya metni ve görsel varyantını tek seferde üretip onaya düşürüyor, onaylandığında yayınlıyor.':
+      'produces the product description, social copy and image variant in one pass, sends it for approval, and publishes it once approved.',
+    'Üçünün ortak noktası aynı: karar kuralı önceden tanımlanıyor, sistem bu kurala göre otomatik işliyor, insan yalnızca kuralın kapsamadığı istisnada devreye giriyor. Bu, insanı işten çıkarmak değil — insanı doğru işe geri koymak.':
+      'All three share the same logic: the decision rule is defined upfront, the system runs on it automatically, and the person only steps in on the exception the rule doesn’t cover. This isn’t about removing the person — it’s about putting them back on the right work.',
+    'Pratikte bu, ekibin gününün başlangıç noktasını değiştiriyor. Boş bir gelen kutusu ve sınıflandırılmamış bir talep listesiyle güne başlamak yerine, ekip zaten önceliklendirilmiş, zaten bağlamı çıkarılmış bir listeyle çalışıyor. Karar hâlâ insanın — sistem sadece hazırlığı yapıyor.':
+      'In practice, this changes where the team’s day starts. Instead of starting with an empty inbox and an unsorted list of requests, the team works from a list that’s already prioritised, already given context. The decision is still the person’s — the system just does the prep.',
+    'Bir ajans için pratik başlangıç noktası': 'A practical starting point for an agency',
+    'Bir ajans için otomasyona başlamanın en güvenli yolu, doğrudan bir sistem satın almak değil, önce süreci haritalamaktır: hangi iş ne sıklıkla tekrar ediyor, kim yapıyor, ne kadar sürüyor. Bu harita çıkınca hangi sistemin öncelik olduğu genelde kendiliğinden netleşiyor.':
+      'The safest way for an agency to start with automation isn’t to buy a system outright — it’s to map the process first: which task repeats, how often, who does it, how long it takes. Once that map exists, which system should come first usually becomes obvious on its own.',
+    'Elvora\'nın kurulum süreci de bu mantığa göre işliyor. İlk adımda birlikte akış çıkarılıyor — hangi işin tekrar ettiği ve haftada kaç saat gittiği netleşiyor; bu genelde tek bir görüşmeyle ortaya çıkıyor. İkinci adımda kapsam ve fiyat tek belgede sabitleniyor, sonradan büyüyen kapsam olmuyor. Üçüncü adımda sistem kurulup gerçek veriyle test ediliyor — kurulum tipik olarak birkaç hafta sürüyor. Dördüncü adımda nasıl çalıştığı yazılı olarak devrediliyor, ilk 90 gün destek dahil oluyor.':
+      'Elvora’s delivery process follows this same logic. In the first step, we map the workflow together — which task repeats and how many hours a week it takes, usually surfacing in a single call. In the second, scope and price are fixed in a single document, so scope never creeps later. In the third, the system is built and tested against your real data — delivery typically takes a few weeks. In the fourth, how it works is handed over in writing, with support included for the first 90 days.',
+    'Bu sırayı takip etmenin nedeni basit: bir ajans hangi sistemin gerçekten gerekli olduğunu, kapsamı önce görmeden bilemiyor. Akış çıkarma adımı, "otomasyon istiyoruz" gibi genel bir talebi, "şu üç işlem haftada şu kadar saat alıyor" gibi somut bir listeye dönüştürüyor. Karar bu listeden sonra çok daha kolay veriliyor.':
+      'The reason for this order is simple: an agency can’t know which system it genuinely needs without seeing the scope first. The workflow-mapping step turns a vague request like “we want automation” into a concrete list like “these three tasks take this many hours a week.” The decision is much easier once that list exists.',
+    'Ajansınızda hangi işin tekrar ettiğini biliyorsanız, bir sonraki adım kolay: projenizi anlatın, birlikte kapsamı netleştirelim.':
+      'If you already know which task repeats in your agency, the next step is easy: tell us about your project, and we’ll narrow down the scope together.',
+    'Ajansınız için': 'Which system is right',
+    'doğru sistem hangisi?': 'for your agency?',
+
+    /* ---- blog/icerik-uretimini-sisteme-baglamanin-3-yolu.html ---- */
+    'İçerik üretimini sisteme bağlamanın 3 yolu — Elvora Global Blog': '3 ways to tie content production to a system — Elvora Global Blog',
+    'İçerik üretimi neden tek bir kişiye bağlı kalır ve üretimi akışa, görsel üretimini ölçeğe, onay sürecini otomasyona bağlamanın 3 pratik yolu.':
+      'Why content production stays tied to one person, and 3 practical ways to tie production to a flow, scale image production, and automate the approval process.',
+    'İçerik üretimini sisteme': '3 ways to tie content production',
+    'bağlamanın 3 yolu': 'to a system',
+    'İçerik üretimi neden tek bir kişiye bağlı kalır?': 'Why does content production stay tied to one person?',
+    'İçerik üretimi çoğu markada tek bir kişinin — ya da tek bir küçük ekibin — masasından geçen bir zincirdir. Ürün açıklaması, sosyal medya metni, görsel varyant, onay, yayın — her adım bir öncekinin bitmesini bekler ve genelde aynı kişi ya da aynı küçük grup bu adımların çoğundan sorumludur. Bu, iş hızlı ilerlerken fark edilmez. Ama o kişi izne çıktığında, yoğun bir haftaya girdiğinde ya da işten ayrıldığında zincir kırılır — üretim yavaşlamaz, tamamen durur.':
+      'In most brands, content production is a chain that runs through one person — or one small team. Product description, social copy, image variant, approval, publish — each step waits for the last one to finish, and usually the same person or small group is responsible for most of them. This goes unnoticed while things move fast. But when that person takes leave, hits a busy week, or leaves the company, the chain breaks — production doesn’t slow down, it stops entirely.',
+    'Bu tek-nokta-hata bir tercih değil, genelde büyümenin yan etkisidir: içerik ihtiyacı arttıkça iş, elde olan en hızlı kişiye yığılır. Sorun kişinin yetkinliği değil — üretimin bir sisteme değil bir kişiye bağlı olmasıdır. Düzensiz yayın da sonuçsuz kalmıyor; algoritmalar tutarsız yayın yapan hesapları daha az gösteriyor, dolayısıyla gecikme yalnızca iç bir aksaklık değil, dışarıdan da görünür bir kayıp haline geliyor.':
+      'This single point of failure isn’t a choice — it’s usually a side effect of growth: as the need for content grows, the work piles onto whoever is fastest. The problem isn’t that person’s skill — it’s that production is tied to a person, not a system. Irregular publishing isn’t consequence-free either; algorithms show accounts with inconsistent output less, so the delay becomes a loss visible from the outside, not just an internal hiccup.',
+    'Bu noktada yaygın tepki, ikinci bir kişi eklemek oluyor — yedek bir yazar, yedek bir tasarımcı. Bu geçici olarak işe yarasa da sorunu çözmüyor, sadece tek nokta sayısını ikiye çıkarıyor. İki kişi de aynı anda meşgulse veya ikisi de aynı bilgiye erişemiyorsa, zincir yine kırılıyor. Kalıcı çözüm kişi eklemek değil, üretimin dayandığı bilgiyi ve süreci kişiden bağımsız hale getirmek.':
+      'The common response at this point is to add a second person — a backup writer, a backup designer. That helps temporarily, but doesn’t solve the problem — it just doubles the number of single points of failure. If both people are busy at once, or neither can access the same information, the chain breaks again. The lasting fix isn’t adding people — it’s making the information and process production depends on independent of any one person.',
+    'Yol 1 — Üretimi akışa bağlamak': 'Way 1 — Tie production to a flow',
+    'İlk yol, üretimi tek bir kişinin elinden çıkarıp tanımlı bir akışa bağlamaktır. Elvora Flow\'un içerik akışı sistemi tam bunu yapıyor: ürün açıklaması, sosyal medya metni ve görsel varyantını tek seferde üretiyor, onaya düşürüyor, onaylandığında yayınlıyor. Marka tonu ve stil kılavuzu sisteme baştan öğretiliyor; blog, sosyal medya ve e-posta formatları aynı akıştan çıkıyor.':
+      'The first way is to take production out of one person’s hands and tie it to a defined flow. Elvora Flow’s content flow system does exactly this: it produces the product description, social copy and image variant in one pass, sends it for approval, and publishes it once approved. The brand tone and style guide are taught to the system upfront; blog, social and email formats all come out of the same flow.',
+    'Bunun pratik sonucu şu: kişi izne çıksa da akış durmuyor, çünkü üretim artık o kişinin hafızasında ya da kişisel dosyalarında değil, tanımlı bir sistemde. Yeni bir ekip üyesi işe başladığında da aynı kurallardan yürüyor — üretim kişiden kişiye devredilen bir bilgi değil, sistemin kendisi oluyor.':
+      'The practical result: the flow doesn’t stop even if the person takes leave, because production no longer lives in that person’s memory or personal files — it lives in a defined system. A new team member starts from the same rules, too — production is no longer knowledge handed from person to person, it’s the system itself.',
+    'Bu aynı zamanda kalite tutarlılığını da artırıyor. Her metin aynı marka tonu tanımından geçtiği için, kimin o hafta üretim yaptığı okuyucu tarafında fark edilmiyor — sonuç her seferinde aynı standarda dayanıyor.':
+      'This also raises quality consistency. Because every piece of copy passes through the same brand-tone definition, it doesn’t show on the reader’s end who produced it that week — the result rests on the same standard every time.',
+    'Yol 2 — Görsel üretimi ölçeklendirmek': 'Way 2 — Scale image production',
+    'İkinci yol, görsel üretimin kendisini darboğaz olmaktan çıkarmaktır. Bir ürünün birden fazla varyantı olduğunda — farklı renk, farklı kumaş, farklı kombinasyon — geleneksel yöntem her varyant için ayrı çekim yapmaktır; ürün sayısı arttıkça bu hesap tutmuyor. Çekim takvimi, set, post-prodüksiyon — her adım bir öncekini bekliyor ve kampanya yayına girdiğinde fikir çoktan soğumuş oluyor.':
+      'The second way is to stop image production itself being the bottleneck. When a product has several variants — different colour, different fabric, different combination — the traditional method is a separate shoot for each variant; the maths stops working as the product count grows. Shoot schedule, set, post-production — each step waits on the last, and by the time the campaign goes live, the idea has already gone cold.',
+    'Elvora Studio bu zinciri kısaltıyor: ürünü bir kez kurup aynı açı, aynı ışık, aynı mekânda varyantları üretiyor. Set kurma maliyeti ve çekim takvimi baskısı ortadan kalkıyor, konsept netleştikten sonra ilk sürüm günler içinde görülebiliyor — revizyon da süreç içinde yapılıyor.':
+      'Elvora Studio shortens this chain: it sets the product up once and produces the variants in the same angle, the same light, the same setting. Set costs and shoot-schedule pressure disappear, and once the concept is settled, the first version can be seen within days — revisions happen along the way too.',
+    'Bunun katalog ölçeğindeki etkisi büyük: bir ürünün sekiz renk seçeneği varsa, geleneksel yöntemde bu sekiz ayrı çekim demek. Yüz üründe bu hesap hiç tutmuyor. Ürünü bir kez kurup varyantları üretmek, ürün sayısı büyüdükçe asıl farkı yaratan adım oluyor.':
+      'The effect at catalogue scale is significant: if a product has eight colour options, the traditional method means eight separate shoots. That maths simply doesn’t work across a hundred products. Setting the product up once and producing the variants is the step that makes the real difference as the product count grows.',
+    'Yol 3 — Onay ve yayın sürecini otomatikleştirmek': 'Way 3 — Automate the approval and publishing process',
+    'Üçüncü yol, üretilen içeriğin onaydan yayına giden yolunu otomatikleştirmektir. İçerik akışı sistemi, oluşturduğu her parçayı tanımlı bir onay adımına düşürüyor; onaylandığında yayın takvimine göre otomatik zamanlanıyor. Bu, n8n tabanlı bir orkestrasyon katmanıyla çalışıyor — içerik hangi platforma, ne zaman gideceğine dair kural bir kez tanımlanıyor, sonrasında tekrar elle müdahale gerekmiyor.':
+      'The third way is to automate the path from approval to publish for every piece of content produced. The content flow system routes every piece it creates through a defined approval step; once approved, it’s scheduled automatically against the publishing calendar. This runs on an n8n-based orchestration layer — the rule for which platform content goes to, and when, is defined once, and no manual intervention is needed after that.',
+    'Bu üç yolun ortak noktası, yazının başında tarif edilen soruna geri dönüyor: içerik üretimi bir kişinin takvimine değil, tanımlı bir sisteme bağlı olduğunda, o kişi izne çıktığında da yayın takvimi aynı hızda devam ediyor. Üretim artık kişiye değil, akışa emanet.':
+      'What these three ways have in common loops back to the problem described at the start: when content production is tied to a defined system rather than one person’s calendar, the publishing calendar keeps the same pace even when that person is away. Production is now entrusted to the flow, not the person.',
+    'İçerik üretiminizi': 'Shall we tie your content production',
+    'sisteme mi bağlasak?': 'to a system?',
+
+    /* ---- blog/marka-kimliginde-tutarliligi-ai-ile-korumak.html ---- */
+    'Marka kimliğinde tutarlılığı AI ile korumak — Elvora Global Blog': 'Keeping brand identity consistent with AI — Elvora Global Blog',
+    'Marka tutarlılığı AI çağında neden daha kırılgan, tutarsızlık nerede sızıyor ve Elvora Identity\'nin yaklaşımıyla kontrolü kaybetmeden ölçeklenmek nasıl mümkün.':
+      'Why brand consistency is more fragile in the age of AI, where inconsistency leaks in, and how Elvora Identity’s approach makes it possible to scale without losing control.',
+    'Marka kimliğinde tutarlılığı': 'Keeping brand identity consistent',
+    'AI ile korumak': 'with AI',
+    'Marka tutarlılığı neden AI çağında daha kırılgan?': 'Why is brand consistency more fragile in the age of AI?',
+    'Marka tutarlılığı her zaman zor bir disiplindi, ama AI araçlarının içerik üretimine girmesiyle bu zorluk katlanarak arttı. Daha önce bir markanın görsel dilini birkaç tasarımcı ve birkaç onaylı şablon belirliyordu; şimdi aynı marka adına metin, görsel ve video üreten kanal sayısı, format sayısı ve bunu üreten elin sayısı çok daha fazla. Her yeni araç, her yeni ekip üyesi, markanın görsel diline kendi yorumunu katma ihtimalini artırıyor — ve bu sapma, üretim hızı arttıkça daha hızlı birikiyor.':
+      'Brand consistency was always a hard discipline, but it got exponentially harder once AI tools entered content production. A brand’s visual language used to be set by a few designers and a few approved templates; now the number of channels, formats and hands producing text, image and video on that brand’s behalf is far greater. Every new tool, every new team member, raises the odds of adding their own reading of the brand’s visual language — and that drift compounds faster as production speed increases.',
+    'Bu kırılganlık bir tercih meselesi değil, hızın doğal sonucu. Üretim ne kadar hızlı ve ne kadar çok kanaldan yapılırsa, aynı kararın her seferinde aynı şekilde verilmesi o kadar zorlaşıyor — çünkü karar artık tek bir kişinin hafızasında değil, birden fazla aracın ve kişinin ayrı ayrı yorumunda yaşıyor.':
+      'This fragility isn’t a matter of choice — it’s the natural result of speed. The faster and more channels production runs across, the harder it gets for the same decision to be made the same way every time — because the decision no longer lives in one person’s memory, but in the separate interpretations of multiple tools and people.',
+    'Eskiden bir markanın kimliğini korumak, birkaç kişinin doğru bilgiye sahip olmasıyla mümkündü. Şimdi üretim zinciri o kadar uzadı ki, bilgiyi birkaç kişinin hafızasında tutmak yeterli değil — çünkü zincirin her halkasında farklı bir araç veya farklı bir ekip üyesi var, ve her biri kendi varsayımıyla çalışıyor.':
+      'Protecting a brand’s identity used to be possible as long as a few people held the right information. Now the production chain has stretched so far that keeping that knowledge in a few people’s heads isn’t enough — because a different tool or a different team member sits at every link in the chain, each working from its own assumptions.',
+    'Tutarsızlığın nerede sızdığı': 'Where inconsistency leaks in',
+    'Tutarsızlık genelde büyük bir hatadan değil, küçük kaymaların birikmesinden doğar. Sitede kullanılan bir renk tonu ambalajda hafifçe farklı çıkar; sosyal medyada üçüncü bir tipografi kullanılır. Logo aynı kalır ama etrafındaki her şey — kadraj, ışık, renk sıcaklığı, yazı hiyerarşisi — küçük küçük kayar. Her yeni tasarımcı ya da her yeni AI aracı işe kendi varsayılan yorumuyla başladığında, bu kaymalar birbirine eklenir ve marka zamanla "aynı ama farklı" görünmeye başlar.':
+      'Inconsistency is usually born not from one big mistake, but from small drifts accumulating. A colour tone used on the site turns out slightly different on packaging; social media uses a third typeface. The logo stays the same, but everything around it — framing, light, colour temperature, type hierarchy — drifts little by little. Every time a new designer or a new AI tool starts work with its own default interpretation, these drifts stack up, and the brand gradually starts to look “the same, but different.”',
+    'Bu sızıntının tehlikeli tarafı, hiçbir tek üretimin tek başına "yanlış" olmaması. Her parça kendi içinde makul görünür. Sorun ancak yan yana konduğunda görünür hale gelir — ve o zaman fark edilmesi de, düzeltilmesi de çok daha maliyetli olur.':
+      'What makes this leak dangerous is that no single piece looks “wrong” on its own — each one seems reasonable in isolation. The problem only becomes visible once they’re placed side by side — and by then, both noticing it and fixing it cost far more.',
+    'Bu yüzden tutarlılığı sağlamanın en zayıf yolu, çıktıları sonradan denetlemektir. Denetim her zaman geriden gelir; kaymayı üretimden sonra yakalar, üretimden önce değil. Kalıcı çözüm, kaymanın oluşabileceği noktayı — kararın verildiği anı — baştan sabitlemektir.':
+      'That’s why the weakest way to enforce consistency is reviewing output after the fact. Review always lags behind — it catches drift after production, not before it. The lasting fix is to fix the point where drift can occur — the moment the decision is made — from the start.',
+    'Elvora Identity\'nin yaklaşımı': 'Elvora Identity’s approach',
+    'Elvora Identity bu kaymayı, kararları bir kez alıp uygulanabilir bir sisteme yazarak engelliyor. Hangi renk nerede kullanılır, hangi yazı tipi hangi ölçekte durur, logo hangi boşlukla yerleşir — bunların hepsi net kurallara bağlanıyor. Kural, tekil bir tasarımdan daha güçlü çalışıyor çünkü ölçekte tekrar edilebiliyor: aynı ürün farklı kombinasyonlarla sunulacaksa, değişen yalnızca ürün oluyor — kadraj, ışık, mekân ve renk sabit kalıyor.':
+      'Elvora Identity prevents this drift by making the decisions once and writing them into an actionable system. Which colour goes where, which typeface sits at which scale, how much space surrounds the logo — all of it is tied to clear rules. A rule works stronger than a one-off design because it can be repeated at scale: if the same product is shown in different combinations, only the product changes — framing, light, setting and colour stay fixed.',
+    'Teslimat logo sistemi, renk paleti, tipografi ve uygulama rehberinden oluşuyor. Logo sistemi ana logonun yatay, dikey ve tek renk varyantlarını kapsıyor; renk paleti ana ve destek renkleri baskı ve ekran değerleriyle birlikte tanımlıyor; tipografi başlık ve metin eşleşmesini, ölçek basamaklarını netleştiriyor. Uygulama rehberi ise doğru ve yanlış kullanım örnekleriyle, ekibin dışarıdan yardım almadan da doğru kararı verebileceği kadar net yazılıyor.':
+      'The deliverable consists of a logo system, colour palette, typography and an application guide. The logo system covers horizontal, vertical and single-colour variants of the main logo; the colour palette defines primary and support colours with print and screen values; typography settles the heading-and-body pairing and the scale steps. The application guide is written clear enough — with right and wrong examples — that the team can make the right call without outside help.',
+    'Kontrolü kaybetmeden ölçeklenmek': 'Scaling without losing control',
+    'Bir markanın kimliğini korurken büyümesinin yolu, her yeni içeriği elle denetlemek değil, marka kılavuzunu üretim sisteminin kendisine kodlamaktır. Kural üretim akışının içine yazıldığında, kimin ürettiğinden bağımsız olarak aynı çıktı kalitesi tekrarlanır — denetim insanın hafızasına değil, sistemin kendisine dayanır.':
+      'The way for a brand to grow while protecting its identity isn’t to manually review every new piece of content — it’s to code the brand guide into the production system itself. Once the rule is written into the production flow, the same output quality repeats regardless of who produced it — review no longer rests on a person’s memory, but on the system itself.',
+    'Bu, denetimi ortadan kaldırmak anlamına gelmiyor; denetimin yerini değiştiriyor. İnsan artık her tekil çıktıyı baştan kontrol etmek yerine, kuralın kendisinin doğru tanımlandığından emin oluyor — bir kere doğru yazılan kural, sonrasında binlerce kez doğru uygulanıyor.':
+      'This doesn’t remove review — it relocates it. Instead of checking every single output from scratch, a person now makes sure the rule itself is defined correctly — a rule written correctly once gets applied correctly thousands of times after that.',
+    'Marka kimliğinizin hangi noktalarda kaydığından emin değilseniz, bunu birlikte netleştirebiliriz — danışmanlık hattımızdan sorununuzu tanımlayabilir, ya da doğrudan projenizi anlatabilirsiniz.':
+      'If you’re not sure where your brand identity is drifting, we can work it out together — define the problem through our Advisory track, or tell us about your project directly.',
+    'Marka kimliğiniz': 'Is your brand identity',
+    'tutarlı mı?': 'consistent?',
+
+    /* ---- hizmetler/*.html: "Kimin için?" persona bölümü ---- */
+    'Kimin için?': 'Who is this for?',
+    'Elvora\'nın çözdüğü nokta:': 'Where Elvora fixes it:',
+
+    'Operasyon müdürü · 10-30 kişilik ekip': 'Operations manager · 10-30 person team',
+    'Aynı siparişi üç kez yazan operasyon müdürü.': 'The operations manager typing the same order three times.',
+    'Sipariş sistemi, CRM ve muhasebe birbirinden kopuk üç ada. Her gün aynı sipariş bilgisi elle üç yere giriliyor; bir hata fark edildiğinde üçünü karşılaştırıp doğrusunu bulmak saatler alıyor.':
+      'The order system, CRM and accounting are three disconnected islands. The same order data gets typed into all three by hand, every day; when something doesn’t match, comparing all three to find the right version takes hours.',
+    'Aynı verinin tekrar tekrar elle girilmesi hem zaman kaybettiriyor hem de üç sistemin birbiriyle tutarsız kalma riskini büyütüyor.':
+      'Re-entering the same data by hand wastes time and raises the risk of the three systems drifting out of sync with each other.',
+    'Workflow otomasyonu üç aracı birbirine bağlar, bilgi tek noktadan akar; operasyon müdürü yalnızca istisnai durumlarda müdahale eder.':
+      'Workflow automation connects the three tools; data flows from one source, and the operations manager only steps in for exceptions.',
+
+    'Müşteri hizmetleri / satış operasyon yöneticisi': 'Customer support / sales operations manager',
+    'Mesai bitince biriken destek talepleri ve lead\'ler.': 'Support tickets and leads that pile up after hours.',
+    'Gün içinde gelen destek talepleri ve satış lead\'leri sıraya giriyor ama kimin önce bakacağı belli değil. Mesai dışı gelenler ertesi güne kalıyor, öncelik çoğu zaman "kim ilk fark ederse" mantığıyla şekilleniyor.':
+      'Support tickets and sales leads queue up all day with no clear owner for who looks at what first. Anything that arrives after hours waits until the next day — priority usually comes down to whoever notices first.',
+    'Talepler ve lead\'ler bir insanın fark etmesine bağlı kaldığı için önceliklendirme tutarsız ve gecikmeli oluyor.':
+      'Because prioritisation depends on someone happening to notice, it ends up inconsistent and delayed.',
+    'AI destek agent\'ı ve karar noktası otomasyonu talepleri okur, sınıflandırır ve önceliklendirir; insan yalnızca karmaşık ya da istisnai durumlarda devreye girer.':
+      'An AI support agent and decision-point automation read, classify and prioritise incoming requests; a person only steps in for complex or exceptional cases.',
+
+    'Kendine özgü süreci olan operasyon/ürün sahibi': 'Owner of a process that doesn’t fit a standard tool',
+    'Hazır SaaS\'a sığmayan bir süreci olan ekip.': 'A team whose process doesn’t fit off-the-shelf SaaS.',
+    'Onay, hesaplama ya da eşleştirme mantığı standart araçların kalıbına girmiyor. Zapier veya genel amaçlı AI araçları denenmiş ama süreç her seferinde bu araçların sınırlarına takılıyor, elle yama gerekiyor.':
+      'Their approval, calculation or matching logic doesn’t fit standard tool patterns. They’ve tried Zapier or general-purpose AI tools, but the process keeps hitting those tools’ limits and needs a manual patch every time.',
+    'Süreç hazır araçların modeline uymadığı için otomasyon yarım kalıyor, insan müdahalesi devam ediyor.':
+      'Because the process doesn’t fit any off-the-shelf tool’s model, automation stays half-finished and manual intervention continues.',
+    'Elvora sürecin kendi mantığına özel bir sistem kurar — hazır bir araç değil, tam o süreç için baştan tasarlanmış bir çözüm.':
+      'Elvora builds a system around the process’s own logic — not an off-the-shelf tool, but a solution designed from scratch for that exact process.',
+
+    'B2B satış müdürü · çok kanallı talep akışı': 'B2B sales manager · multi-channel request flow',
+    'Web formu, WhatsApp, e-posta — hangi lead sıcak?': 'Web form, WhatsApp, email — which lead is hot?',
+    'Talepler web formundan, WhatsApp\'tan ve e-postadan aynı anda geliyor, satış ekibi bunları elle sıraya koyup önceliklendiriyor. Bazen gerçekten sıcak bir lead geç fark edildiği için soğuyor.':
+      'Requests arrive from the web form, WhatsApp and email all at once, and the sales team manually queues and prioritises them. Sometimes a genuinely hot lead cools off simply because it was noticed too late.',
+    'Kanallar arasında elle önceliklendirme yapıldığı için sıcak lead\'ler zamanında yakalanamıyor.':
+      'Because prioritisation across channels is done by hand, hot leads don’t get caught in time.',
+    'Elvora\'nın Lead Triyajı sistemi gelen talebi otomatik sınıflandırır, önceliklendirir, CRM\'e yazar ve ilk yanıtı otomatik gönderir.':
+      'Elvora’s Lead Triage system automatically classifies and prioritises incoming requests, logs them to the CRM, and sends the first reply automatically.',
+
+    'Pazarlama sorumlusu · tek kişilik içerik ekibi': 'Marketing lead · one-person content team',
+    'İçerik üretimi tek bir kişinin takvimine bağlı.': 'Content production runs on one person’s calendar.',
+    'Ürün açıklaması, sosyal medya metni, görsel varyantı hep aynı kişiden geçiyor. O kişi izinliyken ya da yoğunken yayın takvimi aksıyor, üretim birikip tıkanıyor.':
+      'Product descriptions, social copy, visual variants — it all passes through the same person. When they’re out or overloaded, the publishing calendar slips and production backs up.',
+    'Üretim bir sisteme değil tek bir bireye bağlı olduğu için o kişi olmadan yayın takvimi duruyor.':
+      'Because production depends on one individual rather than a system, the publishing calendar stalls without them.',
+    'Elvora\'nın İçerik akışı sistemi ve Elvora Studio üretimi bir kişiye değil sisteme bağlar, takvim kimseye bağımlı kalmadan işlemeye devam eder.':
+      'Elvora’s Content Flow system and Elvora Studio tie production to a system, not a person — the calendar keeps moving without depending on anyone.',
+
+    'Büyüyen şirket kurucusu / pazarlama sorumlusu': 'Founder / marketing lead at a growing company',
+    'Yıllar önce yapılmış siteyle B2B görüşmesine girmek.': 'Walking into a B2B meeting with a site built years ago.',
+    'Şirket büyüyor ama sitesi yıllar önce bir şablonla kurulmuş; mobilde bozuk görünüyor ve güncel konumlandırmayı yansıtmıyor. Yatırımcı ya da kurumsal müşteri görüşmesi öncesi siteyi göstermekten çekiniliyor.':
+      'The company has grown, but its site was built years ago from a template; it looks broken on mobile and doesn’t reflect where the company stands today. Before an investor or enterprise-client meeting, showing the site feels risky.',
+    'Eskimiş ve mobilde bozuk bir site, büyüyen şirketin güvenilirliğini görüşme masasında zayıflatıyor.':
+      'An outdated, mobile-broken site undercuts a growing company’s credibility at the negotiating table.',
+    'Elvora hızlı, markaya uygun, mobil öncelikli bir kurumsal site kurar; kapsam ve takvim baştan nettir.':
+      'Elvora builds a fast, on-brand, mobile-first corporate site — scope and timeline are clear from day one.',
+
+    'Marka sahibi · pazaryerine/DM\'e bağımlı satış': 'Brand owner · sales dependent on marketplaces/DMs',
+    'Instagram DM\'i ve pazaryeri komisyonu arasında sıkışan marka.': 'A brand stuck between Instagram DMs and marketplace commissions.',
+    'Fiziksel ya da toptan satışı olan ama kendi online mağazası olmayan bir marka sahibi için satışlar Instagram DM\'i veya pazaryeri üzerinden yürüyor. Ödeme ve checkout süreci üzerinde kontrol yok, komisyon marjı yiyor.':
+      'For a brand owner with physical or wholesale sales but no online store of their own, sales run through Instagram DMs or a marketplace. There’s no control over payment or checkout, and commission eats into the margin.',
+    'Kendi mağazası olmadığı için marka hem komisyon kaybediyor hem de müşteri deneyimi üzerindeki kontrolünü kaybediyor.':
+      'Without their own store, the brand loses both commission and control over the customer experience.',
+    'Elvora sıfırdan bir webshop kurar — Shopify veya WooCommerce, ödeme ve kargo entegrasyonuyla birlikte — marka kendi mağazasının sahibi olur.':
+      'Elvora builds a webshop from scratch — Shopify or WooCommerce, with payment and shipping integration — so the brand owns its own store.',
   };
 
   /* Aynı Türkçe cümle parçası farklı sayfalarda farklı İngilizce karşılık

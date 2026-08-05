@@ -259,6 +259,10 @@ textarea { font: inherit; color: inherit; }
 }
 
 .section {
+  /* Body zemini (üstteki koyu masthead/hero ile aynı, sayfa geçişinde
+     flaş olmasın diye) sabit koyu — tone-dark/tone-paper2 taşımayan
+     bölümler bunu miras almasın diye kendi açık zeminini burada tanımlar. */
+  background: var(--ink-base);
   padding-block: var(--s-6);
   position: relative;
 }
@@ -343,7 +347,7 @@ textarea { font: inherit; color: inherit; }
 .sorun-layout {
   display: grid;
   gap: var(--s-4);
-  align-items: start;
+  align-items: center;
 }
 @media (min-width: 900px) {
   .sorun-layout { grid-template-columns: 1fr 380px; gap: var(--s-5); }
@@ -520,8 +524,9 @@ textarea { font: inherit; color: inherit; }
   display: flex;
   flex-direction: column;
   gap: var(--s-3);
-  /* Yüksekliği sabit → hover'da layout kaymaz, yalnız transform/opacity oynar */
-  min-height: 300px;
+  /* Sabit yükseklik dayatmıyor — .card-scroll'un flex satırı zaten en
+     uzun karta göre eşit boy veriyor, içerik kısa diye ortada boşluk
+     açılmasın diye burada zorlama yok. */
   padding: var(--s-3);
   background: var(--ink-elevated);
   border: var(--edge);
@@ -591,37 +596,28 @@ textarea { font: inherit; color: inherit; }
   color: var(--bone-dim);
 }
 
-/* Açıklama her zaman görünür — tamamen gizlenince kartlar statik görünümde
-   boş kutu gibi duruyordu. Hover payoff'u aşağıdaki .card__cta'da. */
-.card__reveal { margin-top: auto; }
+/* Açıklama her zaman görünür — kartın doğal akışında, üstteki fiyat/süre
+   etiketlerinden sabit bir aralıkla ayrılıyor (auto-margin yok, kartın
+   ortasında boşluk açılmasın diye). */
+.card__reveal { margin-top: 0; }
 
 /* Kart içi sahte link — hit alanı kartın tamamı, bu yalnız görsel ipucu.
-   Hover'da beliren asıl katman: kart durağanken sadece iz bırakır. */
+   Artık hover beklemiyor: her kart durağan halde de nereye tıklanacağını
+   söylüyor, hover/focus yalnız vermilion renk vurgusu ekliyor. */
 .card__cta {
   display: inline-flex;
   align-items: center;
   gap: var(--s-1);
-  margin-top: var(--s-3);
-  opacity: 0;
-  transform: translateY(8px);
+  margin-top: var(--s-2);
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--bone);
+  color: var(--bone-dim);
   padding-block: 4px;
   position: relative;
-  transition:
-    opacity 0.4s var(--ease-out),
-    transform 0.5s var(--ease-spring),
-    color 0.25s linear;
-}
-.card:hover .card__cta,
-.card:focus-within .card__cta { opacity: 1; transform: translateY(0); }
-/* Dokunmatik cihazda hover yok → ipucu her zaman görünür */
-@media (hover: none) {
-  .card__cta { opacity: 1; transform: none; }
+  transition: color 0.25s linear;
 }
 .card__cta::after {
   content: '';
@@ -674,7 +670,7 @@ textarea { font: inherit; color: inherit; }
   counter-reset: step;
 }
 @media (min-width: 700px)  { .steps { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1080px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1080px) { .steps { grid-template-columns: repeat(4, 1fr); gap: var(--s-3); } }
 
 .step {
   padding: var(--s-3) 0 0;
@@ -683,6 +679,22 @@ textarea { font: inherit; color: inherit; }
   transition: border-color 0.3s linear;
 }
 .step:hover { border-color: var(--vermilion); }
+
+/* Adımlar arası ilerleme oku — leftflow referansı, yalnız tek satıra
+   dizildiği masaüstünde anlamlı; HTML değişikliği gerekmez. */
+@media (min-width: 1080px) {
+  .step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    top: calc(var(--s-3) + 21px);
+    right: calc(var(--s-3) / -2);
+    transform: translate(50%, -50%);
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: var(--bone-faint);
+    pointer-events: none;
+  }
+}
 
 /* Üst kenarda görüş alanına girince soldan dolan vermilion pay */
 .step::before {
@@ -700,11 +712,17 @@ textarea { font: inherit; color: inherit; }
 .js .step.is-in::before { transform: scaleX(1); }
 
 .step__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--vermilion);
+  color: #fff;
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--vermilion);
-  display: block;
+  font-size: 15px;
+  font-weight: 600;
   margin-bottom: var(--s-2);
   transition: transform 0.5s var(--ease-spring);
 }
@@ -856,7 +874,7 @@ textarea { font: inherit; color: inherit; }
   align-items: center;
   gap: 2px;
 }
-@media (min-width: 960px) { .nav { display: flex; } }
+@media (min-width: 1240px) { .nav { display: flex; } }
 
 /* leftflow referansı: mono/uppercase/altı çizili değil — sans, küçük,
    sıkı tracking, düz opaklık geçişi. */
@@ -1010,7 +1028,7 @@ textarea { font: inherit; color: inherit; }
   box-shadow: none;
 }
 .masthead .btn:active { background: rgba(242, 239, 231, 0.85); transform: none; }
-@media (min-width: 960px) { .masthead .btn { display: inline-flex; } }
+@media (min-width: 1240px) { .masthead .btn { display: inline-flex; } }
 
 /* Mobil menü aç/kapa — Apple tarzı: çerçevesiz, yalnız üç ince çizgi */
 .burger {
@@ -1026,7 +1044,7 @@ textarea { font: inherit; color: inherit; }
   cursor: pointer;
   transition: opacity 0.25s linear, transform 0.45s var(--ease-spring);
 }
-@media (min-width: 960px) { .burger { display: none; } }
+@media (min-width: 1240px) { .burger { display: none; } }
 .burger:hover { opacity: 0.6; }
 .burger:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 4px; border-radius: 2px; }
 .burger:active { transform: scale(0.94); }
@@ -1055,7 +1073,7 @@ textarea { font: inherit; color: inherit; }
 }
 .mobile-nav.is-open { max-height: 640px; opacity: 1; }
 .mobile-nav[hidden] { display: none; }
-@media (min-width: 960px) { .mobile-nav { display: none !important; } }
+@media (min-width: 1240px) { .mobile-nav { display: none !important; } }
 
 /* Üst seviye ögeler (Çözümler grubu, Hakkımızda, İletişim, buton)
    kademeli olarak belirir — alt-menüdeki linkler bu kademeye dahil değil. */
@@ -2138,12 +2156,22 @@ select.field__input option {
   font-weight: 600;
 }
 
+/* 04/Teknoloji logo satırı — tag--stat pillerinin yerini alan gerçek marka
+   logoları. f2efe7 (--bone) ile renklendirilmiş, koyu zeminde okunaklı. */
+.tech-logo {
+  height: 28px;
+  width: auto;
+  opacity: 0.88;
+  transition: opacity 0.25s linear;
+}
+.tech-logo:hover { opacity: 1; }
+
 /* ---------- FLOW TANITIMI (ana sayfa) ----------
    leftflow.ai referansındaki gibi: iddialı başlık + istatistik rozetleri +
    entegrasyon logoları. Kart gridine benzemesin diye kendi düzeni var. */
 .pitch {
   display: grid;
-  gap: var(--s-4);
+  gap: var(--s-3);
   padding: var(--s-4) var(--s-3);
   border: var(--edge);
   border-radius: var(--radius-card);
@@ -2152,7 +2180,7 @@ select.field__input option {
     var(--ink-elevated);
   box-shadow: var(--shadow-card);
 }
-@media (min-width: 768px) { .pitch { padding: var(--s-5) var(--s-4); } }
+@media (min-width: 768px) { .pitch { padding: var(--s-4) var(--s-4); } }
 
 .pitch__stats {
   display: flex;
@@ -2451,9 +2479,8 @@ select.field__input option {
   to   { opacity: 1; scale: 1; }
 }
 
-/* E. işareti — favicon'daki markanın büyütülmüş hali.
-   Optik ortalama: "." sağa doğru görsel ağırlık eklediği için geometrik
-   merkez gerçek merkezin sağında kalıyordu — hafif sola kaydırılıyor. */
+/* E. işareti — favicon'daki markanın büyütülmüş hali. Geometrik merkez artık
+   çevresindeki tek halkayla aynı — ayrı bir optik-ağırlık düzeltmesi yok. */
 .preloader__logo {
   font-family: var(--font-display);
   font-size: clamp(3.75rem, 10vw, 6rem);
@@ -2461,30 +2488,8 @@ select.field__input option {
   color: var(--bone);
   letter-spacing: -0.03em;
   user-select: none;
-  transform: translateX(-0.14em);
 }
 .preloader__dot { color: var(--vermilion); }
-
-/* Mark'ın arkasında yavaş nabız atan sıcak ışıma — derinlik katar */
-.preloader__glow {
-  position: absolute;
-  inset: -20%;
-  z-index: -1;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(232, 68, 46, 0.28), transparent 72%);
-  animation: aura-pulse 2.6s ease-in-out infinite;
-}
-
-/* Halkaların etrafında dönen iki küçük parçacık — açılış ekranını tek başına
-   sade bırakmaz, aura'daki orbit/node dilini burada da tekrarlar */
-.preloader__orbit {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-.preloader__orbit--a { animation: ring-spin 3.2s linear infinite; }
-.preloader__orbit--b { animation: ring-spin-back 4.4s linear infinite; }
-.preloader__node { fill: var(--vermilion-hot); }
-.preloader__node--soft { fill: var(--vermilion); opacity: 0.6; }
 
 /* Mark'ın altında beliren ince marka etiketi */
 .preloader__label {
@@ -2525,24 +2530,6 @@ select.field__input option {
   animation:
     ring-spin 2.6s linear infinite,
     ring-breathe 1.9s ease-in-out infinite;
-}
-.ring--2 {
-  stroke: var(--vermilion-hot);
-  stroke-width: 1.5;
-  stroke-dasharray: 20 150;
-  opacity: 0.75;
-  animation:
-    ring-spin-back 3.8s linear infinite,
-    ring-breathe 2.4s ease-in-out infinite 0.3s;
-}
-.ring--3 {
-  stroke: var(--vermilion);
-  stroke-width: 1;
-  stroke-dasharray: 8 96;
-  opacity: 0.5;
-  animation:
-    ring-spin 1.9s linear infinite,
-    ring-breathe 1.5s ease-in-out infinite 0.15s;
 }
 
 @keyframes ring-spin      { to { rotate: 360deg; } }
@@ -2652,12 +2639,17 @@ select.field__input option {
   .split-row__visual { display: block; }
 }
 .side-orbit {
-  /* Bilinçli olarak kutu/kart çerçevesi yok — bölümün kendi zemininde
-     duran bir arka plan grafiği gibi hissettirsin, ayrı yapıştırılmış
-     bir widget gibi değil. */
+  /* Site genelindeki .card/.pitch/.work-link diliyle aynı kenarlık +
+     köşe + gölge + vermilion wash — animasyon havadar kalsın diye
+     kutu opak değil, ama artık sayfaya yapıştırılmış ayrı bir widget
+     gibi değil, kart ailesinin bir parçası gibi duruyor. */
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
+  border: var(--edge);
+  border-radius: var(--radius-card);
+  background: radial-gradient(ellipse 70% 70% at 50% 35%, var(--vermilion-wash), transparent 70%);
+  box-shadow: var(--shadow-card);
 }
 .side-orbit__num {
   position: absolute;
