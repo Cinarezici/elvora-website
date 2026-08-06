@@ -1092,14 +1092,27 @@ textarea { font: inherit; color: inherit; }
   position: fixed;
   top: 76px;
   right: 0;
-  bottom: 0;
-  z-index: 200;
+  /* .masthead'in (100) altında kalmalı: panel kendi stacking context'ini
+     kurduğu için z-index:-1 olan ::before backdrop'u da (context'in İÇİNDE
+     kalsa bile, dışarıdan bakıldığında context'in kendi seviyesinde
+     davranır) header'ın üstüne biner — açıkken burger/X'e dokunulamaz
+     hale gelirdi. */
+  z-index: 90;
   display: grid;
   align-content: start;
   gap: 2px;
   width: min(88vw, 400px);
-  padding: var(--s-4) var(--s-4) var(--s-5);
+  /* `bottom: 0` yerine açık yükseklik: mobil tarayıcılarda adres çubuğu
+     gösterilip gizlendikçe "layout viewport" ile gerçekte görünen alan
+     birbirinden ayrışıyor, `bottom:0` o zaman panelin alt kısmını (CTA
+     butonu dahil) ekranın dışına/tarayıcı arayüzünün altına itebiliyor.
+     `dvh` gerçek görünür yüksekliği izler — desteklemeyen tarayıcılar
+     için `vh` satırı geriye dönük yedek. */
+  height: calc(100vh - 76px);
+  height: calc(100dvh - 76px);
+  padding: var(--s-4) var(--s-4) max(var(--s-5), env(safe-area-inset-bottom, 0px));
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background: var(--ink-elevated);
   box-shadow: var(--shadow-lift);
   translate: 100% 0;
@@ -1160,7 +1173,11 @@ body.nav-open { overflow-y: hidden; }
 .mobile-nav a:hover, .mobile-nav a:focus-visible { color: var(--vermilion); padding-left: var(--s-1); }
 .mobile-nav a:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 2px; }
 .mobile-nav a:active { opacity: 0.6; }
-.mobile-nav .btn { margin-top: var(--s-4); width: 100%; justify-content: center; }
+/* `display: flex` şart: `.mobile-nav` de `.masthead` içinde olduğundan
+   masaüstü header CTA'sını 1240px altında gizleyen `.masthead .btn {
+   display:none }` kuralı bu butonu da yakalıyordu — panel içindeki en
+   önemli aksiyon (CTA) sessizce hiç görünmüyordu. */
+.mobile-nav .btn { display: flex; margin-top: var(--s-4); width: 100%; justify-content: center; }
 
 /* "Çözümler" alt-akordeonu — ürün linkleri Hakkımızda/İletişim'den ayrı */
 .mobile-nav__toggle {
