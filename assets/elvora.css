@@ -3089,15 +3089,24 @@ select.field__input option {
 }
 .mark--no { width: 12px; height: 1.5px; background: var(--bone-faint); }
 
-/* Karşılaştırma tablosunda öne çıkan sütun: koyu dolgu + üstte vermilion çizgi */
+/* Karşılaştırma tablosunda öne çıkan sütun: koyu dolgu + üstte vermilion
+   çizgi + diğerlerine göre bir tık daha geniş, "Elvora" yazısı bir tık
+   daha büyük/kalın — abartmadan göze çarpsın diye. */
 .compare-table__brand {
   background: #14130f;
   color: #f2efe7;
   --bone-faint: rgba(242, 239, 231, 0.4);
 }
+.compare-table th.compare-table__brand,
+.compare-table td.compare-table__brand {
+  padding-inline: calc(var(--s-3) + 6px);
+}
 .compare-table thead th.compare-table__brand {
   position: relative;
   color: #f2efe7;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 .compare-table thead th.compare-table__brand::before {
   content: '';
