@@ -146,6 +146,15 @@
     const panel = document.querySelector('.mobile-nav');
     if (!burger || !panel) return;
 
+    // Panel `<header class="masthead">` içinde doğuyor ama orada KALAMAZ:
+    // .masthead kaydırılınca (.is-stuck) backdrop-filter kazanıyor, ve
+    // backdrop-filter'lı her ancestor position:fixed torunlar için yeni
+    // bir containing block açıyor. Panel viewport yerine o küçük header
+    // kutusuna göre konumlanmaya başlıyor — sonuç: sayfa başında menü
+    // doğru görünüyor, aşağı kaydırıp açınca ekranın tamamen dışına
+    // kayıyor. body'nin doğrudan çocuğu yapmak bu sorunu kökten çözüyor.
+    document.body.appendChild(panel);
+
     // Birden fazla akordeon grubu olabilir (Çözümler, Endüstriler vb.)
     const groups = Array.from(panel.querySelectorAll('.mobile-nav__group'));
 
