@@ -1114,23 +1114,35 @@ textarea { font: inherit; color: inherit; }
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   background: var(--ink-elevated);
-  box-shadow: var(--shadow-lift);
+  /* --shadow-lift'in geniş, bulanık kırmızı-katmanlı gölgesi panelin sol
+     kenarında karartılmış arka planla karışıp beyazı grimsi gösteriyordu.
+     Kenar zaten koyu backdrop'a karşı kendini net tanımlıyor — tek,
+     dar bir gölge kenarı belirginlik için yeterli. */
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.18);
   translate: 100% 0;
   transition: translate 0.5s var(--ease-spring);
 }
-.mobile-nav::before {
-  content: '';
+.mobile-nav.is-open { translate: 0 0; }
+.mobile-nav[hidden] { display: none; }
+
+/* Karartma katmanı artık ::before değil, gerçek ayrı bir öğe (elvora.js
+   ekliyor). Sebep: negatif z-index'li bir pseudo-element, ebeveyninin
+   KENDİ arka planının ARKASINA değil ÖNÜNE boyanıyor (CSS boyama sırası:
+   1. kurucu öğenin arka planı, 2. negatif z-index'li torunlar) — bu
+   yüzden panel beyaz olsa da üstüne %60 karartma binip griye
+   dönüştürüyordu (ölçüldü: rgb(255,255,255) + %60 rgba(8,7,5) = tam
+   gözlenen rgb(107,106,105)). Ayrı, panelden ÖNCE gelen bir kardeş öğe
+   olunca artık panelin arkasında kalıyor. */
+.mobile-nav-backdrop {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 89;
   background: rgba(8, 7, 5, 0.6);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s var(--ease-out);
 }
-.mobile-nav.is-open { translate: 0 0; }
-.mobile-nav.is-open::before { opacity: 1; pointer-events: auto; }
-.mobile-nav[hidden] { display: none; }
+.mobile-nav-backdrop.is-open { opacity: 1; pointer-events: auto; }
 @media (min-width: 1240px) { .mobile-nav { display: none !important; } }
 
 /* Üst seviye ögeler kademeli belirir — alt-menüdeki linkler bu kademeye
@@ -1167,11 +1179,35 @@ textarea { font: inherit; color: inherit; }
 .mobile-nav a:hover, .mobile-nav a:focus-visible { color: var(--vermilion); padding-left: var(--s-1); }
 .mobile-nav a:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 2px; }
 .mobile-nav a:active { opacity: 0.6; }
-/* `display: flex` şart: `.mobile-nav` de `.masthead` içinde olduğundan
-   masaüstü header CTA'sını 1240px altında gizleyen `.masthead .btn {
-   display:none }` kuralı bu butonu da yakalıyordu — panel içindeki en
-   önemli aksiyon (CTA) sessizce hiç görünmüyordu. */
-.mobile-nav .btn { display: flex; margin-top: var(--s-4); width: 100%; justify-content: center; }
+/* Masaüstü header'ındaki ghost CTA'nın (.masthead .btn) birebir aynısı —
+   dolu vermilion hap değil, ince çerçeveli/şeffaf buton. Sabit renk yerine
+   token kullanılıyor (--bone/--bone-faint) çünkü bu buton panelin kendi
+   tone-dark/açık geçişiyle birlikte otomatik doğru kontrasta geçmeli. */
+.mobile-nav .btn {
+  display: flex;
+  margin-top: var(--s-4);
+  width: 100%;
+  justify-content: center;
+  padding: 15px var(--s-4);
+  border-radius: 0;
+  background: transparent;
+  border: 1px solid var(--bone-faint);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  box-shadow: none;
+}
+.mobile-nav .btn:hover {
+  background: var(--bone);
+  color: var(--ink-elevated);
+  border-color: var(--bone);
+  transform: none;
+  box-shadow: none;
+}
+.mobile-nav .btn:active { opacity: 0.85; transform: none; }
 
 /* "Çözümler" alt-akordeonu — ürün linkleri Hakkımızda/İletişim'den ayrı */
 .mobile-nav__toggle {

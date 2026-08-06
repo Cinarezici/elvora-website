@@ -172,6 +172,15 @@
     // kutusuna göre konumlanmaya başlıyor — sonuç: sayfa başında menü
     // doğru görünüyor, aşağı kaydırıp açınca ekranın tamamen dışına
     // kayıyor. body'nin doğrudan çocuğu yapmak bu sorunu kökten çözüyor.
+    //
+    // Karartma katmanı da artık burada, gerçek bir <div> olarak, panelden
+    // ÖNCE ekleniyor — CSS tarafında ::before + negatif z-index denendi
+    // ama panelin KENDİ arka planının önüne boyandığı ölçülerek
+    // doğrulandı (beyaz paneli griye çeviren buydu).
+    const backdrop = document.createElement('div');
+    backdrop.className = 'mobile-nav-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(backdrop);
     document.body.appendChild(panel);
 
     // Birden fazla akordeon grubu olabilir (Çözümler, Endüstriler vb.)
@@ -209,7 +218,11 @@
       document.body.style.top = '';
       document.body.style.left = '';
       document.body.style.right = '';
-      window.scrollTo(0, lockedScrollY);
+      // `html { scroll-behavior: smooth }` sitede her yerde açık — bu
+      // satır olmadan her kapanışta sayfa görünür şekilde "kayarak"
+      // eski konumuna geri geliyordu. `instant` o global ayarı bu tek
+      // çağrı için es geçer.
+      window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
       mastheadSyncLocked = false;
       syncMastheadTheme();
     };
@@ -221,9 +234,11 @@
       window.clearTimeout(closeTimer);
       if (open) {
         panel.hidden = false;
+        backdrop.classList.add('is-open');
         requestAnimationFrame(() => panel.classList.add('is-open'));
       } else {
         panel.classList.remove('is-open');
+        backdrop.classList.remove('is-open');
         closeSubmenu();
         closeTimer = window.setTimeout(() => { panel.hidden = true; }, 550);
       }
@@ -244,12 +259,11 @@
       }
     });
 
-    // Link tıklanınca ya da arkadaki karartılmış backdrop'a (panelin
-    // kendisine, hiçbir alt öğeye değil) tıklanınca kapat
+    // Link tıklanınca kapat; karartılmış backdrop'a tıklanınca da kapat
     panel.addEventListener('click', (e) => {
       if (e.target.closest('a')) setOpen(false);
-      else if (e.target === panel) setOpen(false);
     });
+    backdrop.addEventListener('click', () => setOpen(false));
 
     // Masaüstüne genişletilirse paneli sıfırla
     window.matchMedia('(min-width: 960px)').addEventListener('change', (m) => {
