@@ -2015,6 +2015,29 @@ select.field__input option {
 }
 @media (min-width: 700px) { .work-row { grid-template-columns: repeat(3, 1fr); } }
 
+/* Mobilde dikey yığın yerine küçük, yatay kaydırmalı bir şerit —
+   .card-scroll ile aynı dil (bkz. Sistemler önizlemesi). Üç tam-genişlik
+   kart alt alta telefon ekranının çoğunu kaplıyordu; bu kartlar birincil
+   CTA değil, "kanıt" — kaydırırken bu kadar yer tutmamalı. */
+@media (max-width: 699.98px) {
+  .work-row {
+    display: flex;
+    gap: var(--s-2);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--s-3);
+    margin-inline: calc(var(--s-3) * -1);
+    padding-inline: var(--s-3);
+    padding-bottom: var(--s-2);
+    -webkit-overflow-scrolling: touch;
+  }
+  .work-row .work-link {
+    flex: 0 0 200px;
+    scroll-snap-align: start;
+  }
+  .work-row .work-link__name { font-size: 1.0625rem; }
+}
+
 .work-link {
   position: relative;
   display: grid;
