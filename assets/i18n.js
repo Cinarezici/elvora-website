@@ -1914,6 +1914,50 @@
       'Without their own store, the brand loses both commission and control over the customer experience.',
     'Elvora sıfırdan bir webshop kurar — Shopify veya WooCommerce, ödeme ve kargo entegrasyonuyla birlikte — marka kendi mağazasının sahibi olur.':
       'Elvora builds a webshop from scratch — Shopify or WooCommerce, with payment and shipping integration — so the brand owns its own store.',
+
+    /* ---- EN kapsam denetimi (round 2): __ELVORA_DICT__ üzerinden tüm
+       sayfalar tek tek tarandı — sayfa başlıkları, meta açıklamalar,
+       Flow aria-label'ları ve iletişim formunun güven listesi eksikti. ---- */
+    'Blog — Elvora Global': 'Blog — Elvora Global',
+    'Endüstriler — Elvora Global': 'Industries — Elvora Global',
+    'Projeler — Elvora Global': 'Projects — Elvora Global',
+    'AI Otomasyon — Elvora Global': 'AI Automation — Elvora Global',
+    'B2B Satış Otomasyonu — Elvora Global': 'B2B Sales Automation — Elvora Global',
+    'E-ticaret Webshop — Elvora Global': 'E-commerce Webshop — Elvora Global',
+    'İçerik Üretimi — Elvora Global': 'Content Production — Elvora Global',
+    'Kurumsal Web Sitesi — Elvora Global': 'Corporate Website — Elvora Global',
+    'Özel AI Çözümleri — Elvora Global': 'Custom AI Solutions — Elvora Global',
+    'Workflow Otomasyonu — Elvora Global': 'Workflow Automation — Elvora Global',
+
+    'Otomasyon veriyi taşır ama kararı vermez. Elvora\'nın AI otomasyonu sınıflandırır, önceliklendirir ve gerektiğinde insana devreder — karar noktalarını da sisteme bağlar.':
+      'Automation moves data, but it doesn’t make the call. Elvora’s AI automation classifies, prioritises, and hands off to a person when needed — tying decision points into the system too.',
+    'Ürün kataloğunuz büyüdükçe stok ve fiyat takibi elle yapılamıyor, mağaza kurulumu ayrı bir proje gibi duruyor. Elvora sıfırdan satışa hazır bir e-ticaret mağazası kuruyor — mevcut mağazayı büyütmek değil, yeni mağaza kurmak için.':
+      'As your product catalogue grows, tracking stock and pricing by hand stops working, and setting up a store feels like a project of its own. Elvora builds a sales-ready e-commerce store from scratch — for launching a new store, not growing an existing one.',
+    'İçerik üretimi tek bir kişiye bağlı kalmasın. Elvora\'nın içerik akışı üretimi sistematikleştirir, Elvora Studio reklam içeriğini ölçekler.':
+      'Content production shouldn’t depend on one person. Elvora’s content flow systematises production, and Elvora Studio scales your ad content.',
+    'Kurumsal sitenizin markanızı yansıtması ve hızlı yüklenmesi gerekiyor ama çoğu ajans bunu aylarca sürdürüyor. Elvora, haftalar içinde canlıya alınan bir kurumsal site kuruyor.':
+      'Your corporate site needs to reflect your brand and load fast, but most agencies drag it out for months. Elvora builds a corporate site that goes live in weeks.',
+    'Hazır SaaS araçları sizin iş akışınıza değil, ortalama kullanıcıya göre tasarlanmış. Elvora sıfırdan, sadece sizin süreciniz için çalışan sistemler kurar.':
+      'Off-the-shelf SaaS tools are designed for the average user, not your workflow. Elvora builds systems from scratch that work for your process alone.',
+    'Araçlarınız birbirine konuşmuyor, veri elle taşınıyor. Elvora\'nın workflow otomasyonu süreçlerinizi tek bir akışa bağlar — kurulum, entegrasyon, bakım tek elden.':
+      'Your tools don’t talk to each other, and data gets moved by hand. Elvora’s workflow automation ties your processes into a single flow — setup, integration, and maintenance handled end to end.',
+
+    'Diğer Flow sistemleri': 'Other Flow systems',
+    'Destek agent\'ı — detaylar': 'Support agent — details',
+    'Lead triyajı — detaylar': 'Lead triage — details',
+    'İçerik akışı — detaylar': 'Content flow — details',
+    'Özel akış — detaylar': 'Custom flow — details',
+
+    'Bakım & güncelleme': 'Maintenance & updates',
+
+    /* ---- iletisim.html: form güven listesi ---- */
+    '1 iş günü içinde dönüş.': 'A reply within one business day.',
+    'Formu okuyup size yazıyoruz — otomatik yanıt değil.': 'We read the form and write back — not an automated reply.',
+    'Önce kısa bir görüşme.': 'A short call first.',
+    'Taahhüt yok, doğru modülü birlikte netleştiriyoruz.': 'No commitment — we work out the right module together.',
+    'Bilgileriniz yalnızca bu amaçla kullanılır.': 'Your information is used only for this purpose.',
+    'Aydınlatma metni formun altında.': 'The privacy notice is below the form.',
+    'Form yerine doğrudan yazmayı mı tercih edersiniz?': 'Would you rather write to us directly instead of the form?',
   };
 
   /* Aynı Türkçe cümle parçası farklı sayfalarda farklı İngilizce karşılık
