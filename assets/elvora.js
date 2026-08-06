@@ -17,6 +17,14 @@
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clampNum = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 
+  // stickyMasthead() ve mobileNav() arasında paylaşılan durum: mobil menü
+  // açıkken body `position:fixed` ile kilitleniyor, bu da window.scrollY'yi
+  // 0'a düşürüyor — kilit sırasında gelen sahte 'scroll' olayı header/panel
+  // temasını (is-stuck/tone-dark) yanlışlıkla "sayfa başı" haline
+  // çevirmesin diye senkronizasyon geçici olarak durduruluyor.
+  let mastheadSyncLocked = false;
+  let syncMastheadTheme = () => {};
+
   // Perde varsa scroll'u hemen kilitle — ready'yi beklerse sayfa
   // açılış ekranının altında kayabiliyor.
   preloaderLock();
@@ -118,12 +126,23 @@
   function stickyMasthead() {
     const bar = document.querySelector('.masthead');
     if (!bar) return;
+    const mobileNavPanel = document.querySelector('.mobile-nav');
 
     let queued = false;
     const sync = () => {
-      bar.classList.toggle('is-stuck', window.scrollY > 12);
+      if (mastheadSyncLocked) { queued = false; return; }
+      const stuck = window.scrollY > 12;
+      bar.classList.toggle('is-stuck', stuck);
+      // Mobil menü artık header'ın (tone-dark) dışında yaşıyor (bkz.
+      // mobileNav() — backdrop-filter/sticky çakışmasından kaçmak için
+      // body'ye taşınıyor), o yüzden koyu temayı miras almıyor. Header'ın
+      // ne zaman şeffaf-koyu / ne zaman kaydırılmış-açık göründüğüyle
+      // birebir aynı anda panel de tema değiştiriyor — sayfanın en
+      // üstünde simsiyah, kaydırılınca header'la aynı açık tona döner.
+      mobileNavPanel?.classList.toggle('tone-dark', !stuck);
       queued = false;
     };
+    syncMastheadTheme = sync;
     sync();
     window.addEventListener(
       'scroll',
@@ -165,12 +184,40 @@
       });
     };
 
+    // Arka sayfayı kilitlemek için `overflow: hidden` (html veya body,
+    // kısaltmayla bile) denendi — ölçülerek doğrulandı: bu, .masthead'in
+    // sticky'sini kırıyor (kaydırılmış haldeyken menü açılınca header
+    // viewport'un yüzlerce piksel dışına kayıyor). Bunun yerine body'yi
+    // geçici olarak `position:fixed` yapıp mevcut kaydırma konumunu
+    // negatif `top` ile koruyoruz — bu, sticky'nin containing block
+    // zincirini etkilemiyor (yalnız transform/filter/perspective bunu
+    // yapar, position:fixed'in kendisi yapmaz).
+    let lockedScrollY = 0;
+    const lockScroll = () => {
+      // scrollY sıfırlanmadan ÖNCE header/panel temasını dondur —
+      // aksi halde lock'un tetiklediği sahte scroll olayı is-stuck'ı
+      // "sayfa başı" sanıp header'ı/paneli yanlış temaya çevirir.
+      mastheadSyncLocked = true;
+      lockedScrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+    };
+    const unlockScroll = () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      window.scrollTo(0, lockedScrollY);
+      mastheadSyncLocked = false;
+      syncMastheadTheme();
+    };
+
     let closeTimer;
     const setOpen = (open) => {
       burger.setAttribute('aria-expanded', String(open));
-      // Panel artık sayfayı örten bir drawer — açıkken arkadaki içerik
-      // kaymasın diye body kilitleniyor.
-      document.body.classList.toggle('nav-open', open);
+      if (open) lockScroll(); else unlockScroll();
       window.clearTimeout(closeTimer);
       if (open) {
         panel.hidden = false;

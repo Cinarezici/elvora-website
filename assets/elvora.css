@@ -1133,12 +1133,6 @@ textarea { font: inherit; color: inherit; }
 .mobile-nav[hidden] { display: none; }
 @media (min-width: 1240px) { .mobile-nav { display: none !important; } }
 
-/* Sayfa arkada kilitliyken kaydırılamasın diye elvora.js açıkken body'ye
-   ekliyor. overflow-x zaten `clip` (bkz. body kuralı) — ikisi de
-   'visible' olmadığı için sticky'yi bozan eksen-eşleşmesi devreye
-   girmiyor. */
-body.nav-open { overflow-y: hidden; }
-
 /* Üst seviye ögeler kademeli belirir — alt-menüdeki linkler bu kademeye
    dahil değil. */
 .mobile-nav > * {
