@@ -44,6 +44,7 @@
     countUpMetrics();
     pageTransitions();
     auraNetwork();
+    scrollProgressBars();
   });
 
   /* ---------- Masaüstü "Çözümler" açılır menüsü ----------
@@ -704,6 +705,54 @@
       window.setTimeout(() => {
         window.location.href = url.href;
       }, 220);
+    });
+  }
+
+  /* ---------- Yatay kaydırma ilerleme çubuğu ----------
+     [data-scroll-progress] taşıyan her kaydırma kutusunun hemen ardına
+     ince bir çubuk ekler; kutu genişliği/toplam genişlik oranına göre
+     "thumb"un boyu ve kaydırma oranına göre konumu hesaplanır. İçerik
+     taşmıyorsa (ör. work-row masaüstünde grid'e dönüyor) çubuk otomatik
+     gizlenir — ayrı bir media query gerekmez. */
+  function scrollProgressBars() {
+    const scrollers = document.querySelectorAll('[data-scroll-progress]');
+    if (!scrollers.length) return;
+
+    scrollers.forEach((scroller) => {
+      const track = document.createElement('div');
+      track.className = 'scroll-progress';
+      track.setAttribute('aria-hidden', 'true');
+      const bar = document.createElement('div');
+      bar.className = 'scroll-progress__bar';
+      track.appendChild(bar);
+      scroller.insertAdjacentElement('afterend', track);
+
+      let queued = false;
+      const update = () => {
+        queued = false;
+        const scrollable = scroller.scrollWidth > scroller.clientWidth + 1;
+        track.classList.toggle('is-visible', scrollable);
+        if (!scrollable) return;
+        const trackWidth = track.clientWidth;
+        const visibleRatio = clampNum(scroller.clientWidth / scroller.scrollWidth, 0, 1);
+        const thumbWidth = Math.max(trackWidth * visibleRatio, 28);
+        const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+        const progress = maxScroll > 0 ? scroller.scrollLeft / maxScroll : 0;
+        bar.style.width = thumbWidth + 'px';
+        bar.style.transform = `translateX(${progress * (trackWidth - thumbWidth)}px)`;
+      };
+
+      update();
+      scroller.addEventListener(
+        'scroll',
+        () => {
+          if (queued) return;
+          queued = true;
+          requestAnimationFrame(update);
+        },
+        { passive: true }
+      );
+      window.addEventListener('resize', update);
     });
   }
 })();

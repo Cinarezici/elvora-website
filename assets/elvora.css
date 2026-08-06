@@ -2032,10 +2032,14 @@ select.field__input option {
     -webkit-overflow-scrolling: touch;
   }
   .work-row .work-link {
-    flex: 0 0 200px;
+    flex: 0 0 240px;
     scroll-snap-align: start;
   }
-  .work-row .work-link__name { font-size: 1.0625rem; }
+  /* Kare oranı 4:3'ten daha fazla görsel yüksekliği veriyor — metin bloğu
+     aynı kalınca küçük kartta görselin çoğunu kapatıyordu. */
+  .work-row .work-link img { aspect-ratio: 1 / 1; }
+  .work-row .work-link__body { padding: var(--s-2); gap: 4px; }
+  .work-row .work-link__name { font-size: 1.0625rem; line-height: 1.15; }
 }
 
 .work-link {
@@ -2110,6 +2114,26 @@ select.field__input option {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--bone-faint);
+}
+
+/* Yatay kaydırmalı şeritlerin altına elvora.js'in eklediği ince ilerleme
+   çubuğu — [data-scroll-progress] taşıyan herhangi bir kaydırma
+   kutusunun hemen ardına ekleniyor. İçerik taşmıyorsa (ör. work-row
+   masaüstünde grid'e döner) JS otomatik gizliyor, media query gerekmez. */
+.scroll-progress {
+  display: none;
+  height: 3px;
+  margin-top: var(--s-2);
+  background: var(--bone-hair);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.scroll-progress.is-visible { display: block; }
+.scroll-progress__bar {
+  height: 100%;
+  min-width: 28px;
+  background: var(--vermilion);
+  border-radius: 2px;
 }
 
 /* ---------- ENTEGRASYON LOGOLARI ----------
