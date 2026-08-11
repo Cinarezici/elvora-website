@@ -45,6 +45,7 @@
     pageTransitions();
     auraNetwork();
     scrollProgressBars();
+    pauseOffscreenAnimations();
   });
 
   /* ---------- Masaüstü "Çözümler" açılır menüsü ----------
@@ -572,6 +573,32 @@
 
       svg.appendChild(g);
     });
+  }
+
+  /* ---------- Ekran dışı animasyonları duraklat ----------
+     .aura (hero/CTA halka-yörünge-ağ süsü) ve .card__flow (sistem
+     kartlarındaki akan çizgiler) içinde onlarca sonsuz CSS animasyonu var;
+     bir kısmı stroke-dashoffset kullanıyor — compositor'a taşınamaz,
+     görünür olmasa bile her karede yeniden boyanmaya devam ediyordu. Bu,
+     sayfa genelinde "FPS düşük" hissinin başlıca kaynağıydı. Viewport
+     dışına çıkınca animation-play-state:paused ile donduruyoruz (bkz.
+     elvora.css .is-offscreen); geri gelince kaldığı yerden devam eder. */
+  function pauseOffscreenAnimations() {
+    if (!('IntersectionObserver' in window)) return;
+
+    const targets = document.querySelectorAll('.aura, .card__flow');
+    if (!targets.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle('is-offscreen', !entry.isIntersecting);
+        });
+      },
+      { rootMargin: '200px 0px' }
+    );
+
+    targets.forEach((el) => io.observe(el));
   }
 
   /* ---------- Manyetik butonlar ----------

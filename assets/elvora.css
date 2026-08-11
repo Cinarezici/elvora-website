@@ -817,8 +817,13 @@ textarea { font: inherit; color: inherit; }
 .masthead.is-stuck {
   border-bottom-color: rgba(20, 19, 15, 0.1);
   background: rgba(242, 239, 231, 0.92);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  /* Zemin zaten %92 opak — büyük blur yarıçapı görsel olarak neredeyse
+     fark edilmiyor ama her scroll frame'inde arka planı yeniden
+     örneklemek zorunda kalıyor (backdrop-filter'ın en pahalı kısmı).
+     8px, sabit header'ın kaydırma sırasında sürekli aktif olan bu
+     maliyetini gözle görülür şekilde düşürüyor. */
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
   --ink-base: #f2efe7;
   --ink-elevated: #ffffff;
   --ink-floating: #fffdf8;
@@ -1414,6 +1419,18 @@ textarea { font: inherit; color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) {
   .aura__network { animation: none; }
+}
+
+/* Ekran dışına çıkan aura/card__flow bloklarını dondur (bkz. elvora.js
+   pauseOffscreenAnimations) — bu bloklardaki halkalar/düğümler/çizgiler
+   sürekli dönen ve stroke-dashoffset animasyonu (compositor'a taşınamaz,
+   her karede yeniden boyanır) kullanan onlarca eleman içeriyor. Sayfa
+   başına 2 aura + kart başına 2 çizgi × 6 kart derken görünmeseler bile
+   arka planda boyamaya devam ediyorlardı — asıl "FPS düşük" hissinin
+   kaynağı buydu. */
+.is-offscreen,
+.is-offscreen * {
+  animation-play-state: paused !important;
 }
 
 /* CTA bandı: küçük ve sakin, sağ alt köşeye demirli */
