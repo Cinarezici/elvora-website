@@ -1055,6 +1055,7 @@
 
     /* ---- Round 3: Kurum İçi, Projeler, Endüstriler, nav ---- */
     'Kültür': 'Culture',
+    'İhracat': 'Export',
     'Kurum İçi': 'In-House',
     'Projeler': 'Projects',
     'Endüstriler': 'Industries',
