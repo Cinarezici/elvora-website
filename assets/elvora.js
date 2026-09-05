@@ -209,6 +209,9 @@
       groups.forEach((group) => {
         group.classList.remove('is-open');
         group.querySelector('.mobile-nav__toggle')?.setAttribute('aria-expanded', 'false');
+        const submenu = group.querySelector('.mobile-nav__submenu');
+        submenu?.setAttribute('inert', '');
+        submenu?.setAttribute('aria-hidden', 'true');
       });
     };
 
@@ -291,7 +294,7 @@
       }
       if (e.key === 'Tab' && isOpen) {
         const focusable = Array.from(panel.querySelectorAll(focusableSelector))
-          .filter((element) => !element.closest('[hidden]'));
+          .filter((element) => !element.closest('[hidden], [inert]'));
         if (!focusable.length) {
           e.preventDefault();
           return;
@@ -325,9 +328,14 @@
     // Alt-akordeonlar (Çözümler, Endüstriler vb.) — her biri bağımsız
     groups.forEach((group) => {
       const subTrigger = group.querySelector('.mobile-nav__toggle');
+      const submenu = group.querySelector('.mobile-nav__submenu');
+      submenu?.setAttribute('inert', '');
+      submenu?.setAttribute('aria-hidden', 'true');
       subTrigger?.addEventListener('click', () => {
         const isOpen = group.classList.toggle('is-open');
         subTrigger.setAttribute('aria-expanded', String(isOpen));
+        submenu?.toggleAttribute('inert', !isOpen);
+        submenu?.setAttribute('aria-hidden', String(!isOpen));
       });
     });
   }
