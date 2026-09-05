@@ -314,9 +314,25 @@
       }
     });
 
-    // Link tıklanınca kapat; karartılmış backdrop'a tıklanınca da kapat
+    // Link tıklanınca kapat; sayfa-içi bağlantılarda scroll-lock çözüldükten
+    // sonra hedefi yeniden konumlandır. Aksi halde unlockScroll eski kaydırma
+    // konumunu geri yükleyip mobil anchor geçişini iptal eder.
     panel.addEventListener('click', (e) => {
-      if (e.target.closest('a')) setOpen(false);
+      const link = e.target.closest('a');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      const target = href?.startsWith('#') ? document.querySelector(href) : null;
+      setOpen(false);
+      if (target) {
+        requestAnimationFrame(() => {
+          target.scrollIntoView({
+            behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+            block: 'start',
+          });
+          if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+        });
+      }
     });
     backdrop.addEventListener('click', () => setOpen(false));
 
