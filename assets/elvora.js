@@ -187,6 +187,23 @@
 
     // Birden fazla akordeon grubu olabilir (Çözümler, Endüstriler vb.)
     const groups = Array.from(panel.querySelectorAll('.mobile-nav__group'));
+    const focusableSelector = [
+      'a[href]',
+      'button:not([disabled])',
+      'input:not([disabled])',
+      'select:not([disabled])',
+      'textarea:not([disabled])',
+      '[tabindex]:not([tabindex="-1"])',
+    ].join(',');
+    let previouslyFocused = null;
+
+    const setBackgroundInert = (inert) => {
+      Array.from(document.body.children).forEach((child) => {
+        if (child === panel || child === backdrop || child.tagName === 'SCRIPT') return;
+        if (inert) child.setAttribute('inert', '');
+        else child.removeAttribute('inert');
+      });
+    };
 
     const closeSubmenu = () => {
       groups.forEach((group) => {
@@ -235,18 +252,30 @@
       if (open) lockScroll(); else unlockScroll();
       window.clearTimeout(closeTimer);
       if (open) {
+        previouslyFocused = document.activeElement;
+        setBackgroundInert(true);
+        panel.removeAttribute('inert');
         panel.hidden = false;
         backdrop.classList.add('is-open');
-        requestAnimationFrame(() => panel.classList.add('is-open'));
+        requestAnimationFrame(() => {
+          panel.classList.add('is-open');
+          panel.querySelector(focusableSelector)?.focus();
+        });
       } else {
+        panel.setAttribute('inert', '');
+        setBackgroundInert(false);
         panel.classList.remove('is-open');
         backdrop.classList.remove('is-open');
         closeSubmenu();
         closeTimer = window.setTimeout(() => { panel.hidden = true; }, 550);
+        if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) {
+          previouslyFocused.focus();
+        }
       }
     };
 
     panel.hidden = true;
+    panel.setAttribute('inert', '');
     burger.setAttribute('aria-expanded', 'false');
 
     burger.addEventListener('click', () => {
@@ -255,9 +284,30 @@
 
     // Esc ile kapat, odağı butona geri ver
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+      const isOpen = burger.getAttribute('aria-expanded') === 'true';
+      if (e.key === 'Escape' && isOpen) {
         setOpen(false);
         burger.focus();
+      }
+      if (e.key === 'Tab' && isOpen) {
+        const focusable = Array.from(panel.querySelectorAll(focusableSelector))
+          .filter((element) => !element.closest('[hidden]'));
+        if (!focusable.length) {
+          e.preventDefault();
+          return;
+        }
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        } else if (!panel.contains(document.activeElement)) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     });
 

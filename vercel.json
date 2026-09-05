@@ -21,6 +21,10 @@
       "dest": "/$1.html"
     },
     {
+      "src": "/ihracat/?",
+      "dest": "/ihracat/index.html"
+    },
+    {
       "src": "/(?!.*\\.)",
       "dest": "/index.html"
     }

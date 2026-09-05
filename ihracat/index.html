@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<style>html{background:#14130f}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İhracat Pipeline’ı | Elvora Global</title>
+<meta name="description" content="Türk endüstriyel üreticileri için doğrulanmış distribütör pipeline’ı; talep edildiğinde outreach, CRM, otomasyon ve büyüme operasyonu.">
+<link rel="icon" href="../favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png?v=2">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#e8442e">
+<link rel="canonical" href="https://elvoraglobal.com/ihracat/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elvora Global">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://elvoraglobal.com/ihracat/">
+<meta property="og:title" content="İhracat Pipeline — Elvora Global">
+<meta property="og:description" content="Tek ürün, tek hedef ülke, kaynakları doğrulanmış distribütör ve ithalatçı pipeline'ı.">
+<meta property="og:image" content="https://elvoraglobal.com/assets/img/og-elvora.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/elvora.css">
+<style>
+/* İhracat sayfası yalnızca mevcut Elvora token ve bileşenlerini genişletir. */
+.export-hero .hero__title{max-width:12.5ch}
+.export-hero .lede{max-width:66ch}
+.export-hero__micro{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:var(--s-3);color:rgba(242,239,231,.65);font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.export-hero__micro span{display:inline-flex;align-items:center;gap:9px}
+.export-hero__micro span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--vermilion)}
+.pipeline-strip{overflow:hidden;border-top:1px solid rgba(242,239,231,.1);border-bottom:1px solid rgba(242,239,231,.1);background:#14130f;color:#f2efe7}
+.pipeline-strip__inner{display:grid;grid-template-columns:repeat(4,1fr)}
+.pipeline-strip__item{position:relative;padding:22px 24px;border-right:1px solid rgba(242,239,231,.1)}
+.pipeline-strip__item:last-child{border-right:0}
+.pipeline-strip__num{display:block;margin-bottom:7px;color:var(--vermilion);font-family:var(--font-mono);font-size:10px;letter-spacing:.15em}
+.pipeline-strip__text{font-size:13px;line-height:1.35}
+.export-grid{display:grid;gap:1px;background:var(--bone-hair);border:var(--edge)}
+.export-card{position:relative;min-height:260px;padding:var(--s-4);background:var(--ink-elevated);display:flex;flex-direction:column}
+.export-card__num{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--vermilion);margin-bottom:auto}
+.export-card__title{margin-top:var(--s-5);font-family:var(--font-display);font-weight:400;font-size:clamp(1.8rem,3vw,2.65rem);line-height:1}
+.export-card__text{margin-top:var(--s-2);max-width:38ch;color:var(--bone-dim);line-height:1.65}
+@media(min-width:760px){.export-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1120px){.export-grid{grid-template-columns:repeat(4,1fr)}}
+.sample-frame{border:var(--edge);background:var(--ink-elevated);box-shadow:var(--shadow-card)}
+.sample-frame__top{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);padding:18px var(--s-3);border-bottom:var(--edge)}
+.sample-frame__top .label{margin:0}
+.sample-frame__status{display:flex;align-items:center;gap:8px;color:var(--bone-dim);font-family:var(--font-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase}
+.sample-frame__status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--vermilion)}
+.sample-table{width:100%;border-collapse:collapse;text-align:left}
+.sample-table th,.sample-table td{padding:18px var(--s-3);border-bottom:var(--edge);vertical-align:top}
+.sample-table th{font-family:var(--font-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--bone-faint);font-weight:500}
+.sample-table td{font-size:14px;line-height:1.5}
+.sample-table tr:last-child td{border-bottom:0}
+.sample-fit{display:inline-flex;padding:6px 10px;border:1px solid rgba(232,68,46,.3);border-radius:var(--radius-pill);background:var(--vermilion-wash);color:var(--vermilion-deep);font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.sample-note{padding:16px var(--s-3);border-top:var(--edge);color:var(--bone-faint);font-family:var(--font-mono);font-size:10px;line-height:1.6;text-transform:uppercase;letter-spacing:.08em}
+.fit-columns{display:grid;gap:1px;background:var(--bone-hair);border:var(--edge)}
+.fit-panel{padding:var(--s-4);background:var(--ink-elevated)}
+.fit-panel--dark{background:#1b1914;color:#f2efe7}
+.fit-panel .display-m{margin-bottom:var(--s-3)}
+.fit-list{list-style:none;display:grid;gap:0}
+.fit-list li{position:relative;padding:16px 0 16px 28px;border-top:1px solid currentColor;border-color:rgba(20,19,15,.12);line-height:1.55}
+.fit-list li::before{content:"→";position:absolute;left:0;color:var(--vermilion)}
+.fit-panel--dark .fit-list li{border-color:rgba(242,239,231,.14)}
+@media(min-width:900px){.fit-columns{grid-template-columns:1fr 1fr}}
+.sprint-panel{display:grid;gap:var(--s-5);align-items:start}
+.sprint-panel__scope{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--bone-hair);border:var(--edge)}
+.sprint-stat{padding:var(--s-3);background:var(--ink-elevated)}
+.sprint-stat strong{display:block;font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);font-weight:400;line-height:1;color:var(--vermilion)}
+.sprint-stat span{display:block;margin-top:8px;color:var(--bone-dim);font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;line-height:1.5}
+@media(min-width:900px){.sprint-panel{grid-template-columns:1fr 1.15fr}}
+.growth-section .section-head{max-width:960px}
+.growth-bridge{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:var(--s-4) 0;color:var(--bone-faint);font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.growth-bridge span:not(:last-child)::after{content:"→";margin-left:10px;color:var(--vermilion)}
+.growth-grid{display:grid;gap:1px;background:var(--bone-hair);border:var(--edge)}
+.growth-panel{display:flex;min-height:520px;flex-direction:column;padding:var(--s-4);background:var(--ink-elevated)}
+.growth-panel--managed{background:#1b1914;color:#f2efe7}
+.growth-panel__top{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);margin-bottom:var(--s-5)}
+.growth-panel__code{color:var(--vermilion);font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.growth-panel__tag{padding:6px 10px;border:1px solid currentColor;border-radius:var(--radius-pill);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.growth-panel .display-m{margin-bottom:var(--s-2)}
+.growth-panel__copy{max-width:62ch;color:var(--bone-dim);line-height:1.7}
+.growth-panel--managed .growth-panel__copy{color:rgba(242,239,231,.68)}
+.growth-list{display:grid;gap:0;margin-top:var(--s-4);list-style:none}
+.growth-list li{position:relative;padding:13px 0 13px 24px;border-top:1px solid rgba(20,19,15,.12);line-height:1.5}
+.growth-list li::before{content:"+";position:absolute;left:0;color:var(--vermilion);font-family:var(--font-mono)}
+.growth-panel--managed .growth-list li{border-color:rgba(242,239,231,.14)}
+.growth-panel__foot{margin-top:auto;padding-top:var(--s-4);color:var(--vermilion);font-family:var(--font-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase}
+.ecosystem-box{padding:var(--s-4);border:var(--edge);border-top:0;background:var(--paper)}
+.ecosystem-box__head{display:grid;gap:var(--s-2);margin-bottom:var(--s-4)}
+.ecosystem-box__head .body-text{max-width:76ch}
+.capability-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--bone-hair);border:var(--edge)}
+.capability{min-height:112px;padding:18px;background:var(--ink-elevated)}
+.capability strong{display:block;margin-bottom:8px;font-weight:600}
+.capability span{color:var(--bone-dim);font-size:.92rem;line-height:1.5}
+.ecosystem-box__foot{display:grid;gap:var(--s-3);align-items:center;margin-top:var(--s-4)}
+@media(min-width:760px){.growth-grid{grid-template-columns:1fr 1fr}.capability-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.ecosystem-box__foot{grid-template-columns:1fr auto}}
+@media(max-width:520px){.capability-grid{grid-template-columns:1fr}.growth-panel{min-height:auto}}
+.export-faq{border-top:var(--edge)}
+.export-faq details{border-bottom:var(--edge)}
+.export-faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:var(--s-3);min-height:74px;padding:20px 0;cursor:pointer;font-size:clamp(1.05rem,2vw,1.3rem);font-weight:500}
+.export-faq summary::-webkit-details-marker{display:none}
+.export-faq summary::after{content:"+";flex:none;color:var(--vermilion);font-family:var(--font-mono);font-size:22px;font-weight:400}
+.export-faq details[open] summary::after{content:"−"}
+.export-faq details p{max-width:72ch;padding:0 0 var(--s-3);color:var(--bone-dim);line-height:1.7}
+.export-faq summary:focus-visible{outline:2px solid var(--vermilion);outline-offset:4px}
+.export-form .form-layout{align-items:start}
+.export-form .form-panel{background:var(--ink-elevated)}
+.form-grid-2{display:grid;gap:var(--s-3)}
+@media(min-width:680px){.form-grid-2{grid-template-columns:1fr 1fr}}
+@media(max-width:759px){.pipeline-strip__inner{grid-template-columns:1fr 1fr}.pipeline-strip__item:nth-child(2){border-right:0}.pipeline-strip__item:nth-child(-n+2){border-bottom:1px solid rgba(242,239,231,.1)}.sample-frame{overflow-x:auto}.sample-table{min-width:720px}}
+@media(max-width:959.98px){.masthead .burger{margin-left:auto}}
+@media(max-width:700px){.export-hero .hero__foot .link-arrow,.cta-band .link-arrow{display:inline-flex;align-items:center;min-height:44px}.footer__link{display:flex;align-items:center;min-height:44px}.footer__top{display:inline-flex;align-items:center;min-height:44px}}
+@media(max-width:420px){.export-hero .btn,.export-form .btn{padding-inline:18px;font-size:10px;letter-spacing:.1em;white-space:nowrap}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Elvora İhracat Pipeline","provider":{"@type":"Organization","name":"Elvora Global","url":"https://elvoraglobal.com/"},"areaServed":"Türkiye","audience":{"@type":"BusinessAudience","audienceType":"Türk endüstriyel üreticileri"},"description":"Tek ürün grubu ve tek hedef ülke bazında distribütör, ithalatçı ve karar verici araştırması."}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">İçeriğe geç</a>
+<header class="masthead tone-dark">
+  <div class="shell masthead__inner">
+    <a class="wordmark" href="/" aria-label="Elvora Global — ana sayfa">Elvora<span class="wordmark__dot">.</span></a>
+    <nav class="nav" aria-label="Ana menü">
+      <a class="nav__link" href="/cozumler/flow.html">Flow</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="cozumler-menu">Çözümler <svg class="nav__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav__dropdown-panel" id="cozumler-menu">
+          <a class="nav__dropdown-item" href="/cozumler/studio.html"><span class="nav__dropdown-name">Elvora Studio</span><span class="nav__dropdown-desc">Reklam içeriği</span></a>
+          <a class="nav__dropdown-item" href="/cozumler/vision.html"><span class="nav__dropdown-name">Elvora Vision</span><span class="nav__dropdown-desc">Görsel iyileştirme</span></a>
+          <a class="nav__dropdown-item" href="/cozumler/identity.html"><span class="nav__dropdown-name">Elvora Identity</span><span class="nav__dropdown-desc">Marka kimliği</span></a>
+        </div>
+      </div>
+      <a class="nav__link" href="./" aria-current="page">İhracat</a>
+      <a class="nav__link" href="/projeler.html">Projeler</a>
+      <a class="nav__link" href="/hakkimizda.html">Kültür</a>
+      <a class="nav__link" href="/iletisim.html">İletişim</a>
+    </nav>
+    <a class="btn" href="#ornek">5 hesaplık örnek <span class="btn__arrow" aria-hidden="true">→</span></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mobil-menu" aria-label="Menüyü aç/kapat"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mobile-nav" id="mobil-menu" aria-label="Mobil menü" hidden>
+    <a href="/cozumler/flow.html">Flow</a>
+    <a href="#nasil">Nasıl çalışır?</a>
+    <a href="#sprint">30 günlük sprint</a>
+    <a href="#operasyon">Pipeline operasyonu</a>
+    <a href="#sss">Sık sorulanlar</a>
+    <a href="/hakkimizda.html">Kültür</a>
+    <a class="btn" href="#ornek">5 hesaplık örnek <span class="btn__arrow" aria-hidden="true">→</span></a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero hero--deep tone-dark grain export-hero">
+    <div class="aura" aria-hidden="true">
+      <svg class="aura__flow" viewBox="0 0 1500 800" preserveAspectRatio="xMidYMid slice" fill="none">
+        <path class="aura__flow-line" d="M1580,150 C1240,105 1080,255 790,205 S250,80 -80,155" stroke="rgba(242,239,231,0.13)" stroke-width="1" style="animation-delay:0s;animation-duration:11s"/>
+        <path class="aura__flow-line" d="M1580,390 C1220,350 1060,500 760,440 S220,300 -80,390" stroke="var(--vermilion)" stroke-width="1.5" style="animation-delay:1s;animation-duration:8s"/>
+        <path class="aura__flow-line" d="M1580,625 C1260,575 1040,720 730,640 S220,520 -80,600" stroke="rgba(242,239,231,0.12)" stroke-width="1" style="animation-delay:2.2s;animation-duration:13s"/>
+      </svg>
+      <div class="aura__field"><div class="aura__glow"></div><svg class="aura__svg" viewBox="0 0 1000 1000" fill="none"><circle class="aura__ring aura__ring--1" cx="500" cy="500" r="260"/><circle class="aura__ring aura__ring--3" cx="500" cy="500" r="420"/><g class="aura__orbit aura__orbit--a"><circle class="aura__node" cx="500" cy="240" r="4"/></g></svg></div>
+    </div>
+    <div class="shell hero__inner">
+      <p class="label label--accent reveal">Türk endüstriyel üreticileri için</p>
+      <h1 class="display-xl hero__title reveal">Hedef ülkenizde doğru <span class="accent-italic">distribütörlere</span> ulaşın.</h1>
+      <p class="lede reveal">Tek ürün grubunuz ve tek hedef ülkeniz için ürün uyumu doğrulanmış distribütörleri, ithalatçıları ve entegratörleri buluyor; doğru karar vericilere ulaşıyor ve ilgili ticari fırsatları satış ekibinize aktarıyoruz.</p>
+      <div class="hero__foot reveal">
+        <a class="btn" href="#ornek">Ürünüm için 5 hesaplık örnek <span class="btn__arrow" aria-hidden="true">→</span></a>
+        <a class="link-arrow" href="#nasil">Nasıl çalışır?</a>
+      </div>
+      <div class="export-hero__micro reveal"><span>Ham liste değil</span><span>Kaynakları doğrulanmış hesaplar</span><span>Kontrollü kapsam</span></div>
+      <div class="hero__stats">
+        <div class="hero__stat"><p class="hero__stat-num">1</p><p class="hero__stat-label">Ürün ailesi</p></div>
+        <div class="hero__stat"><p class="hero__stat-num">1</p><p class="hero__stat-label">Hedef ülke</p></div>
+        <div class="hero__stat"><p class="hero__stat-num">30–50</p><p class="hero__stat-label">Doğrulanmış hesap</p></div>
+        <div class="hero__stat"><p class="hero__stat-num">30 gün</p><p class="hero__stat-label">Pilot kapsam</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pipeline-strip grain" role="region" aria-label="İhracat pipeline süreci">
+    <div class="shell pipeline-strip__inner">
+      <div class="pipeline-strip__item"><span class="pipeline-strip__num">01</span><span class="pipeline-strip__text">Ürün ve pazar odağı</span></div>
+      <div class="pipeline-strip__item"><span class="pipeline-strip__num">02</span><span class="pipeline-strip__text">Hesap araştırması</span></div>
+      <div class="pipeline-strip__item"><span class="pipeline-strip__num">03</span><span class="pipeline-strip__text">Karar verici erişimi</span></div>
+      <div class="pipeline-strip__item"><span class="pipeline-strip__num">04</span><span class="pipeline-strip__text">İlgili fırsat aktarımı</span></div>
+    </div>
+  </div>
+
+  <section class="section grain grid-lines" id="durum">
+    <div class="shell">
+      <div class="section-head section-head--split">
+        <div><p class="label reveal">01 / Sorun</p><h2 class="display-l reveal">Fuar bittiğinde yeni pazar arayışı <span class="accent-italic">bitmemeli.</span></h2></div>
+        <p class="body-text reveal">Rastgele firma listeleri şirketin gerçekten distribütör olup olmadığını, hangi ürünleri sattığını veya kiminle konuşulması gerektiğini söylemez. İhracat ekibinin ihtiyacı daha fazla satır değil, takip edilebilir bir fırsat pipeline’ıdır.</p>
+      </div>
+      <div class="prose-duo">
+        <p class="body-text reveal"><strong>Yanlış hesaplar zaman kaybettirir.</strong> Ürününüzle ilgisi olmayan ithalatçılar, güncel olmayan iletişim bilgileri ve satın alma yetkisi bulunmayan kişiler yanıt oranını düşürür.</p>
+        <p class="body-text reveal"><strong>Takip edilmeyen sinyal kaybolur.</strong> Doğru şirket bulunduğunda bile temas, takip ve yanıt sınıflandırması düzenli yürütülmezse potansiyel fırsat satış ekibine ulaşmaz.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section tone-paper2 grain grid-lines" id="nasil">
+    <div class="shell">
+      <div class="section-head"><p class="label reveal">02 / Sistem</p><h2 class="display-l reveal">Ham liste değil. <span class="accent-italic">Kaynaklı pipeline.</span></h2></div>
+      <div class="export-grid">
+        <article class="export-card reveal"><span class="export-card__num">01 / ODAK</span><h3 class="export-card__title">Ürün ve pazar</h3><p class="export-card__text">Bir ürün ailesi, bir hedef ülke ve bir kanal tipi seçeriz. Kapsamı daraltır, iyi hesabın ne olduğunu baştan tanımlarız.</p></article>
+        <article class="export-card reveal"><span class="export-card__num">02 / ARAŞTIRMA</span><h3 class="export-card__title">Hesap doğrulama</h3><p class="export-card__text">Distribütör, ithalatçı ve entegratörleri; ürünleri, taşıdıkları markalar ve ticari uygunluklarıyla birlikte araştırırız.</p></article>
+        <article class="export-card reveal"><span class="export-card__num">03 / ERİŞİM</span><h3 class="export-card__title">Karar verici</h3><p class="export-card__text">Genel bir iletişim kutusuyla yetinmeyiz. Yönetim, ticari, ürün veya satın alma tarafındaki doğru kişiyi ve erişim yolunu doğrularız.</p></article>
+        <article class="export-card reveal"><span class="export-card__num">04 / AKTARIM</span><h3 class="export-card__title">Yanıt triyajı</h3><p class="export-card__text">Temas ve takipleri yürütür; ilgili, zamanlaması uygun veya yönlendirme içeren yanıtları satış ekibinize düzenli aktarırız.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section grain grid-lines" id="teslimat">
+    <div class="shell">
+      <div class="section-head section-head--split">
+        <div><p class="label reveal">03 / Teslimat</p><h2 class="display-l reveal">Her hesabın arkasında bir <span class="accent-italic">neden</span> var.</h2></div>
+        <p class="body-text reveal">Şirket adı ve e-posta adresinden oluşan bir dosya teslim etmiyoruz. Her hesabın ürününüzle ilişkisini, kanal rolünü, karar vericisini ve doğrulama kaynaklarını görünür hâle getiriyoruz.</p>
+      </div>
+      <div class="sample-frame reveal" role="region" aria-label="Örnek pipeline kaydı" tabindex="0">
+        <div class="sample-frame__top"><p class="label label--bare">Pipeline görünümü / örnek yapı</p><span class="sample-frame__status">Kaynak kontrolü tamamlandı</span></div>
+        <table class="sample-table">
+          <thead><tr><th>Hesap</th><th>Kanal tipi</th><th>Ürün uyumu</th><th>Karar verici</th><th>Durum</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Hesap A</strong><br><small>Birleşik Krallık</small></td><td>Distribütör + entegratör</td><td>Tamamlayıcı paketleme ekipmanları</td><td>Managing Director</td><td><span class="sample-fit">Yüksek uyum</span></td></tr>
+            <tr><td><strong>Hesap B</strong><br><small>Birleşik Krallık</small></td><td>Makine ithalatçısı</td><td>Aynı müşteri segmentine satış</td><td>Commercial Director</td><td><span class="sample-fit">Doğrulandı</span></td></tr>
+            <tr><td><strong>Hesap C</strong><br><small>Birleşik Krallık</small></td><td>Sistem entegratörü</td><td>Hat kurulum ve servis kabiliyeti</td><td>Business Development</td><td><span class="sample-fit">İncelenecek</span></td></tr>
+          </tbody>
+        </table>
+        <p class="sample-note">Bu tablo teslimat yapısını göstermek için temsili hazırlanmıştır; müşteri sonucu, referans veya satış garantisi değildir.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section tone-paper2 grain grid-lines" id="uygunluk">
+    <div class="shell">
+      <div class="section-head"><p class="label reveal">04 / Uygunluk</p><h2 class="display-l reveal">Doğru koşul varsa <span class="accent-italic">doğru kanal</span> bulunur.</h2></div>
+      <div class="fit-columns reveal">
+        <article class="fit-panel"><p class="label label--accent">Uygun</p><h3 class="display-m">İhracata hazır üreticiler</h3><ul class="fit-list"><li>Kendi üretimini yapan endüstriyel şirketler</li><li>İngilizce katalog ve teknik dokümanları hazır olanlar</li><li>Mevcut ihracatı veya net ihracat hedefi bulunanlar</li><li>Yeni yanıtlara hızlı dönebilecek satış ekibi olanlar</li></ul></article>
+        <article class="fit-panel fit-panel--dark"><p class="label label--accent">Uygun değil</p><h3 class="display-m">Kapsamsız hacim arayanlar</h3><ul class="fit-list"><li>Her ürün ve her ülkeye aynı anda gitmek isteyenler</li><li>Yalnızca binlerce satırlık ham liste isteyenler</li><li>Teknik dokümanı veya ihracat hazırlığı olmayanlar</li><li>Kesin satış veya toplantı garantisi bekleyenler</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section grain grid-lines" id="sprint">
+    <div class="shell sprint-panel">
+      <div class="section-head reveal"><p class="label">05 / 30 günlük pilot</p><h2 class="display-l">Distributor Pipeline <span class="accent-italic">Sprint.</span></h2><p class="body-text">İlk çalışma, ölçülebilir ve kontrol edilebilir bir kapsamla başlar. Ürün-pazar uyumunu görmeden hacmi büyütmeyiz.</p><p style="margin-top:var(--s-3)"><a class="btn" href="#ornek">Örnek talep et <span class="btn__arrow" aria-hidden="true">→</span></a></p></div>
+      <div class="sprint-panel__scope reveal">
+        <div class="sprint-stat"><strong>1</strong><span>Ürün ailesi</span></div><div class="sprint-stat"><strong>1</strong><span>Hedef ülke</span></div>
+        <div class="sprint-stat"><strong>30–50</strong><span>Doğrulanmış hesap</span></div><div class="sprint-stat"><strong>3–4</strong><span>Planlı temas</span></div>
+        <div class="sprint-stat"><strong>Kaynaklı</strong><span>Şirket ve kişi doğrulaması</span></div><div class="sprint-stat"><strong>Haftalık</strong><span>Pipeline raporu</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section tone-paper2 grain grid-lines growth-section" id="operasyon">
+    <div class="shell">
+      <div class="section-head"><p class="label reveal">06 / Pilot sonrası</p><h2 class="display-l reveal">Pipeline’ı teslim edebiliriz. <span class="accent-italic">İstenirse sizin için işletebiliriz.</span></h2><p class="lede reveal">Ana teklif değişmez: önce doğru pazarı ve hesapları kanıtlayan dar bir pilot. Sinyal oluştuğunda Elvora, satış ekibinizin ihtiyaç duyduğu operasyon katmanlarını aynı sistem içinde devreye alabilir.</p></div>
+      <div class="growth-bridge reveal" role="region" aria-label="Pipeline genişleme akışı"><span>5 hesaplık örnek</span><span>30–50 hesaplık pilot</span><span>İsteğe bağlı yönetilen operasyon</span></div>
+      <div class="growth-grid reveal">
+        <article class="growth-panel"><div class="growth-panel__top"><span class="growth-panel__code">01 / Pipeline Intelligence</span><span class="growth-panel__tag">Ana teklif</span></div><h3 class="display-m">Satış ekibine hazır, kaynakları doğrulanmış pipeline.</h3><p class="growth-panel__copy">Hedef pazar, kanal ve hesap uygunluğunu araştırır; karar vericileri ve ticari bağlamı görünür hâle getiririz.</p><ul class="growth-list"><li>Hedef pazar ve ICP netleştirme</li><li>Distribütör, ithalatçı ve potansiyel müşteri araştırması</li><li>Karar verici tespiti ve kaynak doğrulaması</li><li>Şirket bazında kanal ve ürün uyumu</li><li>Satış ekibine hazır pipeline teslimatı</li></ul><p class="growth-panel__foot">Örnek → pilot → doğrulanmış teslimat</p></article>
+        <article class="growth-panel growth-panel--managed"><div class="growth-panel__top"><span class="growth-panel__code">02 / Managed Growth Operations</span><span class="growth-panel__tag">İsteğe bağlı</span></div><h3 class="display-m">Pipeline’ın günlük operasyonunu da yönetebiliriz.</h3><p class="growth-panel__copy">Satış ekibinizin yalnızca nitelikli fırsatlara odaklanabilmesi için outreach, takip ve pipeline yönetimini otomasyon altyapımızla işletiriz.</p><ul class="growth-list"><li>Outbound e-posta sistemi ve kişiselleştirilmiş outreach</li><li>Follow-up otomasyonları ve reply management</li><li>CRM kurulumu, güncelleme ve qualification</li><li>Nitelikli fırsatların context ile handoff’u</li><li>Toplantı öncesi account briefing</li><li>Teklif sonrası takip ve aylık pipeline optimizasyonu</li></ul><p class="growth-panel__foot">Birlikte yönetim veya Elvora tarafından işletim</p></article>
+      </div>
+      <aside class="ecosystem-box reveal" aria-labelledby="ecosystem-title"><div class="ecosystem-box__head"><p class="label label--accent">Satış sisteminin ihtiyaç duyduğu diğer parçalar</p><h3 class="display-m" id="ecosystem-title">Araştırma, outbound, otomasyon ve kreatif yetkinlikler <span class="accent-italic">tek operasyon altında.</span></h3><p class="body-text">Her şirket bunların tamamına ihtiyaç duymaz. Hedef pazarda güven, anlaşılabilirlik veya talep üretimi için eksik olan katmanlar belirlenir ve yalnızca gerektiğinde sisteme eklenir.</p></div><div class="capability-grid"><div class="capability"><strong>Market-specific Landing Pages</strong><span>Ülke, segment ve ürün odağında satış sayfaları.</span></div><div class="capability"><strong>Sales Collateral</strong><span>Katalog, broşür, ürün föyü ve satış sunumları.</span></div><div class="capability"><strong>Product Videos</strong><span>Ürünün kullanımını ve değerini açıklayan içerikler.</span></div><div class="capability"><strong>Localized Creative</strong><span>Pazarın diline ve alıcı bağlamına uyarlanmış materyaller.</span></div><div class="capability"><strong>Paid Acquisition</strong><span>Uygun olduğunda hedefli reklam kreatifi ve kampanya yönetimi.</span></div><div class="capability"><strong>CRM &amp; Automation</strong><span>Takip, görev, sınıflandırma ve raporlama altyapısı.</span></div></div><div class="ecosystem-box__foot"><p class="body-text"><strong>Tek koordinasyon noktası:</strong> Elvora ihtiyaç duyulan uzmanlıkları ortak satış hedefi, tek operasyon planı ve tutarlı raporlama altında birleştirir.</p><a class="link-arrow" href="#ornek">Önce 5 hesaplık örnek isteyin</a></div></aside>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section tone-paper2 grain grid-lines" id="sss">
+    <div class="shell">
+      <div class="section-head"><p class="label reveal">07 / Sık sorulanlar</p><h2 class="display-l reveal">Başlamadan önce <span class="accent-italic">netleştirelim.</span></h2></div>
+      <div class="export-faq reveal">
+        <details><summary>Bu bir lead listesi hizmeti mi?</summary><p>Hayır. Şirketleri ürün ve kanal uyumuna göre araştırır, kaynaklarıyla doğrular, ilgili karar vericileri belirler ve temas sürecini takip ederiz. Çıktı, satış ekibinizin çalışabileceği bir fırsat pipeline’ıdır.</p></details>
+        <details><summary>Satış veya toplantı garantisi veriyor musunuz?</summary><p>Hayır. Araştırma kalitesini, veri doğruluğunu, temas disiplinini ve yanıt takibini kontrol ederiz; bağımsız şirketlerin satın alma kararını garanti etmeyiz.</p></details>
+        <details><summary>Neden tek ülke ve tek ürünle başlıyoruz?</summary><p>Dar kapsam; doğru hesap tanımını, mesajı ve pazar sinyalini ölçülebilir hâle getirir. İlk sinyal alındıktan sonra yeni ülke veya ürün ailelerine kontrollü biçimde geçilebilir.</p></details>
+        <details><summary>İlk 5 hesaplık örnek ne içerir?</summary><p>Uygunluk görüşmesinden sonra seçilen ürün ve ülke için şirket adı, kanal tipi, ürün uyumu, doğrulama kaynakları ve erişilmesi gereken karar verici rolünü gösteren kısa bir örnek hazırlarız.</p></details>
+        <details><summary>Pipeline’ı yalnızca satış ekibimize mi teslim ediyorsunuz?</summary><p>Hayır. Ana pilotun sonunda satış ekibinize çalışmaya hazır bir pipeline teslim edebiliriz. İsterseniz Managed Growth Operations katmanıyla outreach, takip, reply management, CRM güncelleme ve raporlama operasyonunu da üstlenebiliriz.</p></details>
+        <details><summary>Landing page, broşür veya reklam hizmetleri pakete dahil mi?</summary><p>Ana pilotun standart kapsamına dahil değildir. Hedef pazarda satış sürecinin ihtiyaç duyması hâlinde landing page, satış materyali, ürün videosu, lokalize kreatif, reklam veya CRM altyapısı modüler olarak eklenebilir.</p></details>
+        <details><summary>AI ve otomasyon bu hizmetin neresinde?</summary><p>Araştırma, veri işleme, kişiselleştirme, takip, sınıflandırma ve raporlama altyapısında kullanılır. Satın aldığınız şey araçlar değil; doğrulanmış hesaplar, sürdürülebilir operasyon ve takip edilebilir ticari fırsatlardır.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section grain grid-lines export-form" id="ornek">
+    <div class="shell form-layout">
+      <div class="section-head reveal">
+        <p class="label label--accent">08 / İlk adım</p>
+        <h2 class="display-l">Ürününüz için <span class="accent-italic">5 hesaplık</span> örnek görün.</h2>
+        <p class="body-text">Ürün grubunuzu ve düşündüğünüz ülkeyi paylaşın. Kısa bir uygunluk kontrolünden sonra örnek kapsamı birlikte netleştirelim.</p>
+        <ul class="pkg-list form-reassure"><li><strong>Önce uygunluk kontrolü.</strong> Her başvuru otomatik olarak örnek çalışma kapsamına alınmaz.</li><li><strong>Ham liste yok.</strong> Her hesap ürün ve kanal uyumuyla değerlendirilir.</li><li><strong>Taahhüt yok.</strong> Örnek çalışma satın alma zorunluluğu oluşturmaz.</li></ul>
+        <p class="body-text form-alt-contact">Form yerine doğrudan yazmak isterseniz <a class="link-inline" href="mailto:cinar@elvoraglobal.com?subject=İhracat%20pipeline%20örnek%20talebi">cinar@elvoraglobal.com</a></p>
+      </div>
+      <div class="reveal form-panel">
+        <form class="form" novalidate action="https://formspree.io/f/meeyppbb" method="POST" data-thanks="/tesekkurler.html">
+          <input type="hidden" name="_subject" value="Elvora — ihracat pipeline örnek talebi">
+          <input type="hidden" name="kaynak" value="/ihracat landing page">
+          <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-grid-2">
+            <div class="field"><label class="field__label" for="ad">Ad Soyad <span class="field__req" aria-hidden="true">*</span></label><input class="field__input" id="ad" name="ad" type="text" required autocomplete="name" placeholder="Adınız ve soyadınız" aria-describedby="ad-error"><p class="field__error" id="ad-error" aria-live="polite"></p></div>
+            <div class="field"><label class="field__label" for="email">İş e-postası <span class="field__req" aria-hidden="true">*</span></label><input class="field__input" id="email" name="email" type="email" required autocomplete="email" placeholder="ad@sirket.com" aria-describedby="email-error"><p class="field__error" id="email-error" aria-live="polite"></p></div>
+          </div>
+          <div class="form-grid-2">
+            <div class="field"><label class="field__label" for="sirket">Şirket <span class="field__req" aria-hidden="true">*</span></label><input class="field__input" id="sirket" name="sirket" type="text" required autocomplete="organization" placeholder="Şirket adı" aria-describedby="sirket-error"><p class="field__error" id="sirket-error" aria-live="polite"></p></div>
+            <div class="field"><label class="field__label" for="telefon">Telefon</label><input class="field__input" id="telefon" name="telefon" type="tel" autocomplete="tel" placeholder="+90" aria-describedby="telefon-error"><p class="field__error" id="telefon-error" aria-live="polite"></p></div>
+          </div>
+          <div class="field"><label class="field__label" for="website">Web sitesi veya katalog bağlantısı</label><input class="field__input" id="website" name="website" type="url" inputmode="url" placeholder="https://" aria-describedby="website-error"><p class="field__error" id="website-error" aria-live="polite"></p></div>
+          <div class="form-grid-2">
+            <div class="field"><label class="field__label" for="urun">Ürün / makine grubu <span class="field__req" aria-hidden="true">*</span></label><input class="field__input" id="urun" name="urun" type="text" required placeholder="Örn. dolum makineleri" aria-describedby="urun-error"><p class="field__error" id="urun-error" aria-live="polite"></p></div>
+            <div class="field"><label class="field__label" for="hedef_ulke">Öncelikli hedef ülke <span class="field__req" aria-hidden="true">*</span></label><input class="field__input" id="hedef_ulke" name="hedef_ulke" type="text" required placeholder="Örn. Almanya" aria-describedby="hedef-ulke-error"><p class="field__error" id="hedef-ulke-error" aria-live="polite"></p></div>
+          </div>
+          <div class="field"><label class="field__label" for="mesaj">Kısa not</label><textarea class="field__input" id="mesaj" name="mesaj" placeholder="Mevcut ihracat pazarlarınız veya aradığınız kanal tipi" aria-describedby="mesaj-error"></textarea><p class="field__error" id="mesaj-error" aria-live="polite"></p></div>
+          <div class="field field--consent"><label class="consent"><input class="consent__box" id="onay" name="onay" type="checkbox" required aria-describedby="onay-error"><span class="consent__text"><a href="/gizlilik.html" target="_blank" rel="noopener">Aydınlatma metnini</a> okudum; bilgilerimin başvuruma dönüş yapılması amacıyla işlenmesine onay veriyorum. <span class="field__req" aria-hidden="true">*</span></span></label><p class="field__error" id="onay-error" aria-live="polite"></p></div>
+          <button class="btn" type="submit">5 hesaplık örnek talep et <span class="btn__arrow" aria-hidden="true">→</span></button>
+          <p class="form-note"><span class="field__req" aria-hidden="true">*</span> Zorunlu alanlar.</p>
+        </form>
+        <div class="form-success" role="status" hidden><p class="label label--accent label--bare">Alındı</p><h3 class="display-m">Teşekkürler.</h3><p class="body-text">Başvurunuz bize ulaştı. Ürün ve hedef pazar bilgilerinizi inceleyip size döneceğiz.</p></div>
+        <div class="form-fail" role="alert" hidden><p class="label label--bare">Gönderilemedi</p><h3 class="display-m">Bir aksilik oldu.</h3><p class="body-text">Lütfen doğrudan yazın: <a class="link-inline" href="mailto:cinar@elvoraglobal.com">cinar@elvoraglobal.com</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band tone-dark grain grid-lines">
+    <div class="aura" aria-hidden="true"><div class="aura__field"><div class="aura__glow"></div><svg class="aura__svg" viewBox="0 0 1000 1000" fill="none"><circle class="aura__ring aura__ring--1" cx="500" cy="500" r="205"/><circle class="aura__ring aura__ring--dot" cx="500" cy="500" r="258"/><circle class="aura__ring aura__ring--3" cx="500" cy="500" r="392"/></svg></div></div>
+    <div class="shell cta-band__inner"><p class="label label--accent reveal">Tek ürün. Tek ülke.</p><h2 class="display-l cta-band__title reveal">Yeni ihracat kanalınızı <span class="accent-italic">varsayımla değil, kanıtla</span> kurun.</h2><p class="lede reveal">İlk adımda ürününüz ve hedef pazarınız için doğru hesap tanımını birlikte netleştirelim.</p><div class="hero__foot reveal"><a class="btn" href="#ornek">Örnek talep et <span class="btn__arrow" aria-hidden="true">→</span></a><a class="link-arrow" href="mailto:cinar@elvoraglobal.com">Doğrudan yazın</a></div></div>
+  </section>
+</main>
+
+<footer class="footer tone-dark grain grid-lines">
+  <div class="shell">
+    <div class="footer__grid">
+      <div class="footer__col"><a class="wordmark" href="/">Elvora<span class="wordmark__dot">.</span></a><p class="body-text footer__blurb">Türk endüstriyel üreticileri için kaynakları doğrulanmış distribütör ve ithalatçı pipeline’ı.</p><ul class="footer__contact"><li><a class="footer__link" href="mailto:cinar@elvoraglobal.com">cinar@elvoraglobal.com</a></li><li class="footer__fine">İzmir, Türkiye</li></ul></div>
+      <div class="footer__col"><p class="footer__heading">İhracat Pipeline</p><a class="footer__link" href="#nasil">Nasıl çalışır?</a><a class="footer__link" href="#teslimat">Teslimat</a><a class="footer__link" href="#sprint">30 günlük sprint</a><a class="footer__link" href="#operasyon">Pipeline operasyonu</a><a class="footer__link" href="#sss">Sık sorulanlar</a></div>
+      <div class="footer__col"><p class="footer__heading">Kurum</p><a class="footer__link" href="/hakkimizda.html">Kültür</a><a class="footer__link" href="/iletisim.html">İletişim</a><a class="footer__link" href="/projeler.html">Projeler</a><a class="footer__link" href="/gizlilik.html">KVKK &amp; Gizlilik</a></div>
+    </div>
+    <div class="footer__base"><div class="footer__fine-group"><p class="footer__fine">© 2026 Elvora Global</p><p class="footer__fine">İhracat fırsat sistemleri</p></div><a class="footer__top" href="#main">Yukarı çık <span aria-hidden="true">↑</span></a></div>
+  </div>
+  <div class="footer__signature" aria-hidden="true"><span class="footer__signature-text">Elvora<span class="footer__signature-dot">.</span></span></div>
+</footer>
+<script src="../assets/vendor/lenis.min.js"></script>
+<script src="../assets/elvora.js?v=4"></script>
+<script>
+/* Ana form doğrulamasındaki genel typeMismatch mesajını URL alanı için özelleştirir. */
+(() => {
+  const website = document.getElementById('website');
+  if (!website) return;
+  const error = document.getElementById('website-error');
+  const syncUrlError = () => {
+    if (error && website.validity.typeMismatch) error.textContent = 'Geçerli bir web adresi girin';
+  };
+  const syncAfterValidation = () => queueMicrotask(syncUrlError);
+  website.addEventListener('input', syncAfterValidation);
+  website.addEventListener('blur', syncAfterValidation);
+  website.form?.addEventListener('submit', syncAfterValidation);
+})();
+</script>
+</body>
+</html>
