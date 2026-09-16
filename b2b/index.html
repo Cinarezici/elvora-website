@@ -121,6 +121,11 @@
       <p class="ix-logos__title">Kurduğumuz akış bu sistemlerle çalışır</p>
     </div>
     <div class="ix-logos__rail">
+      <!-- Hepsi assets/logos/ altından: o set tek dolgulu monokrom
+           (fill="#f2efe7") ve brightness(0) ile temiz siluet veriyor.
+           assets/img/logo/ altındaki tam renkli SVG'ler beyaz dolgu
+           içerdiği için aynı filtrede tek bir blok hâline geliyordu
+           (Notion böyle kaybolmuştu) — bu şeritte kullanılmıyorlar. -->
       <div class="ticker__track">
         <span class="ix-logo"><img src="../assets/logos/hubspot.svg" alt="HubSpot" width="26" height="26" loading="lazy">HubSpot</span>
         <span class="ix-logo"><img src="../assets/logos/gmail.svg" alt="Gmail" width="26" height="26" loading="lazy">Gmail</span>
@@ -128,8 +133,8 @@
         <span class="ix-logo"><img src="../assets/logos/n8n.svg" alt="n8n" width="26" height="26" loading="lazy">n8n</span>
         <span class="ix-logo"><img src="../assets/logos/make.svg" alt="Make" width="26" height="26" loading="lazy">Make</span>
         <span class="ix-logo"><img src="../assets/logos/zapier.svg" alt="Zapier" width="26" height="26" loading="lazy">Zapier</span>
-        <span class="ix-logo"><img src="../assets/img/logo/slack.svg" alt="Slack" width="26" height="26" loading="lazy">Slack</span>
-        <span class="ix-logo"><img src="../assets/img/logo/notion.svg" alt="Notion" width="26" height="26" loading="lazy">Notion</span>
+        <span class="ix-logo"><img src="../assets/logos/whatsapp.svg" alt="WhatsApp" width="26" height="26" loading="lazy">WhatsApp</span>
+        <span class="ix-logo"><img src="../assets/logos/anthropic.svg" alt="Anthropic" width="26" height="26" loading="lazy">Anthropic</span>
       </div>
     </div>
   </section>
@@ -155,8 +160,13 @@
         <h2 class="ix-h2 reveal">Satış gününüzü yiyen üç işi <span class="accent-italic">biz üstleniyoruz.</span></h2>
       </div>
 
-      <div class="ix-grid ix-grid--3" style="margin-top:56px">
-        <article class="ix-card reveal">
+      <!-- .reveal kart yerine ızgarada: ızgaranın kendi zemini hairline
+           grisi (gap:1px hilesi). Kartlar tek tek açılınca, henüz
+           açılmamış kartın yerinde bu gri düz bir blok olarak
+           görünüyordu; gözlemci o kartı atlarsa gri kalıcı oluyordu.
+           Blok artık zeminiyle birlikte tek parça açılıyor. -->
+      <div class="ix-grid ix-grid--3 reveal" style="margin-top:56px">
+        <article class="ix-card">
           <span class="ix-card__num">01</span>
           <h3 class="ix-card__title">Kimi arayacağınızı çıkarırız</h3>
           <p class="ix-card__text">Ürününüze bütçe ayırabilecek firmaları ve o firmada kararı veren kişiyi buluruz.</p>
@@ -167,7 +177,7 @@
           </ul>
         </article>
 
-        <article class="ix-card reveal">
+        <article class="ix-card">
           <span class="ix-card__num">02</span>
           <h3 class="ix-card__title">Erişimi tek akışta yürütürüz</h3>
           <p class="ix-card__text">Her mesaj alıcının adına ve şirketine göre yazılır; iki kanal aynı takvimde ilerler.</p>
@@ -178,7 +188,7 @@
           </ul>
         </article>
 
-        <article class="ix-card reveal">
+        <article class="ix-card">
           <span class="ix-card__num">03</span>
           <h3 class="ix-card__title">Yanıtları biz karşılarız</h3>
           <p class="ix-card__text">Soruyu, itirazı ve &ldquo;şimdi değil&rdquo;i biz takip ederiz. Size randevusu kesinleşmiş alıcı kalır.</p>
