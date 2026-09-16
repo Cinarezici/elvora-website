@@ -569,7 +569,9 @@
         <a class="link-arrow reveal" href="projeler.html">Tüm projeleri gör</a>
       </div>
 
-      <!-- Gerçek ürün: konsept işlerden etiketle ve kendi marka rengiyle ayrılıyor -->
+      <!-- Dört gerçek ürün. Her blok kendi marka rengini --brand ile
+           taşıyor; .product'ın kenarlığı, ışıması ve etiketi ondan besleniyor.
+           Rakamlar ürünlerin kendi yayınladığı veriler. -->
       <div class="product reveal">
         <div class="product__top">
           <img class="product__logo" src="assets/img/cvo/logo.webp"
@@ -587,69 +589,90 @@
         </p>
 
         <div class="metrics">
-          <div class="metric">
-            <p class="metric__num">20.313+</p>
-            <p class="metric__label">Kullanıcı</p>
-          </div>
-          <div class="metric">
-            <p class="metric__num">132.412+</p>
-            <p class="metric__label">Optimize CV</p>
-          </div>
-          <div class="metric">
-            <p class="metric__num">6</p>
-            <p class="metric__label">ATS motoru</p>
-          </div>
-          <div class="metric">
-            <p class="metric__num">&lt;30 sn</p>
-            <p class="metric__label">Analiz</p>
-          </div>
+          <div class="metric"><p class="metric__num">20.313+</p><p class="metric__label">Kullanıcı</p></div>
+          <div class="metric"><p class="metric__num">132.412+</p><p class="metric__label">Optimize CV</p></div>
+          <div class="metric"><p class="metric__num">6</p><p class="metric__label">ATS motoru</p></div>
+          <div class="metric"><p class="metric__num">&lt;30 sn</p><p class="metric__label">Analiz</p></div>
         </div>
 
         <a class="link-arrow" href="cozumler/cvoptimizerai.html">Ürünü ve ekranları gör</a>
       </div>
 
-      <!-- Konsept çalışmalar -->
-      <div class="work-row" data-scroll-progress>
-        <a class="work-link reveal" href="cozumler/vision.html">
-          <img src="assets/img/konsept/meridian-sonrasi.webp" alt="Sanal olarak döşenmiş oturma odası"
-               width="1600" height="1073" loading="lazy" decoding="async">
-          <span class="work-link__body">
-            <span class="tag tag--konsept">Konsept</span>
-            <span class="work-link__name">Elvora Vision — MERIDIAN</span>
-            <span class="work-link__meta">Emlak · Sanal iç düzenleme</span>
+      <div class="product reveal" style="--brand:#e8442e">
+        <div class="product__top">
+          <span class="product__logo product__logo--mark" aria-hidden="true">V</span>
+          <span class="product__id">
+            <span class="product__name">Elvora Vision</span>
+            <span class="product__url">elvoravision.com</span>
           </span>
-        </a>
+          <span class="tag tag--urun">Gerçek ürün — yayında</span>
+        </div>
 
-        <a class="work-link reveal" href="cozumler/studio.html">
-          <img src="assets/img/konsept/nordhaus-yesil.webp" alt="Yeşil kadife koltuk, varyant üretimi"
-               width="1000" height="1241" loading="lazy" decoding="async">
-          <span class="work-link__body">
-            <span class="tag tag--konsept">Konsept</span>
-            <span class="work-link__name">Elvora Studio — NORDHAUS</span>
-            <span class="work-link__meta">Mobilya · Katalog varyantı</span>
-          </span>
-        </a>
+        <p class="product__lede">
+          Emlak ilanı için ham kareleri tek akışta yayına hazır içeriğe çeviriyor:
+          ilan fotoğrafları, sinematik video, ilan metni, sosyal kareler ve broşür.
+        </p>
 
-        <a class="work-link reveal" href="cozumler/identity.html">
-          <img src="assets/img/konsept/atelier-kemer-b.webp" alt="Siyah elbise, kemer varyantı — lookbook çalışması"
-               width="900" height="1046" loading="lazy" decoding="async">
-          <span class="work-link__body">
-            <span class="tag tag--konsept">İç çalışma</span>
-            <span class="work-link__name">Elvora Identity — ATELIER</span>
-            <span class="work-link__meta">Moda · Lookbook varyasyonu</span>
-          </span>
-        </a>
+        <div class="metrics">
+          <div class="metric"><p class="metric__num">6</p><p class="metric__label">Çıktı türü</p></div>
+          <div class="metric"><p class="metric__num">4</p><p class="metric__label">Portal formatı</p></div>
+          <div class="metric"><p class="metric__num">30 sn</p><p class="metric__label">Sinematik film</p></div>
+          <div class="metric"><p class="metric__num">1 görsel</p><p class="metric__label">Ücretsiz deneme</p></div>
+        </div>
 
-        <a class="work-link reveal" href="b2b/">
-          <img src="assets/img/b2b/sektorler.webp" alt="Farklı geometrilerde endüstriyel malzeme numuneleri"
-               width="900" height="900" loading="lazy" decoding="async">
-          <span class="work-link__body">
-            <span class="tag tag--gercek">Yayında</span>
-            <span class="work-link__name">Elvora B2B</span>
-            <span class="work-link__meta">Satış · Randevu operasyonu</span>
-          </span>
-        </a>
+        <a class="link-arrow" href="cozumler/vision.html">Modülü ve ekranları gör</a>
       </div>
+
+      <div class="product reveal" style="--brand:#0055e2">
+        <div class="product__top">
+          <span class="product__logo product__logo--mark" aria-hidden="true">C</span>
+          <span class="product__id">
+            <span class="product__name">Casa Bridge Italia</span>
+            <span class="product__url">casabridge.vercel.app</span>
+          </span>
+          <span class="tag tag--urun">Gerçek ürün — yayında</span>
+        </div>
+
+        <p class="product__lede">
+          İtalya'da okuyacak öğrenciler için anahtar teslim konut yerleştirme:
+          arama, ev sahibiyle pazarlık, kontrat ve resmi kayıt tek ekipte.
+        </p>
+
+        <div class="metrics">
+          <div class="metric"><p class="metric__num">100+</p><p class="metric__label">Yerleştirilen öğrenci</p></div>
+          <div class="metric"><p class="metric__num">12</p><p class="metric__label">İtalya'da saha ekibi</p></div>
+          <div class="metric"><p class="metric__num">14 gün</p><p class="metric__label">İçinde 5 seçenek</p></div>
+          <div class="metric"><p class="metric__num">€750</p><p class="metric__label">Tek seferlik</p></div>
+        </div>
+
+        <a class="link-arrow" href="https://casabridge.vercel.app" target="_blank" rel="noopener">Siteyi aç</a>
+      </div>
+
+      <div class="product reveal" style="--brand:#e8442e">
+        <div class="product__top">
+          <span class="product__logo product__logo--mark" aria-hidden="true">B</span>
+          <span class="product__id">
+            <span class="product__name">Elvora B2B</span>
+            <span class="product__url">elvoraglobal.com/b2b</span>
+          </span>
+          <span class="tag tag--urun">Hizmet — yayında</span>
+        </div>
+
+        <p class="product__lede">
+          Hedef alıcı listesini kurar, e-posta ve LinkedIn erişimini yürütür,
+          gelen yanıtları karşılar ve randevuyu satış takvimine yazarız.
+        </p>
+
+        <div class="metrics">
+          <div class="metric"><p class="metric__num">€450</p><p class="metric__label">Aylık başlangıç</p></div>
+          <div class="metric"><p class="metric__num">2–3</p><p class="metric__label">Adımlı mesaj dizisi</p></div>
+          <div class="metric"><p class="metric__num">4. hafta</p><p class="metric__label">İlk görüşmeler</p></div>
+          <div class="metric"><p class="metric__num">Aylık</p><p class="metric__label">Taahhüt yok</p></div>
+        </div>
+
+        <a class="link-arrow" href="b2b/">Hizmeti ve fiyatları gör</a>
+      </div>
+
     </div>
   </section>
 

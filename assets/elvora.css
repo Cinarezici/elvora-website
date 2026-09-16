@@ -2305,15 +2305,20 @@ select.field__input option {
 /* ---------- ÜRÜN VİTRİNİ (CV Optimizer AI) ----------
    Kendi marka rengiyle görünsün diye yerel bir aksan tanımlanıyor;
    Elvora'nın vermilion'u bozulmadan ürünün kimliği okunuyor. */
+/* Blok tek bir değişkenle renkleniyor: --brand'i ezmek kenarlığı, ışımayı,
+   gölgeyi, etiketi ve monogramı birlikte çeviriyor. Kenarlık ve gölge
+   eskiden maviyi sabit yazdığı için --brand ezildiğinde de mavi kalıyordu;
+   color-mix o bağı kuruyor, öncesindeki düz rgba ise eski tarayıcı yedeği. */
 .product {
   --brand: #2563eb;
-  --brand-soft: rgba(37, 99, 235, 0.14);
+  --brand-soft: color-mix(in srgb, var(--brand) 14%, transparent);
   position: relative;
   overflow: hidden;
   display: grid;
   gap: var(--s-4);
   padding: var(--s-4) var(--s-3);
   border: 1px solid rgba(37, 99, 235, 0.34);
+  border-color: color-mix(in srgb, var(--brand) 34%, transparent);
   border-radius: var(--radius-card);
   background:
     radial-gradient(ellipse 90% 120% at 88% 0%, var(--brand-soft), transparent 68%),
@@ -2322,6 +2327,10 @@ select.field__input option {
     0 1px 2px rgba(37, 99, 235, 0.1),
     0 16px 40px -12px rgba(20, 19, 15, 0.22),
     0 40px 90px rgba(37, 99, 235, 0.1);
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--brand) 10%, transparent),
+    0 16px 40px -12px rgba(20, 19, 15, 0.22),
+    0 40px 90px color-mix(in srgb, var(--brand) 10%, transparent);
 }
 @media (min-width: 768px) { .product { padding: var(--s-5) var(--s-4); } }
 
@@ -2337,6 +2346,21 @@ select.field__input option {
   border-radius: 12px;
   flex: none;
 }
+/* Logosu olmayan ürünler için monogram — sahte logo üretmek yerine
+   ürünün kendi --brand rengiyle tutarlı bir işaret. */
+.product__logo--mark {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--brand);
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1;
+  user-select: none;
+}
+/* Kanıt bölümünde art arda gelen ürün blokları birbirine yapışmasın */
+.product + .product { margin-top: var(--s-3); }
 .product__id { display: grid; gap: 2px; }
 .product__name {
   font-family: var(--font-sans);
