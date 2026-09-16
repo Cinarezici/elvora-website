@@ -2484,11 +2484,13 @@ select.field__input option {
   color: #f2efe7;
 }
 .proof__wordmark i { font-style: normal; color: var(--vermilion); }
+/* Marka adı: sayfa lang="tr" olduğu için text-transform: uppercase
+   "Vision"ı "VİSİON" yapıyordu. Harfler HTML'de zaten büyük yazılı,
+   dönüşüm kapalı — hiçbir yerel ayar markaya dokunamaz. */
 .proof__wordsub {
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.22em;
-  text-transform: uppercase;
   color: #8a857a;
 }
 
