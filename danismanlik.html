@@ -608,7 +608,11 @@
   </div>
 </footer>
 
-<script src="assets/vendor/lenis.min.js"></script>
+<!-- Lenis BİLEREK yüklenmiyor: kaydırmayı compositor thread'inden alıp
+     main thread'e taşıyordu (her karede scroll konumunu JS ile yeniden
+     yazıyor), bu da ana iş parçacığındaki her gecikmeyi doğrudan kasmaya
+     çeviriyordu. smoothScroll() Lenis tanımsızsa erken dönüyor; sayfa içi
+     bağlantılar html{scroll-behavior:smooth} ile native kayıyor. -->
 <script src="assets/i18n.js"></script>
 <script src="assets/elvora.js"></script>
 </body>

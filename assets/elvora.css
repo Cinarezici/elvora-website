@@ -2748,6 +2748,15 @@ select.field__input option {
   .is-loading, .is-loading body { overflow: visible; }
 }
 
+/* ---------- SAYFA İÇİ BAĞLANTI OFSETİ ----------
+   Lenis kaldırıldıktan sonra anchor'lar native kayıyor. .masthead
+   sticky ve 76px olduğu için hedef bölüm onun altında kalmasın —
+   Lenis'in kullandığı 96px'lik ofsetin native karşılığı. Yalnız
+   section[id]: form alanlarının id'leri hedef değil, contactForm()
+   onları scrollIntoView(block:'center') ile ortalıyor. */
+#main,
+section[id] { scroll-margin-top: 96px; }
+
 /* ---------- 14. SCROLL REVEAL ---------- */
 /* JS'siz de içerik görünür kalır — .reveal yalnız JS varsa gizler.
 

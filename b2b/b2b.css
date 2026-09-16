@@ -90,12 +90,6 @@
 /* Sayfa açık temalı: yükleme anında koyu zemin çakmasın. */
 html.b2b { background: #f6f5f2; }
 
-/* Lenis kaldırıldı, anchor'lar native kayıyor. Sticky header 76px
-   olduğu için hedef bölüm onun altında kalmasın — Lenis'in kullandığı
-   96px'lik ofsetin native karşılığı. */
-.page-b2b #main,
-.page-b2b main section[id] { scroll-margin-top: 96px; }
-
 /* ---------- Bölüm kabukları ---------- */
 .ix-section {
   position: relative;
