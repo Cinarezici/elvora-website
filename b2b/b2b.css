@@ -538,6 +538,12 @@ html.b2b { background: #f6f5f2; }
   border-bottom: 1px solid var(--bone-hair);
 }
 .ix-sectors li:last-child { border-bottom: 0; }
+/* Flex çocuğunun varsayılan min-width:auto'su, içindeki nowrap açıklamanın
+   altına inmesini engelliyordu: satır 377px'e kilitlenip tek sütunlu
+   mobil grid'i 384px'e şişiriyor, #sektorler bölümünün tamamı ekranın
+   30px dışında kalıp overflow-x:clip ile kesiliyordu. min-width:0 hem
+   bunu bitiriyor hem de text-overflow:ellipsis'i gerçekten çalıştırıyor. */
+.ix-sectors li > div { min-width: 0; }
 .ix-sectors__name { font-size: 16px; font-weight: 500; letter-spacing: -0.015em; }
 .ix-sectors__desc {
   margin-top: 2px;
@@ -779,13 +785,42 @@ html.b2b { background: #f6f5f2; }
 @media (max-width: 1023.98px) {
   .ix-plan--featured { margin-top: 0; }
 }
+/* Dokunma hedefi: footer linkleri 25px'ti, parmakla isabet ettirmesi zor.
+   Satır aralığı değil, tıklanabilir alan büyütülüyor. */
+@media (max-width: 767.98px) {
+  .ix-footer__links { gap: 0; }
+  .ix-footer__links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .ix-contact a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
 @media (max-width: 639.98px) {
+  /* Mobilde 96px'lik bölüm nefesi sayfayı 14.000px'in üstüne çıkarıyordu;
+     ölçek küçülünce boşluk da küçülmeli. */
+  .page-b2b { --sec-pad: 72px; }
+
   .ix-card,
   .ix-plan,
   .ix-callout,
   .ix-formpanel { padding: 24px; }
   .ix-cta { padding: 48px 24px; }
-  /* Taşan kart mobilde çerçevenin dışına çıkmasın */
-  .ix-float { left: 12px; right: 12px; bottom: 12px; max-width: none; }
+
+  /* Kart çerçevenin İÇİNDE dururken görselin alt üçte birini (mıknatısın
+     kemerini) kapatıyordu; alt kenardan taşırılıp görsel açığa çıkarıldı.
+     Hero'nun 80px alt dolgusu taşmayı karşılıyor. */
+  .ix-float { left: 16px; right: 16px; bottom: -28px; max-width: none; }
+
+  /* Üç istatistik 327px'e sığmayıp 2+1 tırtıklı sarıyordu; alt alta
+     dizilince hem hizalı hem taranabilir oluyor. */
+  .ix-herostats { display: grid; grid-template-columns: 1fr; gap: 12px; }
+
+  /* Dar ekranda açıklamayı üç noktayla kesmek yerine alt satıra sar —
+     telefonda okunabilirlik, tek satırlık düzenden önemli. */
+  .ix-sectors__desc { white-space: normal; overflow: visible; }
+  .ix-sectors li { align-items: flex-start; gap: 16px; }
+
   .ix-steps li { gap: 16px; }
 }
