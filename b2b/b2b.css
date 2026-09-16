@@ -9,6 +9,34 @@
    ============================================================ */
 
 .page-b2b {
+  /* ---------- Palet: soğuk nötr kâğıt ----------
+     Elvora'nın #f2efe7 kremi (R242 G239 B231) sarıya kaçıyordu; üstüne
+     grain'in multiply katmanı ve gövdedeki vermilion radial gradyanlar
+     binince sayfa geneli sarardı. Token'lar YALNIZ bu sayfada yeniden
+     tanımlanıyor — assets/elvora.css'e ve sitenin geri kalanına
+     dokunulmuyor. Vurgu vermilion olarak kalıyor: sıcaklık artık
+     zeminden değil, tek bir noktadan geliyor. */
+  --ink-base: #f6f5f2;
+  --ink-elevated: #ffffff;
+  --ink-floating: #ffffff;
+  --bone: #0d1117;
+  --bone-dim: #6a7280;
+  --bone-faint: #98a0ab;
+  --bone-hair: #e5e4e0;
+  --vermilion-wash: rgba(232, 68, 46, 0.09);
+
+  /* ---------- Tipografi: tek grotesk aile ----------
+     Instrument Serif + Archivo + IBM Plex Mono üçlüsü bu sayfada tek
+     bir grotesk'e iniyor. Wordmark (logotype) serif kalıyor — o marka
+     işareti, sitenin geri kalanıyla aynı görünmeli. */
+  --font-sans: 'Schibsted Grotesk', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: var(--font-sans);
+
+  /* Sıcak dokuları kapat */
+  --grain-opacity: 0;
+  --grid-line: rgba(13, 17, 23, 0.045);
+
   /* Referans container 1180px; Elvora'nın varsayılanı 1320px. */
   --measure: 1180px;
   /* Referansın köşe skalası (Elvora'nın 8px'lik --radius-card'ı
@@ -22,13 +50,43 @@
 
   background: var(--ink-base);
   background-image: none;
+  letter-spacing: -0.005em;
 }
 @media (min-width: 768px) {
   .page-b2b { --sec-pad: 128px; }
 }
 
+/* Koyu bölümler de soğuk siyaha döner (elvora.css'teki sıcak
+   #14130f/#1c1b17 yerine). Specificity elvora.css'teki .tone-dark'ı
+   geçiyor, o yüzden bu sayfadaki her koyu blok buradan besleniyor. */
+.page-b2b .tone-dark {
+  --ink-base: #0d1117;
+  --ink-elevated: #161b22;
+  --ink-floating: #1c222b;
+  --bone: #f6f5f2;
+  --bone-dim: rgba(246, 245, 242, 0.64);
+  --bone-faint: rgba(246, 245, 242, 0.42);
+  --bone-hair: rgba(246, 245, 242, 0.13);
+  --grain-opacity: 0;
+  --grid-line: rgba(246, 245, 242, 0.04);
+}
+
+/* Logotype: sayfanın grotesk'ine kapılmasın. */
+.page-b2b .wordmark {
+  font-family: 'Instrument Serif', 'Times New Roman', serif;
+  font-weight: 400;
+}
+
+/* Grotesk'te italik vurgu ucuz duruyor — vurgu artık yalnız renkle. */
+.page-b2b .accent-italic { font-style: normal; }
+
+/* Tabular rakam yalnız alt alta hizalanan sütunda işe yarıyor. Display
+   başlıklarında ("1.500+", "4. hafta") noktaya da tam rakam genişliği
+   verip araları açıyordu — oralarda oransal rakam kalıyor. */
+.ix-sectors__count { font-variant-numeric: tabular-nums; }
+
 /* Sayfa açık temalı: yükleme anında koyu zemin çakmasın. */
-html.b2b { background: #f2efe7; }
+html.b2b { background: #f6f5f2; }
 
 /* ---------- Bölüm kabukları ---------- */
 .ix-section {
@@ -72,9 +130,9 @@ html.b2b { background: #f2efe7; }
 .ix-h2 {
   margin-top: 20px;
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 600;
   font-size: clamp(1.9rem, 4vw, 2.85rem);
-  line-height: 1.06;
+  line-height: 1.08;
   letter-spacing: -0.032em;
   text-wrap: balance;
 }
@@ -169,7 +227,7 @@ html.b2b { background: #f2efe7; }
 .ix-frame--hero { aspect-ratio: 4 / 5; }
 .ix-frame--square { aspect-ratio: 1 / 1; }
 .ix-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.tone-dark .ix-frame { border-color: rgba(242, 239, 231, 0.1); background: #1b1914; }
+.tone-dark .ix-frame { border-color: rgba(246, 245, 242, 0.1); background: #161b22; }
 
 /* Hero çerçevesinin sol altından taşan küçük kart */
 .ix-float {
@@ -181,7 +239,7 @@ html.b2b { background: #f2efe7; }
   border: 1px solid var(--bone-hair);
   border-radius: var(--r-sm);
   background: var(--ink-elevated);
-  box-shadow: 0 18px 44px -24px rgba(20, 19, 15, 0.35);
+  box-shadow: 0 18px 44px -24px rgba(13, 17, 23, 0.32);
 }
 @media (min-width: 640px) { .ix-float { left: -32px; } }
 .ix-float__label {
@@ -196,6 +254,7 @@ html.b2b { background: #f2efe7; }
   margin-top: 6px;
   font-family: var(--font-display);
   font-size: 30px;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.035em;
 }
@@ -223,7 +282,7 @@ html.b2b { background: #f2efe7; }
 .ix-h1 {
   margin-top: 24px;
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 600;
   font-size: clamp(2.35rem, 5.2vw, 3.75rem);
   line-height: 1.04;
   letter-spacing: -0.04em;
@@ -262,8 +321,9 @@ html.b2b { background: #f2efe7; }
 .ix-herostats dt {
   font-family: var(--font-display);
   font-size: 22px;
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
 }
 .ix-herostats dd { font-size: 14px; color: var(--bone-dim); }
 
@@ -332,8 +392,9 @@ html.b2b { background: #f2efe7; }
 .ix-band dt {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 4.5vw, 3.25rem);
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
 }
 .ix-band dd { margin-top: 12px; font-size: 15px; line-height: 1.5; color: var(--bone-dim); }
 .ix-band__note {
@@ -437,6 +498,7 @@ html.b2b { background: #f2efe7; }
 .ix-metric dt {
   font-family: var(--font-display);
   font-size: 30px;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.04em;
 }
@@ -502,7 +564,7 @@ html.b2b { background: #f2efe7; }
   border-radius: var(--r-md);
   background: var(--ink-base);
 }
-.ix-plan--featured { border-color: #14130f; background: #14130f; }
+.ix-plan--featured { border-color: #0d1117; background: #0d1117; }
 @media (min-width: 1024px) {
   .ix-plan--featured { margin-top: -16px; padding-bottom: 40px; }
 }
@@ -529,7 +591,7 @@ html.b2b { background: #f2efe7; }
 .ix-plan__price strong {
   font-family: var(--font-display);
   font-size: 42px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.045em;
 }
@@ -604,9 +666,9 @@ html.b2b { background: #f2efe7; }
 }
 .ix-cta__title {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 600;
   font-size: clamp(1.9rem, 4vw, 2.85rem);
-  line-height: 1.06;
+  line-height: 1.08;
   letter-spacing: -0.032em;
   text-wrap: balance;
 }
@@ -631,7 +693,7 @@ html.b2b { background: #f2efe7; }
   top: 0;
   z-index: 100;
   border-bottom: 1px solid var(--bone-hair);
-  background: rgba(242, 239, 231, 0.85);
+  background: rgba(246, 245, 242, 0.85);
   -webkit-backdrop-filter: blur(12px) saturate(140%);
   backdrop-filter: blur(12px) saturate(140%);
 }
