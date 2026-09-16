@@ -640,7 +640,7 @@
 
     /* ---- Ana sayfa: hero stat şeridi ---- */
     'Modüler çözüm': 'Modular solutions',
-    'Canlı SaaS ürünü': 'Live SaaS product',
+    'Canlı SaaS ürünü': 'Live SaaS products',
     '90 gün': '90 days',
     'Teslim sonrası destek': 'Post-delivery support',
     'İzmir': 'Izmir',
