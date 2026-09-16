@@ -28,6 +28,20 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Elvora B2B Satış Görüşmeleri","provider":{"@type":"Organization","name":"Elvora Global","url":"https://elvoraglobal.com/"},"areaServed":"Türkiye","audience":{"@type":"BusinessAudience","audienceType":"B2B satış yapan üretici ve teknoloji şirketleri"},"description":"Hedef alıcı listesi kurulumu, e-posta ve LinkedIn erişimi, yanıt yönetimi ve satış görüşmesi planlama."}</script>
 </head>
 <body class="page-b2b">
+<!-- Açılış perdesi — ana sayfadakiyle aynı "E." işareti ve zamanlama,
+     ama bu sayfanın kimliğinde: tone-dark YOK, perde sayfanın kendi
+     soğuk kâğıdını (#f6f5f2) kullanıyor. Kapanışı CSS yürütür; JS
+     çökse bile perde kalkar (bkz. elvora.js preloaderLock). -->
+<div class="preloader" id="preloader" role="presentation" aria-hidden="true">
+  <div class="preloader__mark">
+    <svg class="preloader__rings" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+      <circle class="ring ring--1" cx="100" cy="100" r="78"/>
+    </svg>
+    <span class="preloader__logo">E<span class="preloader__dot">.</span></span>
+  </div>
+  <p class="preloader__label">Elvora Global</p>
+</div>
+
 <a class="skip-link" href="#main">İçeriğe geç</a>
 
 <!-- ============ HEADER ============ -->
@@ -68,7 +82,11 @@
       <div class="ix-split ix-split--hero">
         <div>
           <p class="ix-eyebrow reveal">İzmir</p>
-          <h1 class="ix-h1 reveal">Yeni müşteri aramayı bırakın, <span class="ix-underline">görüşmeler size gelsin<svg viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 7C48 3 136 2 198 5.5" stroke="currentColor" stroke-width="2.1" fill="none" stroke-linecap="round"/></svg></span>.</h1>
+          <!-- Altı çizili parça KISA tutulmalı: .ix-underline nowrap ve
+               dar ekranda grid sütununu kendi genişliğine şişiriyor —
+               3 kelimelik hâli 375px'te başlığı, lede'yi ve butonları
+               ekranın dışına taşıyordu (referans da tek kelime çiziyor). -->
+          <h1 class="ix-h1 reveal">Yeni müşteri aramayı bırakın, görüşmeler <span class="ix-underline">size gelsin<svg viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 7C48 3 136 2 198 5.5" stroke="currentColor" stroke-width="2.1" fill="none" stroke-linecap="round"/></svg></span>.</h1>
           <p class="ix-hero__lede reveal">Alıcı listenizi çıkarır, e-posta ve LinkedIn erişimini sizin adınıza yürütür, gelen yanıtları karşılarız. Ekibinize yeni kişi almadan takviminize randevu düşer.</p>
           <div class="ix-hero__actions reveal">
             <a class="ix-btn ix-btn--brand" href="#gorusme">Ücretsiz strateji görüşmesi <span class="ix-btn__arrow" aria-hidden="true">→</span></a>
@@ -86,8 +104,11 @@
           </div>
           <div class="ix-float reveal">
             <p class="ix-float__label">Bu kanal kapalıyken</p>
-            <p class="ix-float__num">0<span>görüşme / ay</span></p>
-            <div class="ix-spark" aria-hidden="true"><i></i><i></i><i></i><i class="is-on"></i><i></i><i></i><i></i></div>
+            <p class="ix-float__num">0<span>randevu / ay</span></p>
+            <!-- Kanal kapalıysa çubukların hepsi boş: grafik rakamla
+                 aynı şeyi söylesin. -->
+            <div class="ix-spark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <p class="ix-float__gap"><span>Kaçan potansiyel</span><strong>45–120</strong></p>
           </div>
         </div>
       </div>
@@ -412,7 +433,7 @@
   <!-- ============ FORM ============ -->
   <section class="ix-section ix-section--white" id="gorusme">
     <div class="shell">
-      <div class="ix-split ix-split--process">
+      <div class="ix-split ix-split--form">
         <div class="ix-head reveal">
           <p class="ix-eyebrow">İlk adım</p>
           <h2 class="ix-h2">30 dakikalık <span class="accent-italic">strateji görüşmesi.</span></h2>

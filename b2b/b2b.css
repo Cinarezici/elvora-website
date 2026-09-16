@@ -71,8 +71,10 @@
   --grid-line: rgba(246, 245, 242, 0.04);
 }
 
-/* Logotype: sayfanın grotesk'ine kapılmasın. */
-.page-b2b .wordmark {
+/* Logotype: sayfanın grotesk'ine kapılmasın. Açılış perdesindeki "E."
+   de aynı işaret — wordmark ve favicon'la tutarlı kalsın diye serif. */
+.page-b2b .wordmark,
+.page-b2b .preloader__logo {
   font-family: 'Instrument Serif', 'Times New Roman', serif;
   font-weight: 400;
 }
@@ -211,6 +213,15 @@ html.b2b { background: #f6f5f2; }
   .ix-split--standards { grid-template-columns: 1.05fr 0.95fr; align-items: center; }
   .ix-split--sectors { grid-template-columns: 1fr 0.72fr; align-items: start; }
   .ix-split--faq { grid-template-columns: 0.85fr 1.15fr; }
+  /* Form sütunu uzun; başlık ortalanmak yerine üste yaslanıp kaydırma
+     boyunca asılı kalıyor. align-items:start şart — grid item satır
+     yüksekliğine gerilirse sticky'nin oynayacak alanı kalmaz. */
+  .ix-split--form { grid-template-columns: 0.95fr 1.05fr; align-items: start; }
+  .ix-split--form > .ix-head {
+    position: sticky;
+    /* 76px sticky header + nefes payı */
+    top: 108px;
+  }
 }
 
 /* ---------- Görsel çerçeveler ----------
@@ -273,7 +284,30 @@ html.b2b { background: #f6f5f2; }
   border-radius: 3px;
   background: var(--bone-hair);
 }
-.ix-spark i.is-on { height: 22px; background: var(--vermilion); }
+
+/* Tek başına "0" ölçülecek bir şey vermiyordu — asıl mesaj, sıfırın
+   neyin yerine geçtiği. Kaçan aralık hemen altında, ayraçla ayrılmış
+   ve vermilion ile veriliyor; kontrast olmadan sıfır boş kalıyor. */
+.ix-float__gap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--bone-hair);
+}
+.ix-float__gap span {
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: var(--bone-dim);
+}
+.ix-float__gap strong {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--vermilion);
+}
 
 /* ---------- Hero ---------- */
 .ix-hero { padding-block: 56px 80px; }
