@@ -1,14 +1,14 @@
 /* ============================================================
-   /ihracat — sayfaya özel geometri
+   /b2b — sayfaya özel geometri
    Düzen coremagnetb2b.com referans alınarak kuruldu; renk,
    tipografi ve token'lar Elvora sisteminden (assets/elvora.css)
    geliyor. Bu dosya elvora.css'ten SONRA yüklenir.
 
-   Kapsam: her kural .page-ihracat altında — sitenin geri
+   Kapsam: her kural .page-b2b altında — sitenin geri
    kalanına hiçbir şey sızmaz.
    ============================================================ */
 
-.page-ihracat {
+.page-b2b {
   /* Referans container 1180px; Elvora'nın varsayılanı 1320px. */
   --measure: 1180px;
   /* Referansın köşe skalası (Elvora'nın 8px'lik --radius-card'ı
@@ -24,11 +24,11 @@
   background-image: none;
 }
 @media (min-width: 768px) {
-  .page-ihracat { --sec-pad: 128px; }
+  .page-b2b { --sec-pad: 128px; }
 }
 
 /* Sayfa açık temalı: yükleme anında koyu zemin çakmasın. */
-html.ihracat { background: #f2efe7; }
+html.b2b { background: #f2efe7; }
 
 /* ---------- Bölüm kabukları ---------- */
 .ix-section {
@@ -143,12 +143,6 @@ html.ihracat { background: #f2efe7; }
 @media (min-width: 900px) {
   .ix-grid--3 { grid-template-columns: repeat(3, 1fr); }
 }
-@media (min-width: 640px) {
-  .ix-grid--cases { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1024px) {
-  .ix-grid--cases { grid-template-columns: repeat(3, 1fr); }
-}
 
 /* ---------- İki sütunlu bölüm düzenleri ---------- */
 .ix-split { display: grid; gap: 56px; }
@@ -162,8 +156,9 @@ html.ihracat { background: #f2efe7; }
 }
 
 /* ---------- Görsel çerçeveler ----------
-   Gerçek fotoğraf gelene kadar içeride Elvora'nın aura SVG motifi
-   duruyor; <img> eklendiğinde çerçeve olduğu gibi kalır. */
+   assets/img/b2b/*.webp — mıknatıs, bilye, kumpas ve malzeme
+   numuneleri. Oranlar görsellerle eşleşiyor (hero 4:5, diğerleri 1:1),
+   o yüzden object-fit kırpma yapmıyor. */
 .ix-frame {
   position: relative;
   overflow: hidden;
@@ -175,27 +170,6 @@ html.ihracat { background: #f2efe7; }
 .ix-frame--square { aspect-ratio: 1 / 1; }
 .ix-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .tone-dark .ix-frame { border-color: rgba(242, 239, 231, 0.1); background: #1b1914; }
-
-/* Aura normalde hero'nun sağ boşluğuna demirli ve ekran genişliğinde
-   ölçekleniyor; kart boyutundaki bir çerçevede neredeyse tamamı dışarı
-   taşıp boş bir kutu bırakıyordu. Çerçeve içinde ortalanıp çerçeveye
-   göre ölçekleniyor ve kenarları yumuşak bir radial mask ile bitiyor. */
-.ix-frame .aura__field {
-  top: 50%;
-  left: 50%;
-  width: min(126%, 560px);
-  mask-image: radial-gradient(closest-side, #000 58%, transparent 100%);
-  -webkit-mask-image: radial-gradient(closest-side, #000 58%, transparent 100%);
-}
-.ix-frame .aura__glow {
-  background: radial-gradient(closest-side, rgba(232, 68, 46, 0.18), transparent 72%);
-}
-/* Açık zeminde halkalar çok soluk kalıyordu — yalnız çerçeve içinde
-   biraz güçlendiriliyor. */
-.ix-frame .aura__ring { stroke-opacity: 0.5; }
-.ix-frame .aura__ring--dot { stroke-opacity: 0.18; }
-.ix-frame .aura__ring--3,
-.ix-frame .aura__ring--4 { stroke-opacity: 0.3; }
 
 /* Hero çerçevesinin sol altından taşan küçük kart */
 .ix-float {
@@ -322,23 +296,28 @@ html.ihracat { background: #f2efe7; }
 .ix-logos__rail::before { left: 0; background: linear-gradient(to right, var(--ink-elevated), transparent); }
 .ix-logos__rail::after { right: 0; background: linear-gradient(to left, var(--ink-elevated), transparent); }
 .ix-logos .ticker__track { gap: 56px; }
-/* Gerçek logo gelene kadar isim kutusu */
 .ix-logo {
   flex: none;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-width: 132px;
+  gap: 10px;
   height: 44px;
-  padding-inline: 18px;
-  border: 1px dashed var(--bone-hair);
-  border-radius: 10px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--bone-faint);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--bone-dim);
   white-space: nowrap;
+}
+.ix-logo img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  /* assets/logos/*.svg koyu zemin için fill="#f2efe7" ile kaydedilmiş —
+     beyaz şeritte görünmüyorlardı. assets/img/logo/*.svg ise tam renkli.
+     brightness(0) ikisini de tek tonlu koyu silüete çeviriyor; şerit
+     alacalı olmuyor ve her logo aynı ağırlıkta okunuyor. */
+  filter: brightness(0);
+  opacity: 0.45;
 }
 
 /* ---------- Koyu istatistik bandı ---------- */
@@ -356,7 +335,16 @@ html.ihracat { background: #f2efe7; }
   line-height: 1;
   letter-spacing: -0.04em;
 }
-.ix-band dd { margin-top: 12px; font-size: 15px; color: var(--bone-dim); }
+.ix-band dd { margin-top: 12px; font-size: 15px; line-height: 1.5; color: var(--bone-dim); }
+.ix-band__note {
+  max-width: 62ch;
+  margin-top: 40px;
+  padding-left: 20px;
+  border-left: 2px solid var(--vermilion);
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--bone-dim);
+}
 
 /* ---------- Hizmet kartları ---------- */
 .ix-card { display: flex; flex-direction: column; padding: 32px; }
@@ -464,54 +452,6 @@ html.ihracat { background: #f2efe7; }
   line-height: 1.62;
   color: var(--bone-dim);
 }
-
-/* ---------- Vaka kartları ---------- */
-.ix-case { display: flex; flex-direction: column; padding: 32px; }
-.ix-case__sector {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--bone-dim);
-}
-.ix-case__num {
-  margin-top: 28px;
-  font-family: var(--font-display);
-  font-size: clamp(2.6rem, 4.4vw, 3.2rem);
-  line-height: 1;
-  letter-spacing: -0.045em;
-}
-.ix-case__unit { margin-top: 8px; font-size: 14.5px; color: var(--bone-dim); }
-.ix-case__title {
-  margin-top: 28px;
-  font-family: var(--font-sans);
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.015em;
-}
-.ix-case__client {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 32px;
-  font-size: 14px;
-  color: var(--bone-dim);
-}
-
-/* Yorum bandı */
-.ix-quote { padding-block: 112px; }
-.ix-quote blockquote {
-  max-width: 54rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.15rem);
-  line-height: 1.25;
-  letter-spacing: -0.025em;
-  text-wrap: balance;
-}
-.ix-quote figcaption { margin-top: 32px; font-size: 15px; color: var(--bone-dim); }
-.ix-quote figcaption strong { display: block; font-weight: 600; color: var(--bone); }
 
 /* ---------- Sektör listesi ---------- */
 .ix-sectors { list-style: none; border-block: 1px solid var(--bone-hair); }
@@ -648,9 +588,6 @@ html.ihracat { background: #f2efe7; }
 .ix-form-grid { display: grid; gap: 24px; }
 @media (min-width: 680px) { .ix-form-grid { grid-template-columns: 1fr 1fr; } }
 .ix-formpanel .btn { width: 100%; }
-.ix-reassure { list-style: none; display: grid; gap: 12px; margin-top: 32px; }
-.ix-reassure li { display: flex; gap: 12px; font-size: 15px; line-height: 1.5; color: var(--bone-dim); }
-.ix-reassure strong { color: var(--bone); font-weight: 600; }
 
 /* ---------- Kapanış CTA ---------- */
 .ix-ctawrap { padding-bottom: var(--sec-pad); background: var(--ink-base); }
@@ -761,7 +698,6 @@ html.ihracat { background: #f2efe7; }
 }
 @media (max-width: 639.98px) {
   .ix-card,
-  .ix-case,
   .ix-plan,
   .ix-callout,
   .ix-formpanel { padding: 24px; }
