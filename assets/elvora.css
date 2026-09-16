@@ -1001,6 +1001,31 @@ textarea { font: inherit; color: inherit; }
   color: var(--bone);
 }
 
+/* Ürünler paneli iki öbek taşıyor: yayında olan işler ve modüller.
+   Başlık bir liste ayracı, tıklanabilir bir öğe değil. */
+.nav__dropdown-heading {
+  padding: 10px var(--s-2) 5px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+}
+.nav__dropdown-heading + .nav__dropdown-item { margin-top: 0; }
+.nav__dropdown-item + .nav__dropdown-heading {
+  margin-top: 6px;
+  border-top: 1px solid var(--bone-hair);
+}
+.mobile-nav__heading {
+  padding: 14px var(--s-3) 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+}
+
 /* leftflow referansı: Endüstriler paneli tek sütun liste değil, 3 sütunlu
    düz isim grid'i — modül alt yazısı yok, sade. */
 .nav__dropdown-panel--grid {
@@ -1019,6 +1044,10 @@ textarea { font: inherit; color: inherit; }
   text-transform: uppercase;
   color: var(--bone-faint);
 }
+/* Alan adı alt yazıları olduğu gibi kalmalı: uppercase Türkçe yerelinde
+   "i" harfini "İ"ye çeviriyor ve cvoptimizerai.com "CVOPTİMİZERAİ.COM"
+   diye okunuyordu. */
+.nav__dropdown-desc--url { text-transform: none; letter-spacing: 0.04em; }
 
 /* leftflow referansı: header CTA'sı dolu vermilion hap değil, keskin
    köşeli, ince çerçeveli bir ghost buton — hover'da dolu beyaza döner. */
@@ -1247,7 +1276,7 @@ textarea { font: inherit; color: inherit; }
   opacity: 0;
   transition: max-height 0.4s var(--ease-spring), opacity 0.3s var(--ease-out);
 }
-.mobile-nav__group.is-open .mobile-nav__submenu { max-height: 480px; opacity: 1; }
+.mobile-nav__group.is-open .mobile-nav__submenu { max-height: 620px; opacity: 1; }
 .mobile-nav__submenu a {
   padding-block: 13px;
   padding-left: var(--s-3);
@@ -2359,6 +2388,16 @@ select.field__input option {
   line-height: 1;
   user-select: none;
 }
+/* Kendi işareti olan ürünler: markanın SVG'si kendi zemininde durur,
+   --mark-bg o markanın gerçek zemin rengi. */
+.product__logo--svg {
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  background: var(--mark-bg, var(--ink-base));
+}
+.product__logo--svg svg { width: 100%; height: auto; display: block; }
+
 /* Kanıt bölümünde art arda gelen ürün blokları birbirine yapışmasın */
 .product + .product { margin-top: var(--s-3); }
 
@@ -2509,11 +2548,15 @@ select.field__input option {
   letter-spacing: 0.1em;
   color: var(--bone-faint);
 }
+/* Marka rengi çerçeve ve zeminde taşınıyor; yazı --bone'da kalıyor.
+   Sabit mavi yazı yalnız tek bir mavi ürün varken doğru görünüyordu —
+   dört farklı markada Casa Bridge'in kum çerçevesine mavi yazı düşüyordu.
+   Marka rengini yazıya vermek de olmaz: 11px metinde kum tonu okunmuyor. */
 .tag--urun {
   margin-left: auto;
   border: 1px solid var(--brand);
   background: var(--brand-soft);
-  color: #93b4fb;
+  color: var(--bone);
 }
 .tag--stat {
   border: 1.5px solid var(--bone-faint);
