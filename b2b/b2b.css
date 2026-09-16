@@ -749,9 +749,12 @@ html.b2b { background: #f6f5f2; }
 @media (min-width: 1024px) { .ix-header .burger { display: none; } }
 
 /* ---------- Footer ---------- */
+/* Footer koyu (bkz. markup'taki tone-dark) — token'lar orada çevriliyor,
+   içerideki wordmark/başlık/link renkleri kendiliğinden geliyor.
+   border-top yok: açık bölümle koyu blok arasındaki ton farkı zaten
+   ayıracın kendisi, ince açık çizgi orada artık gibi duruyordu. */
 .ix-footer {
-  padding-block: 56px;
-  border-top: 1px solid var(--bone-hair);
+  padding-block: 72px;
   background: var(--ink-base);
 }
 .ix-footer__grid {
