@@ -21,6 +21,10 @@
       "dest": "/$1.html"
     },
     {
+      "src": "/b2b/?",
+      "dest": "/b2b/index.html"
+    },
+    {
       "src": "/(?!.*\\.)",
       "dest": "/index.html"
     }
