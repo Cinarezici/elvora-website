@@ -544,7 +544,15 @@
   </div>
 </footer>
 
-<script src="../assets/vendor/lenis.min.js"></script>
+<!-- Lenis bu sayfada BİLEREK yüklenmiyor. Kaydırmayı compositor
+     thread'inden alıp main thread'e taşıyor: her karede scroll konumunu
+     JS ile yeniden yazıyor, dolayısıyla ana iş parçacığındaki en küçük
+     gecikme bile doğrudan kasma olarak görünüyor. Bu sayfada scroll
+     sırasında çalışan başka JS yok (stickyMasthead/auraParallax/
+     scrollProgressBars burada erken dönüyor), yani Lenis çıkınca
+     kaydırma tamamen compositor'da kalıyor.
+     smoothScroll() Lenis tanımsızsa erken dönüyor; sayfa içi bağlantılar
+     html{scroll-behavior:smooth} ile native olarak yumuşak kayıyor. -->
 <script src="../assets/elvora.js?v=4"></script>
 <script>
 /* Ana form doğrulamasındaki genel typeMismatch mesajını URL alanı için özelleştirir. */
