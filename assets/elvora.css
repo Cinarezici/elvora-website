@@ -2415,6 +2415,44 @@ select.field__input option {
 }
 .proof:hover .proof__shot img { scale: 1.05; }
 
+/* Logo karosu: ürünün kendi markası, kendi zemininde. --mark-bg her kartta
+   ürünün gerçek zemin rengi, işaret de kendi renginde duruyor — kartın
+   --brand'i yalnız çerçeveyi ve alan adını boyuyor. */
+.proof__mark {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  padding: 18%;
+  border-radius: 10px;
+  background: var(--mark-bg, var(--ink-base));
+  transition: scale 0.6s var(--ease-spring);
+}
+.proof:hover .proof__mark { scale: 1.04; }
+.proof__mark svg { width: 100%; height: auto; display: block; }
+
+/* Sözcük markası (Elvora Vision): kendi tipografisiyle diziliyor. */
+.proof__mark--word {
+  place-content: center;
+  gap: 2px;
+  padding: 14%;
+  text-align: center;
+}
+.proof__wordmark {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4.6vw, 1.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #f2efe7;
+}
+.proof__wordmark i { font-style: normal; color: var(--vermilion); }
+.proof__wordsub {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8a857a;
+}
+
 .proof__body { display: grid; gap: 6px; min-width: 0; }
 .proof__name {
   font-family: var(--font-sans);
