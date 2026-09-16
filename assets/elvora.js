@@ -656,11 +656,16 @@
      görünür olmasa bile her karede yeniden boyanmaya devam ediyordu. Bu,
      sayfa genelinde "FPS düşük" hissinin başlıca kaynağıydı. Viewport
      dışına çıkınca animation-play-state:paused ile donduruyoruz (bkz.
-     elvora.css .is-offscreen); geri gelince kaldığı yerden devam eder. */
+     elvora.css .is-offscreen); geri gelince kaldığı yerden devam eder.
+
+     .ticker / .ix-logos de buraya dahil: kayan şerit transform tabanlı
+     olduğu için compositor'da dönüyor ama 38 saniyelik döngü sayfa
+     boyunca HİÇ durmuyordu — şerit ekranın çok dışındayken bile canlı
+     bir katman tutup her karede birleştiriliyordu. */
   function pauseOffscreenAnimations() {
     if (!('IntersectionObserver' in window)) return;
 
-    const targets = document.querySelectorAll('.aura, .card__flow');
+    const targets = document.querySelectorAll('.aura, .card__flow, .ticker, .ix-logos');
     if (!targets.length) return;
 
     const io = new IntersectionObserver(

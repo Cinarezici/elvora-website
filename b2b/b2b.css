@@ -284,30 +284,8 @@ html.b2b { background: #f6f5f2; }
   border-radius: 3px;
   background: var(--bone-hair);
 }
-
-/* Tek başına "0" ölçülecek bir şey vermiyordu — asıl mesaj, sıfırın
-   neyin yerine geçtiği. Kaçan aralık hemen altında, ayraçla ayrılmış
-   ve vermilion ile veriliyor; kontrast olmadan sıfır boş kalıyor. */
-.ix-float__gap {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--bone-hair);
-}
-.ix-float__gap span {
-  font-size: 12px;
-  letter-spacing: 0.01em;
-  color: var(--bone-dim);
-}
-.ix-float__gap strong {
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--vermilion);
-}
+/* Referanstaki gibi tek çubuk vurgulu — orada mavi, burada vermilion. */
+.ix-spark i.is-on { height: 22px; background: var(--vermilion); }
 
 /* ---------- Hero ---------- */
 .ix-hero { padding-block: 56px 80px; }
@@ -727,9 +705,15 @@ html.b2b { background: #f6f5f2; }
   top: 0;
   z-index: 100;
   border-bottom: 1px solid var(--bone-hair);
-  background: rgba(246, 245, 242, 0.85);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
-  backdrop-filter: blur(12px) saturate(140%);
+  /* Sticky header her zaman ekranda, altındaki içerik de sürekli akıyor —
+     backdrop-filter bu yüzden HER karede arkasındaki bölgeyi yeniden
+     örnekleyip bulanıklaştırıyor; sayfadaki en pahalı kare-başı iş buydu.
+     Zemin zaten %92 opak, o yüzden yarıçap 12px→6px'e indirildi ve
+     saturate() (ikinci bir filtre geçişi) kaldırıldı. Buzlu cam hissi
+     duruyor, maliyetin büyük kısmı gitti. */
+  background: rgba(246, 245, 242, 0.92);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 .ix-header__inner {
   display: flex;
