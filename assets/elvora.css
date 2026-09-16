@@ -2030,7 +2030,14 @@ select.field__input option {
   margin-top: var(--s-3);
   grid-template-columns: 1fr;
 }
-@media (min-width: 700px) { .work-row { grid-template-columns: repeat(3, 1fr); } }
+/* Sabit 3 sütun, kart sayısı 3'ü geçince sonuncuyu tek başına alt satıra
+   düşürüyordu (ana sayfaya Elvora B2B kartı eklenince oldu). auto-fit
+   sütun sayısını içeriğe göre kuruyor: projeler.html'deki 3 kart 3 sütun
+   kalıyor, ana sayfadaki 4 kart 4 sütuna diziliyor, dar ekranda ikisi de
+   kendiliğinden 2'ye iniyor. */
+@media (min-width: 700px) {
+  .work-row { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+}
 
 /* Mobilde dikey yığın yerine küçük, yatay kaydırmalı bir şerit —
    .card-scroll ile aynı dil (bkz. Sistemler önizlemesi). Üç tam-genişlik
